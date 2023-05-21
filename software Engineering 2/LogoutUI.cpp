@@ -1,3 +1,14 @@
+#include "LogoutUI.h"
+#include "Logout.h"
+
+LogoutUI::LogoutUI(Logout* inputControl){
+	control = inputControl;
+}
+
+void LogoutUI::init(ofstream* inputFout){
+	fout = inputFout;
+}
+
 
 /*
     함수 이름 : startInterface

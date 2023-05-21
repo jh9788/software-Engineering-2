@@ -9,20 +9,11 @@
 		  int inputMemberType -> 회원 Type
 반환값: X
 */
-Member::Member(const string inputName, const string inputId, const string inputPassword, int inputMemberType)
+Member::Member(string inputName, string inputId, string inputPassword, int inputMemberType)
 {
-	int nameLen = strlen(inputName) + 1;	// 새로 만들 문자열을 위한 길이 구하기
-	name = new char[nameLen];				// 새로 만들 문자열을 위한 배열 공간 확보하기
-	strcpy_s(name, nameLen, inputName);		// 문자열 복사해서 넣기
-
-	int idLen = strlen(inputId) + 1;
-	id = new char[idLen];
-	strcpy_s(id, idLen, inputId);
-
-	int passwordLen = strlen(inputPassword) + 1;
-	password = new char[passwordLen];
-	strcpy_s(password, passwordLen, inputPassword);
-
+	name = inputName;
+	id = inputId;
+	password = inputPassword;
 	memberType = inputMemberType;		// 멤버 타입은 int type 이므로 그대로 넣기
 
 	//cout << "inpntName : " << inputName << ", name : " << name << endl;
@@ -31,18 +22,15 @@ Member::Member(const string inputName, const string inputId, const string inputP
 	//cout << "inputMemberType : " << inputMemberType << ", memberType : " << memberType << endl;
 }
 
-
-
 /*
 함수 이름: getName
 기능: 회원 이름 반환
 매개변수: X
 반환값: char*
 */
-char* Member::getName() {
+string Member::getName() {
 	return name;
 }
-
 
 /*
 함수 이름: getId
@@ -50,10 +38,9 @@ char* Member::getName() {
 매개변수: X
 반환값: char*
 */
-char* Member::getId() {
+string Member::getId() {
 	return id;
 }
-
 
 /*
 함수 이름: getPassword
@@ -61,10 +48,9 @@ char* Member::getId() {
 매개변수: X
 반환값: char*
 */
-char* Member::getPassword() {
+string Member::getPassword() {
 	return password;
 }
-
 
 /*
 함수 이름: getMemberType
@@ -78,11 +64,10 @@ int Member::getMemberType() {
 
 /*
 함수 이름: isIdPwdSame
-기능: 멤버변수 driverAge의 값을 1 증가시킨다.
+기능: 
 매개변수:
 반환값:
 
-작성날짜: 2021/03/31
 
 */
 //bool Member::isIdPwdSame();

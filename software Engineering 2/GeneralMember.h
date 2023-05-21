@@ -13,13 +13,13 @@ class GeneralMember : public Member
 {
 private:
 
-	char* socialSecurityNum;
+	string socialSecurityNum;
 	//RecruitInfoCollection applicationInfoList;
 
 public:
 
-	GeneralMember(const char* inputName, const char* inputSocialSecurityNum, const char* inputId, const char* inputPassword, int inputMemberType);
-	char* getSocialSecurityNum();	// socialSecurityNum 값을 가져온다.
+	GeneralMember(string inputName, string inputSocialSecurityNum, string inputId, string inputPassword, int inputMemberType);
+	string getSocialSecurityNum();	// socialSecurityNum 값을 가져온다.
 	virtual void showMemberInfo();	/* 제출 시 삭제할 함수!! */
 	//int getApplicationCountByWork();
 	//void addApplicationInfo();

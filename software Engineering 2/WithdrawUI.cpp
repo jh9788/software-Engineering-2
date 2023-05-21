@@ -1,4 +1,27 @@
+#include "WithdrawUI.h"
+#include "Withdraw.h"
 
+/*
+	함수 이름 : WithdrawUI
+	기능: 생성자
+	매개변수: Withdraw* inputControl -> 컨트롤 참조값
+	반환값: X
+*/
+WithdrawUI::WithdrawUI(Withdraw* inputControl)
+{
+    control = inputControl;
+}
+
+/*
+	함수 이름 : init
+	기능: 파일 쓰기를 위한 ofstream 참조 전달
+	매개변수: ofstream* inputFout -> ofstream 참조값
+    반환값: X
+*/
+void WithdrawUI::init(ofstream* inputFout)
+{
+	fout = inputFout;
+}
 
 /*
     함수 이름 : startInterface
@@ -7,7 +30,7 @@
     반환값: X
 */
 void WithdrawUI::startInterface() {
-    fout << "1.2. 회원탈퇴" << endl;     // 유저가 입력한 내용 화면에 띄우기
+    *fout << "1.2. 회원탈퇴" << endl;     // 유저가 입력한 내용 화면에 띄우기
 }
 
 /*
@@ -18,9 +41,8 @@ void WithdrawUI::startInterface() {
               int memberType -> memberType을 0으로 돌려놓기 위한 매개변수
     반환값: X
 */
-void WithdrawUI::requestWithdraw(MemberCollection& memberCollection, string& loginId, int& memberType) {
-    Withdraw withdraw = Withdraw();     // withdraw 객체 생성
-    withdraw.withdrawMember(memberCollection, loginId, memberType);     // 회원 탈퇴를 위한 함수 호출
+void WithdrawUI::requestWithdraw(string& loginId, int& memberType) {
+    control->withdrawMember( loginId, memberType);     // 회원 탈퇴를 위한 함수 호출
 }
 
 /*
@@ -30,5 +52,5 @@ void WithdrawUI::requestWithdraw(MemberCollection& memberCollection, string& log
     반환값: X
 */
 void WithdrawUI::showWithdrawId(string withdrawId) {
-    fout << "> " << withdrawId << endl << endl;        // 파일에 내용 기입
+    *fout << "> " << withdrawId << endl << endl;        // 파일에 내용 기입
 }

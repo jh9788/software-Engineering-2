@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-
+#include "MemberCollection.h"
 using namespace std;
 
 class RegisterUI;
@@ -10,11 +10,14 @@ class RegisterUI;
 class Register {
 private:
 	RegisterUI* boundary;
+	MemberCollection* memberCollection;
+
 public:
+	Register(MemberCollection* inputMemberCollection);
+	RegisterUI* getRegisterUI();
+
 	// 회사 회원 생성
-	void registerCompanyMember(MemberCollection& memberCollection,
-		const char* name, const char* num, const char* id, const char* pwd, int memberType);
+	void registerCompanyMember(string name, string num, string id, string pwd, int memberType);
 	// 일반 회원 생성
-	void registerGeneralMember(MemberCollection& memberCollection,
-		const char* name, const char* num, const char* id, const char* pwd, int memberType);
+	void registerGeneralMember(string name, string num, string id, string pwd, int memberType);
 };

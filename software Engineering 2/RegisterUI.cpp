@@ -1,3 +1,28 @@
+#include "RegisterUI.h"
+#include "Register.h"
+#include <string>
+using namespace std;
+
+/*
+	함수 이름 : RegisterUI
+	기능: 생성자
+	매개변수: Register* inputControl -> 컨트롤 참조값
+	반환값: X
+*/
+RegisterUI::RegisterUI(Register* inputControl){
+    control = inputControl;
+}
+
+/*
+	함수 이름 : init
+	기능: 파일 쓰기를 위한 ofstream 참조 전달
+	매개변수: ofstream* inputFout -> ofstream 참조값
+	반환값: X
+*/
+void RegisterUI::init(ofstream* inputFout){
+    fout = inputFout;
+}
+
 /*
     함수 이름 : startInterface
     기능: 유저가 입력한 내용 화면에 띄우기
@@ -5,7 +30,7 @@
     반환값: X
 */
 void RegisterUI::startInterface() {
-    fout << "1.1. 회원가입" << endl;  // 유저가 입력한 내용 화면에 띄우기. 이에 대한 응답은 boundary에서 실현
+    *fout << "1.1. 회원가입" << endl;  // 유저가 입력한 내용 화면에 띄우기. 이에 대한 응답은 boundary에서 실현
 }
 
 /*
@@ -15,12 +40,7 @@ void RegisterUI::startInterface() {
     반환값: 회사 회원이면 1, 일반 회원이면 2를 반환
 */
 int RegisterUI::selectMemberType(string inputEvent) {
-    int thirdEvent = inputEvent[4] - '0';
-
-    if (thirdEvent == 1)
-        return 1;
-    else if (thirdEvent == 2)
-        return 2;
+    return inputEvent[4] - '0';
 }
 
 /*
@@ -31,27 +51,20 @@ int RegisterUI::selectMemberType(string inputEvent) {
               int memberType -> 1: 회사 회원, 2: 일반 회원
     반환값: X
 */
-void RegisterUI::requestRegister(MemberCollection& memberCollection, string inputEvent, int memberType) {
+void RegisterUI::requestRegister(string inputEvent, int memberType) {
     // 다음에 사용될 함수의 매개변수에 char* type을 넣기 위해 string 자르기
     stringstream input(inputEvent);     // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, num3, name, num, id, pwd;    // 공백을 기준으로 잘라진 애들을 넣을 string 변수 생성
 
     input >> num1 >> num2 >> num3 >> name >> num >> id >> pwd;      // 공백을 기준으로 각 변수에 string이 넣어짐
 
-    const char* cname = name.c_str();   // string type을 const char* type으로 변환
-    const char* cnum = num.c_str();
-    const char* cid = id.c_str();
-    const char* cpwd = pwd.c_str();
-
-    Register regist;            // Control class에서 regist 객체 생성 (register는 예약어이므로 regist라는 변수 명으로 대체)
-
     // 1.1.1인지 1.1.2인지는 이 switch case문에서 결정
     switch (memberType) {
     case 1:             // 회사 회원인 경우
-        regist.registerCompanyMember(memberCollection, cname, cnum, cid, cpwd, 1);     // Control의 함수인 registerCompanyMember 호출
+        control->registerCompanyMember(name, num, id, pwd, 1);     // Control의 함수인 registerCompanyMember 호출
         break;
     case 2:             // 일반 회원인 경우
-        regist.registerGeneralMember(memberCollection, cname, cnum, cid, cpwd, 2);     // Control의 함수인 registerGeneralMember 호출
+        control->registerGeneralMember(name, num, id, pwd, 2);     // Control의 함수인 registerGeneralMember 호출
         break;
     }
 }

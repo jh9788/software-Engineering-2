@@ -30,9 +30,9 @@ int RecruitInfoCollection::getRecruitInfoCollectionSize() {
 매개변수: X
 반환값: bool
 */
-bool RecruitInfoCollection::isMemberInRecruitInfoCollection(const char* nowLogin) {
+bool RecruitInfoCollection::isMemberInRecruitInfoCollection(string companyId) {
     for (const auto& recruitInfo : recruitInfoCollection) {
-        if (recruitInfo->getNowLogin() == nowLogin) {
+        if (recruitInfo->getCompanyId() == companyId) {
             return true;
         }
     }

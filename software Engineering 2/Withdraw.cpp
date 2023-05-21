@@ -1,3 +1,27 @@
+#include "Withdraw.h"
+#include "WithdrawUI.h"
+
+/*
+    함수 이름 : Withdraw
+    기능 : 생성자
+    매개변수 : 
+    반환값 : X
+*/
+Withdraw::Withdraw(MemberCollection* inputMemberCollection){
+    memberCollection = inputMemberCollection;
+	WithdrawUI* boundary = new WithdrawUI(this);
+    this->boundary = boundary;
+}
+
+/*
+	함수 이름 : getWithdrawUI
+	기능 : 
+	매개변수 : X
+	반환값 : boundary
+*/
+WithdrawUI* Withdraw::getWithdrawUI() {
+	return boundary;
+}
 
 /*
     함수 이름 : withdrawMember
@@ -7,11 +31,9 @@
               int memberType -> memberType을 0으로 돌려놓기 위한 매개변수
     반환값: X
 */
-void Withdraw::withdrawMember(MemberCollection& memberCollection, string& loginId, int& memberType) {
-    const char* id = loginId.c_str();       // const char*로 type 변환
+void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) {
+    memberCollection->removeMember(*currrentLoginId);      // 해당 id 제거
 
-    memberCollection.removeMember(id);      // 해당 id 제거
-
-    loginId = "";           // 회원 탈퇴 시 로그아웃 상태로 되돌리기
-    memberType = 0;         // 회원 탈퇴 시 회사 회원도 일반 회원도 아니므로 memberType = 0
+    currentLoginId = "";           // 회원 탈퇴 시 로그아웃 상태로 되돌리기
+    currentMemberType = 0;         // 회원 탈퇴 시 회사 회원도 일반 회원도 아니므로 memberType = 0
 }

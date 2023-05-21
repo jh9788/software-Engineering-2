@@ -19,23 +19,47 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddRecruitInfo.cpp" />
+    <ClCompile Include="AddRecruitInfoUI.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="LoginUI.cpp" />
+    <ClCompile Include="Logout.cpp" />
+    <ClCompile Include="LogoutUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="MemberCollection.cpp" />
     <ClCompile Include="RecruitInfo.cpp" />
     <ClCompile Include="RecruitInfoCollection.cpp" />
-    <ClCompile Include="Run.cpp" />
+    <ClCompile Include="Register.cpp" />
+    <ClCompile Include="RegisterUI.cpp" />
+    <ClCompile Include="ViewAddedRecruitList.cpp" />
+    <ClCompile Include="ViewAddedRecruitListUI.cpp" />
+    <ClCompile Include="Withdraw.cpp" />
+    <ClCompile Include="WithdrawUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddRecruitInfo.h" />
+    <ClInclude Include="AddRecruitInfoUI.h" />
+    <ClInclude Include="ApplicationInfo.h" />
+    <ClInclude Include="ApplicationInfoCollection.h" />
     <ClInclude Include="CompanyMember.h" />
     <ClInclude Include="GeneralMember.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="LoginUI.h" />
+    <ClInclude Include="Logout.h" />
+    <ClInclude Include="LogoutUI.h" />
     <ClInclude Include="Member.h" />
     <ClInclude Include="MemberCollection.h" />
     <ClInclude Include="RecruitInfo.h" />
     <ClInclude Include="RecruitInfoCollection.h" />
-    <ClInclude Include="Run.h" />
+    <ClInclude Include="Register.h" />
+    <ClInclude Include="RegisterUI.h" />
+    <ClInclude Include="ViewAddedRecruitList.h" />
+    <ClInclude Include="ViewAddedRecruitListUI.h" />
+    <ClInclude Include="Withdraw.h" />
+    <ClInclude Include="WithdrawUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\softwareEngineering\SE\example.txt" />

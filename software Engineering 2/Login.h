@@ -12,6 +12,9 @@ class LoginUI;
 class Login {
 private:
 	LoginUI* boundary;
+	MemberCollection* memberCollection;
 public:
-	bool verifyLogin(MemberCollection& memberCollection, string id, string pwd, string& loginId, int& memberType);
+	Login(MemberCollection* memberCollection);
+	LoginUI* getLoginUI();
+	bool verifyLogin(string id, string pwd, string& loginId, int& memberType);
 };

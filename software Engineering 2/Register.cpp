@@ -1,3 +1,16 @@
+#include "Register.h"
+#include "RegisterUI.h"
+
+Register::Register(MemberCollection* inputMemberCollection) {
+    memberCollection = inputMemberCollection;
+
+    RegisterUI* boundary = new RegisterUI(this);
+    this->boundary = boundary;
+ }
+
+RegisterUI* Register::getRegisterUI(){
+    return boundary;
+}
 
 /*
     함수 이름 : registerCompanyMember
@@ -10,12 +23,10 @@
               int memberType -> 1 (회사 회원)
     반환값: X
 */
-void Register::registerCompanyMember(MemberCollection& memberCollection,
-    const char* name, const char* num, const char* id, const char* pwd, int memberType)
+void Register::registerCompanyMember(
+    string name, string num, string id, string pwd, int memberType)
 {
-    Member* newMember = NULL;       // Member Type의 새로운 객체 생성
-    newMember = new CompanyMember(name, num, id, pwd, memberType);  // 그 객체에 CompanyMember 생성자 만들어 넣기
-    memberCollection.addMember(newMember);  // memberCollection class가 갖고 있는 addMember함수 호출하여 Member 추가
+    memberCollection->addMember(name, num, id, pwd, memberType);  // memberCollection class가 갖고 있는 addMember함수 호출하여 Member 추가
 }
 
 /*
@@ -29,10 +40,9 @@ void Register::registerCompanyMember(MemberCollection& memberCollection,
               int memberType -> 2 (일반 회원)
     반환값: X
 */
-void Register::registerGeneralMember(MemberCollection& memberCollection,
-    const char* name, const char* num, const char* id, const char* pwd, int memberType)
+void Register::registerGeneralMember(
+   string name, string num, string id, string pwd, int memberType)
 {
-    Member* newMember = NULL;       // Member Type의 새로운 객체 생성
-    newMember = new CompanyMember(name, num, id, pwd, memberType);  // 그 객체에 GeneralMember 생성자 만들어 넣기
-    memberCollection.addMember(newMember);  // memberCollection class가 갖고 있는 addMember함수 호출하여 Member 추가
+     // 그 객체에 GeneralMember 생성자 만들어 넣기
+    memberCollection->addMember(name, num, id, pwd, memberType);  // memberCollection class가 갖고 있는 addMember함수 호출하여 Member 추가
 }

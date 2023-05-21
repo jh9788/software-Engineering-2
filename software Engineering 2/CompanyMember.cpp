@@ -1,20 +1,18 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 #include "CompanyMember.h"
 
 /*
 함수 이름: CompanyMember
 기능: CompanyMember 클래스의 생성자로 기능한다.
-매개변수: const char* inputName -> 이름, const char* inputBusinessNum -> 사업자번호, const char* inputId -> ID,
-		  const char* inputPassword -> 비밀번호, int inputMemberType -> 멤버 타입
+매개변수: string inputName -> 이름, string inputBusinessNum -> 사업자번호, string inputId -> ID,
+		 string inputPassword -> 비밀번호, int inputMemberType -> 멤버 타입
 반환값: X
 */
-CompanyMember::CompanyMember(const char* inputName, const char* inputBusinessNum, const char* inputId, const char* inputPassword, int inputMemberType)
+CompanyMember::CompanyMember(string inputName, string inputBusinessNum, string inputId, string inputPassword, int inputMemberType)
 			   : Member(inputName, inputId, inputPassword, inputMemberType)
 {
-	int len = strlen(inputBusinessNum) + 1;			// 새로 만들 문자열을 위한 길이 구하기
-	businessNum = new char[len];					// 새로 만들 문자열을 위한 배열 공간 확보하기
-	strcpy_s(businessNum, len, inputBusinessNum);	// 문자열 복사해서 넣기
+	businessNum = inputBusinessNum;	// 문자열 복사해서 넣기
 
 	//cout << "inputBusinessNum : " << inputBusinessNum << ", businessNum : " << businessNum << endl;
 }
@@ -25,9 +23,9 @@ CompanyMember::CompanyMember(const char* inputName, const char* inputBusinessNum
 함수 이름: getBusinessNum
 기능: businessNum 값을 가져온다.
 매개변수: X
-반환값: char*
+반환값: string
 */
-char* CompanyMember::getBusinessNum() {
+string CompanyMember::getBusinessNum() {
 	return businessNum;
 }
 

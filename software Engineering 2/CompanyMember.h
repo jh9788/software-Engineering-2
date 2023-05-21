@@ -11,12 +11,12 @@ using namespace std;
 class CompanyMember : public Member
 {
 private:
-	char* businessNum;
+	string businessNum;
 	//RecruitInfoCollection recruitList;
 
 public:
-	CompanyMember(const char* inputName, const char* businessNum, const char* inputId, const char* inputPassword, int inputMemberType);
-	char* getBusinessNum();		// businessNum 값을 가져온다.
+	CompanyMember(string inputName, string businessNum, string inputId, string inputPassword, int inputMemberType);
+	string getBusinessNum();		// businessNum 값을 가져온다.
 	virtual void showMemberInfo();	/* 제출 시 삭제할 함수!! */
 	//void getRecruitList();
 	//void addRecruitInfo();

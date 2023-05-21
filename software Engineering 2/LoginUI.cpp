@@ -1,3 +1,29 @@
+#include "LoginUI.h"
+#include "Login.h"
+#include <string>
+using namespace std;
+
+/*
+	함수 이름 : LoginUI
+	기능: 생성자
+	매개변수: Login* inputControl -> 컨트롤 참조값
+	반환값: X
+*/
+LoginUI::LoginUI(Login* inputControl)
+{
+    control = inputControl;
+}
+
+/*
+    함수 이름 : init
+    기능: 
+    매개변수: 
+    반환값: X
+*/
+void LoginUI::init(ofstream* inputFout)
+{
+    fout = inputFout;
+}
 
 
 /*
@@ -7,7 +33,10 @@
     반환값: X
 */
 void LoginUI::startInterface() {
-    fout << "2.1. 로그인" << endl;  // 유저가 입력한 내용 화면에 띄우기
+    string loginStr = "2.1. 로그인";
+    *fout << loginStr << endl;  // 유저가 입력한 내용 화면에 띄우기
+
+    
 }
 
 /*
@@ -22,7 +51,7 @@ void LoginUI::startInterface() {
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
     반환값: bool
 */
-bool LoginUI::requestLogin(MemberCollection& memberCollection, string inputEvent, string& loginId, int& memberType) {
+bool LoginUI::requestLogin(string inputEvent, string& loginId, int& memberType) {
     // 다음에 호출할 함수의 매개변수에 const char* type을 넣기 위한 작업
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, id, pwd;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정

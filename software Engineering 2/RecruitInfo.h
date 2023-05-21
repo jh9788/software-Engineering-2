@@ -1,5 +1,4 @@
 #pragma once
-
 #include <string>
 using namespace std;
 
@@ -11,16 +10,16 @@ using namespace std;
 class RecruitInfo
 {
 private:
-	char* work;
-	char* deadline;
-	char* targetNum;
-	char* nowLogin;
+	string work; //업무
+	string deadline; //마감일
+	string targetNum; //인원 수
+	string companyId; //채용 정보를 등록한 회사회원 ID
 
 public:
-	RecruitInfo(const char* inputWork, const char* inputDeadline, const char* inputTargetNum, const char* inputNowLogin);
-	char* getWork();
-	char* getDeadline();
-	char* getTargetNum();
-	char* getNowLogin();
+	RecruitInfo(string inputWork, string inputDeadline, string inputTargetNum, string inputNowLogin);
+	string getWork();
+	string getDeadline();
+	string getTargetNum();
+	string getCompanyId();
 	void showRecruitInfo();		/* 제출 시 삭제할 함수 !! */
 };
