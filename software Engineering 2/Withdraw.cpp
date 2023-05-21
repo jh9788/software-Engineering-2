@@ -32,7 +32,7 @@ WithdrawUI* Withdraw::getWithdrawUI() {
     반환값: X
 */
 void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) {
-    memberCollection->removeMember(*currrentLoginId);      // 해당 id 제거
+    memberCollection->removeMember(currentLoginId);      // 해당 id 제거
 
     currentLoginId = "";           // 회원 탈퇴 시 로그아웃 상태로 되돌리기
     currentMemberType = 0;         // 회원 탈퇴 시 회사 회원도 일반 회원도 아니므로 memberType = 0

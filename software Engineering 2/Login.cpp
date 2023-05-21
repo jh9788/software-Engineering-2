@@ -26,9 +26,9 @@ LoginUI* Login::getLoginUI(){
 */
 bool Login::verifyLogin(string id, string pwd, string& currentLoginId, int& currentMemberType) {
     // 회원이 맞는 경우
-    if (memberCollection.isMember(id, pwd)) {
+    if (memberCollection->isMember(id, pwd)) {
 		currentLoginId = id;           // loginId에 방금 로그인을 시도했던 id를 저장
-		currentMemberType = memberCollection.getMemberType(id, pwd);       // memberType에 현재 로그인 한 member의 type을 저장
+		currentMemberType = memberCollection->getMemberType(id, pwd);       // memberType에 현재 로그인 한 member의 type을 저장
         return true;
     }
     // 회원이 아닌 경우

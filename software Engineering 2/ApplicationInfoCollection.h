@@ -10,10 +10,9 @@ using namespace std;
 클래스 이름 : ApplicationInfoCollection
 기능 : 
 */
-class ApplicationInfoCollection{
+class ApplicationInfoCollection {
 private:
 	vector<ApplicationInfo*> applicationInfoVec;
 public:
 	~ApplicationInfoCollection();
-}
- 
+};

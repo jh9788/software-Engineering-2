@@ -33,10 +33,7 @@ void LoginUI::init(ofstream* inputFout)
     반환값: X
 */
 void LoginUI::startInterface() {
-    string loginStr = "2.1. 로그인";
-    *fout << loginStr << endl;  // 유저가 입력한 내용 화면에 띄우기
-
-    
+    *fout << "2.1. 로그인" << endl;  // 유저가 입력한 내용 화면에 띄우기
 }
 
 /*
@@ -51,19 +48,15 @@ void LoginUI::startInterface() {
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
     반환값: bool
 */
-bool LoginUI::requestLogin(string inputEvent, string& loginId, int& memberType) {
+bool LoginUI::requestLogin(string inputEvent, string& currentLoginId, int& currentMemberType) {
     // 다음에 호출할 함수의 매개변수에 const char* type을 넣기 위한 작업
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, id, pwd;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
 
     input >> num1 >> num2 >> id >> pwd;     // 공백을 기준으로 각각의 string을 변수에 담기
 
-    const char* cid = id.c_str();       // string을 char* 형식으로 변환
-    const char* cpwd = pwd.c_str();
 
-    Login login = Login();          // Login 객체 생성
-
-    if (login.verifyLogin(memberCollection, cid, cpwd, loginId, memberType))
+    if (control->verifyLogin(id, pwd, currentLoginId, currentMemberType))
         return true;
     else
         return false;
@@ -82,7 +75,8 @@ void LoginUI::showLoginSuccessInterface(string inputEvent) {
 
     input >> num1 >> num2 >> id >> pwd;     // 공백을 기준으로 각각의 string을 변수에 담기
 
-    fout << "> " << id << " " << pwd << endl << endl;       // 로그인 성공 시, 나머지 내용 (id, pwd)을 파일에 저장
+
+    *fout << "> " << id << " " << pwd << endl << endl;       // 로그인 성공 시, 나머지 내용 (id, pwd)을 파일에 저장
 }
 
 /*
@@ -92,5 +86,5 @@ void LoginUI::showLoginSuccessInterface(string inputEvent) {
     반환값: X
 */
 void LoginUI::showLoginFailInterface() {
-    fout << endl << endl;        // 로그인 실패 시, 개행만 두 번 실행한 결과를 파일에 저장
+    *fout << endl << endl;        // 로그인 실패 시, 개행만 두 번 실행한 결과를 파일에 저장
 }

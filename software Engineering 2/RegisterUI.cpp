@@ -83,5 +83,5 @@ void RegisterUI::showRegisterSuccessInterface(string inputEvent, int memberType)
 
     input >> num1 >> num2 >> num3 >> name >> num >> id >> pwd;      // 공백을 기준으로 각 변수에 string이 넣어짐
 
-    fout << "> " << memberType << " " << name << " " << num << " " << id << " " << pwd << endl << endl;    // 파일에 회원 가입 정보 기입
+    *fout << "> " << memberType << " " << name << " " << num << " " << id << " " << pwd << endl << endl;    // 파일에 회원 가입 정보 기입
 }

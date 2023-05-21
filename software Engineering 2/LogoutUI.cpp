@@ -17,7 +17,7 @@ void LogoutUI::init(ofstream* inputFout){
     반환값: X
 */
 void LogoutUI::startInterface() {
-    fout << "2.2. 로그아웃" << endl;  // 유저가 입력한 내용 화면에 띄우기
+    *fout << "2.2. 로그아웃" << endl;  // 유저가 입력한 내용 화면에 띄우기
 }
 
 /*
@@ -40,5 +40,5 @@ void LogoutUI::requestLogout(string& loginId, int& memberType) {
     반환값: X
 */
 void LogoutUI::showLogoutId(string logoutId) {
-    fout << "> " << logoutId << endl << endl;    // 파일에 내용 기입.
+    *fout << "> " << logoutId << endl << endl;    // 파일에 내용 기입.
 }

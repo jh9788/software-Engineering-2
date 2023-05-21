@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ public:
 	void init(ofstream* inputFout);
 
 	void startInterface();		// 인터페이스 시작
-	bool requestLogin(MemberCollection& memberCollection, string inputEvent, string& loginId, int& memberType);	// 로그인 요청, ID와 PW가 일치한다면 true 반환
+	bool requestLogin(string inputEvent, string& currentLoginId, int& currentMemberType);	// 로그인 요청, ID와 PW가 일치한다면 true 반환
 	void showLoginSuccessInterface(string inputEvent);		// 로그인 성공 화면 파일에 저장
 	void showLoginFailInterface();		// 로그인 실패 화면 파일에 저장
 };
