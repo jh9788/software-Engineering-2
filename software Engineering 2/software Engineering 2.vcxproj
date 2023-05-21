@@ -37,6 +37,10 @@
     <ClInclude Include="RecruitInfoCollection.h" />
     <ClInclude Include="Run.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\softwareEngineering\SE\example.txt" />
+    <Text Include="..\..\softwareEngineering\SE\output.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

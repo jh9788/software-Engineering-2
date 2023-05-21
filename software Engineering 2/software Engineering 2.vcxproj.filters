@@ -63,4 +63,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\softwareEngineering\SE\example.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="..\..\softwareEngineering\SE\output.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

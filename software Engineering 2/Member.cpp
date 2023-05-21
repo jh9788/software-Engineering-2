@@ -5,11 +5,11 @@
 /*
 함수 이름: Member
 기능: 생성자
-매개변수: const char* inputName -> 회원명, const char* inputId -> 회원ID, const char* inputPassword -> 회원Password,
+매개변수: const string inputName -> 회원명, const string inputId -> 회원ID, const string inputPassword -> 회원Password,
 		  int inputMemberType -> 회원 Type
 반환값: X
 */
-Member::Member(const char* inputName, const char* inputId, const char* inputPassword, int inputMemberType)
+Member::Member(const string inputName, const string inputId, const string inputPassword, int inputMemberType)
 {
 	int nameLen = strlen(inputName) + 1;	// 새로 만들 문자열을 위한 길이 구하기
 	name = new char[nameLen];				// 새로 만들 문자열을 위한 배열 공간 확보하기
