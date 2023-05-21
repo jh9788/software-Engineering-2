@@ -18,6 +18,25 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CompanyMember.cpp" />
+    <ClCompile Include="GeneralMember.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Member.cpp" />
+    <ClCompile Include="MemberCollection.cpp" />
+    <ClCompile Include="RecruitInfo.cpp" />
+    <ClCompile Include="RecruitInfoCollection.cpp" />
+    <ClCompile Include="Run.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CompanyMember.h" />
+    <ClInclude Include="GeneralMember.h" />
+    <ClInclude Include="Member.h" />
+    <ClInclude Include="MemberCollection.h" />
+    <ClInclude Include="RecruitInfo.h" />
+    <ClInclude Include="RecruitInfoCollection.h" />
+    <ClInclude Include="Run.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,25 +145,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\softwareEngineering\SE\CompanyMember.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\GeneralMember.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\main.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\Member.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\MemberCollection.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\RecruitInfo.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\RecruitInfoCollection.cpp" />
-    <ClCompile Include="..\..\softwareEngineering\SE\Run.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\softwareEngineering\SE\CompanyMember.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\GeneralMember.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\Member.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\MemberCollection.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\RecruitInfo.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\RecruitInfoCollection.h" />
-    <ClInclude Include="..\..\softwareEngineering\SE\Run.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

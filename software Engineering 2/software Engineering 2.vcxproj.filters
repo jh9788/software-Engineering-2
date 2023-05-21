@@ -15,51 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\softwareEngineering\SE\CompanyMember.cpp">
+    <ClCompile Include="CompanyMember.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\GeneralMember.cpp">
+    <ClCompile Include="RecruitInfo.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\main.cpp">
+    <ClCompile Include="RecruitInfoCollection.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\Member.cpp">
+    <ClCompile Include="Run.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\MemberCollection.cpp">
+    <ClCompile Include="GeneralMember.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\RecruitInfo.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\RecruitInfoCollection.cpp">
+    <ClCompile Include="Member.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\softwareEngineering\SE\Run.cpp">
+    <ClCompile Include="MemberCollection.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\softwareEngineering\SE\CompanyMember.h">
+    <ClInclude Include="RecruitInfo.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\GeneralMember.h">
+    <ClInclude Include="RecruitInfoCollection.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\Member.h">
+    <ClInclude Include="Run.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\MemberCollection.h">
+    <ClInclude Include="CompanyMember.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\RecruitInfo.h">
+    <ClInclude Include="GeneralMember.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\RecruitInfoCollection.h">
+    <ClInclude Include="Member.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\softwareEngineering\SE\Run.h">
+    <ClInclude Include="MemberCollection.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
