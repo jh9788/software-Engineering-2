@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 class Login;
 
 // ·Î±×ÀÎ UI

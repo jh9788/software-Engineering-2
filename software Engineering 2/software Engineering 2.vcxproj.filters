@@ -90,6 +90,12 @@
     <ClCompile Include="ViewAddedRecruitListUI.cpp">
       <Filter>소스 파일\채용정보관리 서브시스템</Filter>
     </ClCompile>
+    <ClCompile Include="ApplicationInfo.cpp">
+      <Filter>소스 파일\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationInfoCollection.cpp">
+      <Filter>소스 파일\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CompanyMember.h">
@@ -152,13 +158,5 @@
     <ClInclude Include="ApplicationInfo.h">
       <Filter>헤더 파일\Entity</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\softwareEngineering\SE\example.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="..\..\softwareEngineering\SE\output.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
   </ItemGroup>
 </Project>

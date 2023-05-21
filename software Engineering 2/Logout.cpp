@@ -2,14 +2,9 @@
 #include "LogoutUI.h"
 using namespace std;
 
-/*
-    함수 이름 : init
-    기능: 컨트롤 바운더리 상호참조를 위한 함수
-    매개변수: LogoutUI* inputBoundary -> 바운더리 참조값
-    반환값: X
-*/
-void Logout::init(LogoutUI* inputBoundary){
-    boundary = inputBoundary;
+Logout::Logout(){
+    LogoutUI* boundary = new LogoutUI(this);
+    this->boundary = boundary;
 }
 
 LogoutUI* Logout::getLogoutUI(){

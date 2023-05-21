@@ -14,5 +14,4 @@ class ApplicationInfoCollection {
 private:
 	vector<ApplicationInfo*> applicationInfoVec;
 public:
-	~ApplicationInfoCollection();
 };

@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="AddRecruitInfo.cpp" />
     <ClCompile Include="AddRecruitInfoUI.cpp" />
+    <ClCompile Include="ApplicationInfo.cpp" />
+    <ClCompile Include="ApplicationInfoCollection.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -60,10 +62,6 @@
     <ClInclude Include="ViewAddedRecruitListUI.h" />
     <ClInclude Include="Withdraw.h" />
     <ClInclude Include="WithdrawUI.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\softwareEngineering\SE\example.txt" />
-    <Text Include="..\..\softwareEngineering\SE\output.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

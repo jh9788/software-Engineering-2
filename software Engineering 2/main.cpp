@@ -6,8 +6,8 @@
 // Entity Çì´õ
 #include "MemberCollection.h"
 #include "Member.h"
-#include "RecruitInfoCollection.h"
 #include "RecruitInfo.h"
+#include "RecruitInfoCollection.h"
 #include "ApplicationInfoCollection.h"
 #include "CompanyMember.h"
 #include "GeneralMember.h"
@@ -128,6 +128,7 @@ void run() {
             }
             break;
             }
+		break;
         }
         case 2:
         {
@@ -206,8 +207,9 @@ void run() {
     //            }
                 break;
             }
+			break;
             }
-            break;
+        break;
         }
         case 4:
         {
@@ -228,6 +230,7 @@ void run() {
             }
             break;
             }
+			break;
         }
         break;
         }
