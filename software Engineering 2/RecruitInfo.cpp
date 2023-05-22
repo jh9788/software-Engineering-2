@@ -8,16 +8,16 @@
 매개변수: string inputWork -> 업무, string inputDeadline -> 신청 마감일, string inputTargetNum -> 인원 수
 반환값: X
 */
-RecruitInfo::RecruitInfo(string inputWork, string inputDeadline, string inputTargetNum, string inputCompanyId)
+RecruitInfo::RecruitInfo(string inputWork, string inputTargetNum, string inputDeadline, string inputCompanyId)
 {
 	work = inputWork;
-	deadline = inputDeadline;
 	targetNum = inputTargetNum;
+	deadline = inputDeadline;
 	companyId = inputCompanyId;
 	
 	//cout << "inputWork : " << inputWork << ", work : " << work << endl;
-	//cout << "inputDeadline : " << inputDeadline << ", deadline : " << deadline << endl;
 	//cout << "inputTargetNum : " << inputTargetNum << ", targetNum : " << targetNum << endl;
+	//cout << "inputDeadline : " << inputDeadline << ", deadline : " << deadline << endl;
 	//cout << "inputNowLogin : " << inputNowLogin << ", nowLogin : " << nowLogin << endl;
 }
 

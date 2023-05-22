@@ -1,7 +1,7 @@
-#include "RecruitInfo.h"
-#include "RecruitInfoCollection.h"
 #include <iostream>
 #include <string>
+#include "RecruitInfo.h"
+#include "RecruitInfoCollection.h"
 
 
 /* 제출 시 삭제할 함수 !! 현재 등록된 모든 회원 조회 */
@@ -42,11 +42,12 @@ bool RecruitInfoCollection::isMemberInRecruitInfoCollection(string companyId) {
 /*
 함수 이름: addRecruitInfo
 기능: recruitInfo 객체를 매개변수로 받아서 벡터에 순차적으로 넣는다.
-매개변수: RecruitInfo* recruitInfo -> RecruitInfo 객체 포인터값
+매개변수: string work -> 업무, string targetNum -> 인원 수, string deadline -> 신청 마감일, string currentLoginId -> 현재 로그인한 ID
 반환값: X
 */
-void RecruitInfoCollection::addRecruitInfo(RecruitInfo* recruitInfo)
+void RecruitInfoCollection::addRecruitInfo(string work, string targetNum, string deadline, string currentLoginId)
 {
+    RecruitInfo* recruitInfo = new RecruitInfo(work, targetNum, deadline, currentLoginId);
     recruitInfoCollection.push_back(recruitInfo);
 }
 

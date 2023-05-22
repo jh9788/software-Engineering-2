@@ -98,7 +98,7 @@ void run() {
         case 1:
         {
             switch (secondEvent) {
-                // 회원 가입
+            // 회원 가입
             case 1:
             {
                 Register regist = Register(&memberCollection);
@@ -108,8 +108,8 @@ void run() {
                 currentMemberType = regist.getRegisterUI()->selectMemberType(inputEvent); // 1. 1. 1에서 맨 뒤의 1이 currentMemberType에 저장됨 
                 regist.getRegisterUI()->requestRegister(inputEvent, currentMemberType);   // Boundary에 있는 requestRegister 함수 호출
                 regist.getRegisterUI()->showRegisterSuccessInterface(inputEvent, currentMemberType);        // 회원가입 시 내용을 파일에 저장
-                break;
             }
+            break;
             // 회원 탈퇴
             case 2:
             {
@@ -128,12 +128,12 @@ void run() {
             }
             break;
             }
-		break;
         }
+        break;
         case 2:
         {
             switch (secondEvent) {
-                // 로그인
+            // 로그인
             case 1:
             {
                 Login login = Login(&memberCollection);
@@ -153,8 +153,8 @@ void run() {
                     //cout << "after login currentMemberType : " << currentMemberType << endl;
                     break;
                 }
-                break;
             }
+            break;
             // 로그아웃
             case 2:
             {
@@ -171,26 +171,27 @@ void run() {
                     //cout << "after logout currentMemberType : " << currentMemberType << endl;
                     break;
                 }
-                break;
             }
             break;
             }
+        break;
         case 3:
         {
             switch (secondEvent) {
-                // 채용 정보 등록
+            // 채용 정보 등록
             case 1:
             {
-                //AddRecruitInfo addRecruitInfo = AddRecruitInfo();
-                //addRecruitInfo.getAddRecruitInfoUI()->init(&fout);
-                //addRecruitInfo.getAddRecruitInfoUI()->startInterface();    // 인터페이스 시작
+                AddRecruitInfo addRecruitInfo = AddRecruitInfo(&recruitInfoCollection);
+                addRecruitInfo.getAddRecruitInfoUI()->init(&fout);
+                addRecruitInfo.getAddRecruitInfoUI()->startInterface();    // 인터페이스 시작
 
-    //            if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
-    //                break;
-    //            else {
-                //	addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(recruitInfoCollection, inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
-                //	addRecruitInfo.getAddRecruitInfoUI()->showAddedRecruitInfo(inputEvent);
-    //            }
+                if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                	addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
+                	addRecruitInfo.getAddRecruitInfoUI()->showAddedRecruitInfo(inputEvent);         // 등록한 채용 정보를 파일에 쓰기
+                    //recruitInfoCollection.getAllRecruitInfoCollection(); // 현재 등록된 채용 정보가 누구누구 있는지 확인하기 위한 애
+                }
                 break;
             }
             // 채용 정보 조회
@@ -205,7 +206,7 @@ void run() {
     //            else {
     //                viewAddedRecruitListUI.getViewAddedRecruitListUI()->showRecruitInfo(recruitInfoCollection, currentLoginId);     // recruitInfoCollection 벡터를 조회하기 위한 함수 호출
     //            }
-                break;
+    //            break;
             }
 			break;
             }
@@ -236,7 +237,7 @@ void run() {
         }
 
         //memberCollection.getAllMemberCollection(); // 현재 멤버가 누구누구 있는지 확인하기 위한 애
-        //recruitInfoCollection.getAllRecruitInfoCollection(); // 현재 등록된 채용 정보가 누구누구 있는지 확인하기 위한 애
+        
         }
     }
 	fin.close(); // 파일 닫기
