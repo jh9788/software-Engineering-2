@@ -14,11 +14,6 @@ RecruitInfo::RecruitInfo(string inputWork, string inputTargetNum, string inputDe
 	targetNum = inputTargetNum;
 	deadline = inputDeadline;
 	companyId = inputCompanyId;
-	
-	//cout << "inputWork : " << inputWork << ", work : " << work << endl;
-	//cout << "inputTargetNum : " << inputTargetNum << ", targetNum : " << targetNum << endl;
-	//cout << "inputDeadline : " << inputDeadline << ", deadline : " << deadline << endl;
-	//cout << "inputNowLogin : " << inputNowLogin << ", nowLogin : " << nowLogin << endl;
 }
 
 

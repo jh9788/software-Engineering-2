@@ -1,6 +1,6 @@
+#include <string>
 #include "AddRecruitInfoUI.h"
 #include "AddRecruitInfo.h"
-#include <string>
 using namespace std;
 
 
@@ -64,10 +64,6 @@ void AddRecruitInfoUI::showAddedRecruitInfo(string inputEvent) {
     string num1, num2, work, targetNum, deadline;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
 
     input >> num1 >> num2 >> work >> targetNum >> deadline;     // 공백을 기준으로 각각의 string을 변수에 담기
-
-    cout << "work : " << work << endl;
-    cout << "targetNum : " << targetNum << endl;
-    cout << "deadline : " << deadline << endl;
 
     *fout << "> " << work << " " << targetNum << " " << deadline << endl << endl;       // 채용 정보 등록 성공 시, 파일에 저장
 }

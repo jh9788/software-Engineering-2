@@ -6,7 +6,7 @@
 using namespace std;
 
 class Register;
-// 객체에 대한 주석 제대로 추가해야함!!
+
 // 회원가입 UI
 class RegisterUI {
 private:

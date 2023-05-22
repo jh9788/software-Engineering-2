@@ -197,16 +197,16 @@ void run() {
             // 채용 정보 조회
             case 2:
             {
-                //ViewAddedRecruitListUI viewAddedRecruitListUI = ViewAddedRecruitListUI();
-                //viewAddedRecruitListUI.getViewAddedRecruitListUI()->init(&fout);
-                //viewAddedRecruitListUI.getViewAddedRecruitListUI()->startInterface(); // 인터페이스 시작
+                ViewAddedRecruitList viewAddedRecruitList = ViewAddedRecruitList(&recruitInfoCollection);
+                viewAddedRecruitList.getViewAddedRecruitListUI()->init(&fout);
+                viewAddedRecruitList.getViewAddedRecruitListUI()->startInterface();     // 인터페이스 시작
 
-    //            if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
-    //                break;
-    //            else {
-    //                viewAddedRecruitListUI.getViewAddedRecruitListUI()->showRecruitInfo(recruitInfoCollection, currentLoginId);     // recruitInfoCollection 벡터를 조회하기 위한 함수 호출
-    //            }
-    //            break;
+                if (currentMemberType == 2)
+                    break;
+                else {
+                    viewAddedRecruitList.getViewAddedRecruitListUI()->showRecruitInfo(currentLoginId);      // 등록한 채용 정보 모두 조회
+                    break;
+                }
             }
 			break;
             }
