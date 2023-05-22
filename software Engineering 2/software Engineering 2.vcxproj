@@ -23,6 +23,8 @@
     <ClCompile Include="AddRecruitInfoUI.cpp" />
     <ClCompile Include="ApplicationInfo.cpp" />
     <ClCompile Include="ApplicationInfoCollection.cpp" />
+    <ClCompile Include="ApplyImmediately.cpp" />
+    <ClCompile Include="ApplyImmediatelyUI.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -36,6 +38,8 @@
     <ClCompile Include="RecruitInfoCollection.cpp" />
     <ClCompile Include="Register.cpp" />
     <ClCompile Include="RegisterUI.cpp" />
+    <ClCompile Include="SearchRecruitInfo.cpp" />
+    <ClCompile Include="SearchRecruitInfoUI.cpp" />
     <ClCompile Include="ViewAddedRecruitList.cpp" />
     <ClCompile Include="ViewAddedRecruitListUI.cpp" />
     <ClCompile Include="Withdraw.cpp" />
@@ -46,6 +50,8 @@
     <ClInclude Include="AddRecruitInfoUI.h" />
     <ClInclude Include="ApplicationInfo.h" />
     <ClInclude Include="ApplicationInfoCollection.h" />
+    <ClInclude Include="ApplyImmediately.h" />
+    <ClInclude Include="ApplyImmediatelyUI.h" />
     <ClInclude Include="CompanyMember.h" />
     <ClInclude Include="GeneralMember.h" />
     <ClInclude Include="Login.h" />
@@ -58,6 +64,8 @@
     <ClInclude Include="RecruitInfoCollection.h" />
     <ClInclude Include="Register.h" />
     <ClInclude Include="RegisterUI.h" />
+    <ClInclude Include="SearchRecruitInfo.h" />
+    <ClInclude Include="SearchRecruitInfoUI.h" />
     <ClInclude Include="ViewAddedRecruitList.h" />
     <ClInclude Include="ViewAddedRecruitListUI.h" />
     <ClInclude Include="Withdraw.h" />

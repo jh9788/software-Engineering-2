@@ -12,7 +12,7 @@
 #include "CompanyMember.h"
 #include "GeneralMember.h"
 
-//회원관리 서브시스템 헤더
+// 회원관리 서브시스템 헤더
 #include "LoginUI.h"
 #include "Login.h"
 #include "LogoutUI.h"
@@ -27,6 +27,12 @@
 #include "AddRecruitInfo.h"
 #include "ViewAddedRecruitListUI.h"
 #include "ViewAddedRecruitList.h"
+
+// 채용지원 서브시스템 헤더
+#include "SearchRecruitInfoUI.h"
+#include "SearchRecruitInfo.h"
+#include "ApplyImmediatelyUI.h"
+#include "ApplyImmediately.h"
 
 using namespace std;
 
@@ -214,6 +220,28 @@ void run() {
         }
         case 4:
         {
+            switch (secondEvent) {
+            // 채용 정보 검색
+            case 1:
+            {
+                SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);
+                searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);
+                searchRecruitInfo.getSearchRecruitInfoUI()->startInterface(); // 인터페이스 시작
+                
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    searchRecruitInfo.getSearchRecruitInfoUI()->requestSearchRecruitInfo(inputEvent);
+                    //searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo();
+                    break;
+                }
+            }
+            case 2:
+            {
+                break;
+            }
+
+            }
             break;
         }
         case 5:

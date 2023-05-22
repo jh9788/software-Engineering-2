@@ -17,7 +17,7 @@ private:
 
 public:
 	Member(string inputName, string inputId, string inputPassword, int inputMemberType);
-	string getName();
+	string getName();	
 	string getId();
 	string getPassword();
 	int getMemberType();

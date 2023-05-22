@@ -31,6 +31,12 @@
     <Filter Include="소스 파일\채용정보관리 서브시스템">
       <UniqueIdentifier>{a80a4fbc-3d09-4f5a-8ed2-ab7f61590a57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\채용지원 서브시스템">
+      <UniqueIdentifier>{d084e651-23f2-49a5-98c3-3778c697e2e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\채용지원 서브시스템">
+      <UniqueIdentifier>{3cae05d4-d62f-4f4e-80b5-cb95eff7b2fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,6 +102,18 @@
     <ClCompile Include="ApplicationInfoCollection.cpp">
       <Filter>소스 파일\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="SearchRecruitInfo.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchRecruitInfoUI.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplyImmediately.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplyImmediatelyUI.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CompanyMember.h">
@@ -157,6 +175,18 @@
     </ClInclude>
     <ClInclude Include="ApplicationInfo.h">
       <Filter>헤더 파일\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplyImmediatelyUI.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplyImmediately.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchRecruitInfo.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchRecruitInfoUI.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

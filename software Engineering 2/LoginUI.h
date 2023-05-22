@@ -1,6 +1,6 @@
 #pragma once
 #include "MemberCollection.h"
-#include "RecruitInfoCollection.h"
+#include "RecruitInfoCollection.h" // 필요한지
 #include <iostream>
 #include <fstream>
 #include <string>

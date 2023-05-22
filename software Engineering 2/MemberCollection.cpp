@@ -99,3 +99,50 @@ MemberCollection::~MemberCollection()
 	for (int i = 0; i < memberCollection.size(); i++)
 		memberCollection.pop_back();
 }
+
+
+
+
+
+///*
+//함수 이름: getRecruitInfo
+//기능: 로그인 한 사람이 등록한 모든 채용 정보를 담아 반환한다.
+//매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
+//반환값: string
+//*/
+//string MemberCollection::findMemberByName(string targetName)
+//{
+//    string returnString = "";
+//    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+//    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+//        // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
+//        if ((*it)->getName() == targetName) {
+//            (*it)->
+//        }
+//
+//        return returnString;
+//    }
+
+string MemberCollection::findBusinessNumByName(string memberName)
+{
+    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getName() == memberName) {
+            CompanyMember* companyMember = static_cast<CompanyMember*>(*it);
+            return companyMember->getBusinessNum();
+            }
+    }
+}
+
+string MemberCollection::findIdByName(string memberName)
+{
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getName() == memberName) {
+            Member* member = (*it);
+            return member->getId();
+        }
+    }
+}
+
