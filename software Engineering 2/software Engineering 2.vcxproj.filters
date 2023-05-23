@@ -114,6 +114,18 @@
     <ClCompile Include="ApplyImmediatelyUI.cpp">
       <Filter>소스 파일\채용지원 서브시스템</Filter>
     </ClCompile>
+    <ClCompile Include="ViewApplicationInfo.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewApplicationInfoUI.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelApplication.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelApplicationUI.cpp">
+      <Filter>소스 파일\채용지원 서브시스템</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CompanyMember.h">
@@ -186,6 +198,18 @@
       <Filter>헤더 파일\채용지원 서브시스템</Filter>
     </ClInclude>
     <ClInclude Include="SearchRecruitInfoUI.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewApplicationInfo.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewApplicationInfoUI.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="CancelApplication.h">
+      <Filter>헤더 파일\채용지원 서브시스템</Filter>
+    </ClInclude>
+    <ClInclude Include="CancelApplicationUI.h">
       <Filter>헤더 파일\채용지원 서브시스템</Filter>
     </ClInclude>
   </ItemGroup>
