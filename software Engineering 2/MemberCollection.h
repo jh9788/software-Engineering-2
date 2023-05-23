@@ -27,5 +27,8 @@ public:
 	Member* findMemberById(string memberId);
 	string findBusinessNumByName(string memberName);
 	string findIdByName(string memberName);
+
+	string findIdByBusinessNum(string businessNum);
+	
 	~MemberCollection();
 };
