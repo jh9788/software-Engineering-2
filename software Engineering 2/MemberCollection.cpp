@@ -109,6 +109,26 @@ string MemberCollection::findBusinessNumByName(string memberName)
     }
 }
 
+string MemberCollection::findIdByBusinessNum(string businessNum)
+{
+    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+        for (auto& member : memberCollection) {
+            CompanyMember* companyMember = dynamic_cast<CompanyMember*>(member);
+            if (companyMember && companyMember->getBusinessNum() == businessNum) {
+                // 일치하는 businessNum을 가진 CompanyMember를 찾았으므로,
+                // 이 Member의 이름으로 다시 회원 컬렉션을 검색하여 해당 회원의 ID를 반환합니다.
+                for (auto& searchMember : memberCollection) {
+                    if (searchMember->getName() == companyMember->getName()) {
+                        return searchMember->getId();
+                    }
+                }
+            }
+        }
+        return 0; // 원하는 경우 다른 "찾을 수 없음" 메시지로 변경 가능
+}
+    
+
+
 string MemberCollection::findIdByName(string memberName)
 {
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
@@ -119,6 +139,19 @@ string MemberCollection::findIdByName(string memberName)
         }
     }
 }
+
+string MemberCollection::findNameById(string memberId)
+{
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getId() == memberId) {
+            Member* member = (*it);
+            return member->getName();
+        }
+    }
+}
+
+
 
 /*
 함수 이름: ~MemberCollection

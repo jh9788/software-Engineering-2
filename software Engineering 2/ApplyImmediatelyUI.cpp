@@ -19,14 +19,7 @@ void ApplyImmediatelyUI::startInterface()
 	*fout << "4.2. 채용 지원" << endl;
 }
 
-void ApplyImmediatelyUI::requestApplyImmediately(string inputEvent, string currentLoginId)
-{
-	stringstream input(inputEvent);
-	string num1, num2, businessNum;
 
-	input >> num1 >> num2 >> businessNum;
-	control->applyImmediately(businessNum);
-}
 
 void ApplyImmediatelyUI::showApplyImmediately(string inputEvent)
 {
@@ -35,6 +28,8 @@ void ApplyImmediatelyUI::showApplyImmediately(string inputEvent)
 
 	input >> num1 >> num2 >> businessNum;
 
-	*fout << "> ";
+	string returnString = control->applyImmediately(businessNum);
+
+	*fout <<  returnString << endl << endl;
 }
 

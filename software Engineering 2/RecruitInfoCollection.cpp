@@ -71,17 +71,30 @@ string RecruitInfoCollection::getRecruitInfoWithoutSign(string currentLoginId)
 
 }
 
-string RecruitInfoCollection::findRecruitInfoByBusinessNum(string businessNum)
+RecruitInfo* RecruitInfoCollection::findRecruitInfoById(string companyId)
 {
-    //for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
-    //    // 만약 name이 같은 회원을 찾으면
-    //    if ((*it)->getName() == memberName) {
-    //        Member* member = (*it);
-    //        return member->getId();
-    //    }
-    //}
-    return businessNum;
+    for (auto& recruitInfo : recruitInfoCollection) {
+        if (recruitInfo->getCompanyId() == companyId) {
+            return recruitInfo;
+        }
+    }
+    return nullptr;
 }
+
+string RecruitInfoCollection::findWorkById(string companyId)
+{
+    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+    for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); it++) {
+        // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
+        if ((*it)->getCompanyId() == companyId) {
+            return (*it)->getWork();
+             
+        }
+    }
+
+    return 0;
+}
+
 /*
 함수 이름: ~RecruitInfoCollection
 기능: 소멸자

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include "ApplicationInfoCollection.h"
+#include "RecruitInfoCollection.h"
+#include "MemberCollection.h"
 
 using namespace std;
 
@@ -13,10 +15,14 @@ class ApplyImmediately
 private:
 	ApplyImmediatelyUI* boundary;
 	ApplicationInfoCollection* applicationInfoCollection;
+	RecruitInfoCollection* recruitInfoCollection;
+	MemberCollection* memberCollection;
 public:
-	ApplyImmediately(ApplicationInfoCollection* inputApplicationInfoCollection);
+	ApplyImmediately(ApplicationInfoCollection* inputApplicationInfoCollection,
+		RecruitInfoCollection* inputRecruitInfoCollection,MemberCollection* inputMemberCollection);
+
 	ApplyImmediatelyUI* getApplyImmediatelyUI();
 
-	void applyImmediately(string businessNum);
+	string applyImmediately(string businessNum);
 };
 

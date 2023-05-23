@@ -238,7 +238,7 @@ void run() {
             // 채용 지원
             case 2:
             {
-                ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection);
+                ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,&recruitInfoCollection, &memberCollection);
                 applyImmediately.getApplyImmediatelyUI()->init(&fout);
                 applyImmediately.getApplyImmediatelyUI()->startInterface();
 
@@ -247,8 +247,9 @@ void run() {
                 else
                 {
                     applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent);
-                    break;
+                    
                 }
+                break;
             }
 
             }
