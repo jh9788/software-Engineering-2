@@ -2,18 +2,21 @@
 
 ApplicationInfoCollection::ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection) {
 	memberCollection = inputMemberCollection;
-	recruitCollection = inputRecruitInfoCollection;
+	recruitInfoCollection = inputRecruitInfoCollection;
 }
 
 string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
-
-
-	return " ";
+	/*for (int i = 0; i < applicationInfoCollection.size(); i++)
+	{
+		applicationInfoCollection[i]->showApplicationInfo();
+	}*/
+	return 0;
 }
 
 
-void ApplicationInfoCollection::addApplicationInfo(string currentLoginId) {
-
+void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId) {
+	ApplicationInfo* applicationInfo = new ApplicationInfo(inputRecruitInfo, currentLoginId);
+	applicationInfoCollection.push_back(applicationInfo);
 }
 
 

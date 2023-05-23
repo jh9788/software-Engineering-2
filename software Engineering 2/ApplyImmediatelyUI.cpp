@@ -25,13 +25,16 @@ void ApplyImmediatelyUI::requestApplyImmediately(string inputEvent, string curre
 	string num1, num2, businessNum;
 
 	input >> num1 >> num2 >> businessNum;
-
 	control->applyImmediately(businessNum);
 }
 
 void ApplyImmediatelyUI::showApplyImmediately(string inputEvent)
 {
 	stringstream input(inputEvent);
-	string num1;
+	string num1, num2, businessNum;
+
+	input >> num1 >> num2 >> businessNum;
+
+	*fout << "> ";
 }
 

@@ -48,21 +48,6 @@ string RecruitInfoCollection::getRecruitInfo(string currentLoginId)
     return returnString;
 }
 
-
-
-/*
-함수 이름: ~RecruitInfoCollection
-기능: 소멸자
-매개변수: X
-반환값: X
-*/
-RecruitInfoCollection::~RecruitInfoCollection()
-{
-    for (int i = 0; i < recruitInfoCollection.size(); i++)
-        recruitInfoCollection.pop_back();
-}
-
-
 /*
 함수 이름: getRecruitInfoWithoutSign
 기능: 로그인 한 사람이 등록한 모든 채용 정보를 담아 ">" 기호를 제외하고 반환한다.
@@ -83,4 +68,30 @@ string RecruitInfoCollection::getRecruitInfoWithoutSign(string currentLoginId)
     }
 
     return returnString;
+
 }
+
+string RecruitInfoCollection::findRecruitInfoByBusinessNum(string businessNum)
+{
+    //for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+    //    // 만약 name이 같은 회원을 찾으면
+    //    if ((*it)->getName() == memberName) {
+    //        Member* member = (*it);
+    //        return member->getId();
+    //    }
+    //}
+    return businessNum;
+}
+/*
+함수 이름: ~RecruitInfoCollection
+기능: 소멸자
+매개변수: X
+반환값: X
+*/
+RecruitInfoCollection::~RecruitInfoCollection()
+{
+    for (int i = 0; i < recruitInfoCollection.size(); i++)
+        recruitInfoCollection.pop_back();
+}
+
+

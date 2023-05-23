@@ -235,9 +235,20 @@ void run() {
                     break;
                 }
             }
+            // 채용 지원
             case 2:
             {
-                break;
+                ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection);
+                applyImmediately.getApplyImmediatelyUI()->init(&fout);
+                applyImmediately.getApplyImmediatelyUI()->startInterface();
+
+                if(currentMemberType==1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else
+                {
+                    applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent);
+                    break;
+                }
             }
 
             }
