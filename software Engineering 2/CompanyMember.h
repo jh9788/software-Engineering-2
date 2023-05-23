@@ -16,7 +16,7 @@ private:
 
 public:
 	CompanyMember(string inputName, string businessNum, string inputId, string inputPassword, int inputMemberType);
-	virtual string getBusinessNum();		// businessNum 값을 가져온다.
+	string getBusinessNum();		// businessNum 값을 가져온다.
 	virtual void showMemberInfo();	/* 제출 시 삭제할 함수!! */
 	//void getRecruitList();
 	//void addRecruitInfo();

@@ -16,11 +16,11 @@ class ApplicationInfoCollection {
 private:
 	vector<ApplicationInfo*> applicationInfoCollection;
 	MemberCollection* memberCollection;
-	RecruitInfoCollection* recruitInfoCollection;
+	RecruitInfoCollection* recruitCollection;
 public:
 	ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitCollection);
 	void addApplicationInfo(string currentLoginId);	// 회원 가입 시, 회원 추가
-	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 회원 탈퇴 시, 회원 삭제
+	void removeApplicationInfo(string currentLoginId); // 회원 탈퇴 시, 회원 삭제
 	string getApplicationInfo(string currentLoginId);
 
 };
