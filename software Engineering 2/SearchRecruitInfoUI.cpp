@@ -35,12 +35,12 @@ void SearchRecruitInfoUI::startInterface() {
 }
 
 /*
-	함수 이름 : requestSearchRecruitInfo
+	함수 이름 : showSearchRecruitInfo
 	기능: 일반 회원이 채용 정보 검색을 요청
 	매개변수: string inputEvent -> 입력한 한 줄의 문자열, string currentLoginId -> 현재 로그인 한 사람의 ID를 매개변수로 보냄
 	반환값: X
 */
-void SearchRecruitInfoUI::requestSearchRecruitInfo(string inputEvent) {
+void SearchRecruitInfoUI::showSearchRecruitInfo(string inputEvent) {
 	stringstream input(inputEvent);
 	string num1, num2, name;
 
@@ -48,11 +48,7 @@ void SearchRecruitInfoUI::requestSearchRecruitInfo(string inputEvent) {
 
 	
 	string returnString = control->searchRecruitInfo(name);
+
 	*fout << returnString << endl;
 }
-
-//void SearchRecruitInfoUI::showSearchRecruitInfo(string inputEvent)
-//{
-//	*fout << inputEvent << endl;
-//}
 

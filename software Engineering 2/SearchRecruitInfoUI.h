@@ -20,6 +20,5 @@ public:
 	void init(ofstream* inputFout); //파일 입출력을 위한 함수
 
 	void startInterface(); // 인터페이스 시작
-	void requestSearchRecruitInfo(string inputEvent); // 채용 정보 검색을 recruitInfoCollection 
-	//void showSearchRecruitInfo(string inputEvent); // 채용 정보 검색 완료 화면 파일에 저장
+	void showSearchRecruitInfo(string inputEvent); // 채용 정보 검색을 recruitInfoCollection 
 };

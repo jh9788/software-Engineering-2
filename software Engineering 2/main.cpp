@@ -74,7 +74,7 @@ void run() {
 
     MemberCollection memberCollection = MemberCollection(); // MemberCollection 생성
     RecruitInfoCollection recruitInfoCollection = RecruitInfoCollection(); // RecruitInfoCollection 생성
-    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(); // ApplicationInfoCollection 생성
+    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(&memberCollection, &recruitInfoCollection); // ApplicationInfoCollection 생성
 
     string currentLoginId = "";       // 현재 로그인 중인 ID를 currentLoginId에 저장
     int currentMemberType = 0;         // 1이면 회사 회원, 2면 일반 회원
@@ -231,8 +231,7 @@ void run() {
                 if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
                     break;
                 else {
-                    searchRecruitInfo.getSearchRecruitInfoUI()->requestSearchRecruitInfo(inputEvent);
-                    //searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo();
+                    searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo(inputEvent);
                     break;
                 }
             }

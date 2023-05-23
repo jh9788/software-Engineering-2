@@ -5,3 +5,12 @@ ApplicationInfo::ApplicationInfo(RecruitInfo* inputRecruitInfo, string inputGene
 	recruitInfo = inputRecruitInfo;
 	generalId = inputGeneralId;
 }
+
+string ApplicationInfo::getGeneralId() {
+	return generalId;
+}
+
+
+RecruitInfo* ApplicationInfo::getRecruitInfo() {
+	return recruitInfo;
+}

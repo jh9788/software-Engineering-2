@@ -42,13 +42,16 @@ recruitinfocollection에서 얻은 string의 개행의 수만큼 반복?
 string SearchRecruitInfo::searchRecruitInfo(string name) {
     string targetId = memberCollection->findIdByName(name);
     string businessNum = memberCollection->findBusinessNumByName(name);
-    string returnString = recruitInfoCollection->getRecruitInfo(targetId);  // recruitInfoCollection class가 갖고 있는 addRecruitInfo함수 호출하여 RecruitInfo 추가
+    string returnString = recruitInfoCollection->getRecruitInfoWithoutSign(targetId);  // recruitInfoCollection class가 갖고 있는 addRecruitInfo함수 호출하여 RecruitInfo 추가
+    
     int lineNum = count(returnString.begin(), returnString.end(), '\n');
-    string newString = name + " " + businessNum + " ";
-    cout << newString;
+    
+    string newString = "> " + name + " " + businessNum + " ";
     stringstream temp(returnString);
     string line;
+
     vector<string> lines;
+
     while (getline(temp, line)) 
     {
         lines.push_back(newString + line);
@@ -57,7 +60,7 @@ string SearchRecruitInfo::searchRecruitInfo(string name) {
     for (size_t i = 0; i < lines.size(); ++i)
     {
         result << lines[i];
-        if (i < lines.size() - 1)
+        if (i < lines.size())
         {
             result << "\n";
         }

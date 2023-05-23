@@ -8,6 +8,9 @@
 3 1 accounting1 1 2023/05/27
 3 2
 2 2
+2 1 jp pwd4
+4 1 korea
+2 2
 2 1 hk pwd1	
 3 1 accounting2 3 2023/05/28
 3 2
@@ -16,6 +19,4 @@
 3 1 account 10 2023/05/26
 3 2
 2 2
-2 1 jp pwd4
-4 1 korea
 6 1

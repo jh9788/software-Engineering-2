@@ -13,6 +13,8 @@ private:
 
 public:
 	ApplicationInfo(RecruitInfo* inputRecruitInfo, string inputGeneralId);
+	string getGeneralId();
+	RecruitInfo* getRecruitInfo();
 };
 
 

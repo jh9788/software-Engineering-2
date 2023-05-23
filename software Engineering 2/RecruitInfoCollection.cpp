@@ -61,3 +61,26 @@ RecruitInfoCollection::~RecruitInfoCollection()
     for (int i = 0; i < recruitInfoCollection.size(); i++)
         recruitInfoCollection.pop_back();
 }
+
+
+/*
+함수 이름: getRecruitInfoWithoutSign
+기능: 로그인 한 사람이 등록한 모든 채용 정보를 담아 ">" 기호를 제외하고 반환한다.
+매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
+반환값: string
+*/
+string RecruitInfoCollection::getRecruitInfoWithoutSign(string currentLoginId)
+{
+    string returnString = "";
+    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+    for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); it++) {
+        // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
+        if ((*it)->getCompanyId() == currentLoginId) {
+            returnString = returnString + (*it)->getWork() + " ";
+            returnString = returnString + (*it)->getTargetNum() + " ";
+            returnString = returnString + (*it)->getDeadline() + "\n";
+        }
+    }
+
+    return returnString;
+}

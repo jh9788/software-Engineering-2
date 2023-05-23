@@ -24,6 +24,7 @@ public:
 	bool isMember(string memberId, string memberPassword); // 등록된 회원인지 확인 (로그인)
 	int getMemberType(string memberId, string memberPassword);	// 회사 회원인지, 일반 회원인지 구분할 수 있는 memberType을 가져오기
 	//void findMemberByName();
+	Member* findMemberById(string memberId);
 	string findBusinessNumByName(string memberName);
 	string findIdByName(string memberName);
 	~MemberCollection();
