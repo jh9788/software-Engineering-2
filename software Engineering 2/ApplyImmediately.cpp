@@ -16,5 +16,6 @@ ApplyImmediatelyUI* ApplyImmediately::getApplyImmediatelyUI()
 
 void ApplyImmediately::applyImmediately(string businessNum)
 {
-	applicationInfoCollection->addApplicationInfo(businessNum);
+	RecruitInfo* a;
+	applicationInfoCollection->addApplicationInfo(a,businessNum);
 }
