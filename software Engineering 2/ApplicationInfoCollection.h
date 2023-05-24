@@ -14,4 +14,7 @@ class ApplicationInfoCollection {
 private:
 	vector<ApplicationInfo*> applicationInfoVec;
 public:
+
+	//control -> 3.1.1 -> applicationinfo collection
+	map<string, int> calcAppliedRecruitInfoStats(string currentLoginId);
 };

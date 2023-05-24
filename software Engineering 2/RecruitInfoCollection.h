@@ -1,6 +1,7 @@
 #pragma once
 #include "RecruitInfo.h"
 #include <vector>
+#include <map>
 #include <string>
 
 using namespace std;
@@ -20,6 +21,9 @@ public:
 
 	void addRecruitInfo(string work, string targetNum, string deadline, string currentLoginId);	// 채용 정보 등록 시, 새로운 채용 정보를 recruitInfoCollection에 추가
 	string getRecruitInfo(string currentLoginId); // 로그인 한 사람이 등록한 모든 채용 정보를 담아 반환
+
+	//control -> 2.1.1 -> recruitinfo collection
+	map<string, int> calcAddedRecruitInfoStats(string currentLoginId);
 
 	~RecruitInfoCollection();	// 소멸자
 };

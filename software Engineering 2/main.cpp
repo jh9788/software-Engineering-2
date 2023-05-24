@@ -22,18 +22,28 @@
 #include "WithdrawUI.h"
 #include "Withdraw.h"
 
-// 채용정보관리 서브시스템 헤더
+//채용정보관리 서브시스템 헤더
 #include "AddRecruitInfoUI.h"
 #include "AddRecruitInfo.h"
 #include "ViewAddedRecruitListUI.h"
 #include "ViewAddedRecruitList.h"
 
+//채용정보통걔 서브시스템 헤더
+#include "ViewRecruitInfoStatsUI.h"
+#include "ViewRecruitInfoStats.h"
+
 using namespace std;
 
 //상수 선언
 #define endl '\n'
+
+/*
 #define INPUT_FILE "example.txt"
 #define OUTPUT_FILE "output.txt"
+*/
+
+#define INPUT_FILE "example_sunjoo.txt"
+#define OUTPUT_FILE "output_sunjoo.txt"
 
 ifstream fin; // 텍스트 파일 열기
 ofstream fout; // 텍스트 파일로 추출하기
@@ -74,16 +84,6 @@ void run() {
     int currentMemberType = 0;         // 1이면 회사 회원, 2면 일반 회원
     // currentMemberType이 1일 때에는 회사 회원 관련 시스템이 작동하고, 일반 회원 관련 시스템에 접근 시 아무 행동도 하지 않으며,
     // currentMemberType이 2일 때에는 일반 회원 관련 시스템이 작동하고, 회사 회원 관련 시스템에 접근 시 아무 행동도 하지 않는다.
-
-    /*
-    RegisterUI registerUI = RegisterUI(&fout);   // 회원 가입을 위한 바운더리 객체 생성
-    WithdrawUI withdrawUI = WithdrawUI(&fout);   // 회원 탈퇴를 위한 바운더리 객체 생성
-    LoginUI loginUI = LoginUI(&fout);            // 로그인을 위한 바운더리 객체 생성
-    LogoutUI logoutUI = LogoutUI(&fout);         // 로그아웃을 위한 바운더리 객체 생성
-    AddRecruitInfoUI addRecruitInfoUI = AddRecruitInfoUI(&fout);     // 채용 정보 등록을 위한 객체 생성
-    ViewAddedRecruitListUI viewAddedRecruitListUI = ViewAddedRecruitListUI(&fout);   // 등록한 채용 정보 리스트 조회를 위한 객체 생성
-    */
-
 
     while (keepGoing) { // 한 줄씩 읽어오기
         getline(fin, inputEvent);
@@ -217,7 +217,22 @@ void run() {
             break;
         }
         case 5:
-        {
+        {   
+            switch (secondEvent) {
+            case 1: { //5.1 지원 정보 통계
+                ViewRecruitInfoStats viewRecruitInfoStats = ViewRecruitInfoStats(&recruitInfoCollection, &applicationInfoCollection);
+                viewRecruitInfoStats.getViewRecruitInfoStatsUI()->init(&fout);
+                viewRecruitInfoStats.getViewRecruitInfoStatsUI()->startInterface();
+
+                if (currentMemberType == 1) {//회사 회원
+                    viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAddedRecruitInfoStats(currentLoginId);
+                }
+                else if(currentMemberType == 2){//일반 회원
+                    viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAppliedRecruitInfoStats(currentLoginId);
+                }
+                break;
+            }
+            }
             break;
         }
         case 6:

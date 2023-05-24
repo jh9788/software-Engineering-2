@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <map>
 #include "RecruitInfo.h"
 #include "RecruitInfoCollection.h"
 
@@ -49,6 +50,25 @@ string RecruitInfoCollection::getRecruitInfo(string currentLoginId)
 }
 
 
+map<string, int> RecruitInfoCollection::calcAddedRecruitInfoStats(string currentLoginId)
+{
+    map<string, int> recruitInfoStats;
+
+    for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); ++it) {
+        if ((*it)->getCompanyId() == currentLoginId) {
+            string work = (*it)->getWork();
+
+            if (recruitInfoStats.find(work) == recruitInfoStats.end()) {
+                recruitInfoStats[work] = 1;
+            }
+            else {
+                recruitInfoStats[work] += 1;
+            }
+        }
+    }
+
+    return recruitInfoStats;
+}
 
 /*
 함수 이름: ~RecruitInfoCollection
@@ -61,3 +81,5 @@ RecruitInfoCollection::~RecruitInfoCollection()
     for (int i = 0; i < recruitInfoCollection.size(); i++)
         recruitInfoCollection.pop_back();
 }
+
+
