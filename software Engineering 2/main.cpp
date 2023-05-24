@@ -33,6 +33,10 @@
 #include "SearchRecruitInfo.h"
 #include "ApplyImmediatelyUI.h"
 #include "ApplyImmediately.h"
+#include "ViewApplicationInfoUI.h"
+#include "ViewApplicationInfo.h"
+#include "CancelApplicationUI.h"
+#include "CancelApplication.h"
 
 using namespace std;
 
@@ -89,7 +93,7 @@ void run() {
     AddRecruitInfoUI addRecruitInfoUI = AddRecruitInfoUI(&fout);     // 채용 정보 등록을 위한 객체 생성
     ViewAddedRecruitListUI viewAddedRecruitListUI = ViewAddedRecruitListUI(&fout);   // 등록한 채용 정보 리스트 조회를 위한 객체 생성
     */
-
+    
 
     while (keepGoing) { // 한 줄씩 읽어오기
         getline(fin, inputEvent);
@@ -251,7 +255,39 @@ void run() {
                 }
                 break;
             }
+            case 3:
+            {
+                //지원 정보 조회
 
+                ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);
+                viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);
+                viewApplicationInfo.getViewApplicationInfoUI()->startInterface(); //인터페이스 시작
+
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
+                    break;
+                }
+
+            }
+            case 4:
+            {
+                //지원 취소
+
+                CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);
+                cancelApplication.getCancelApplicationUI()->init(&fout);
+                cancelApplication.getCancelApplicationUI()->startInterface(); //인터페이스 시작
+
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    cancelApplication.getCancelApplicationUI()->showCancelApplication(currentLoginId, inputEvent);
+                    break;
+                }
+
+
+            }
             }
             break;
         }

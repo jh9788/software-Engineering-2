@@ -18,14 +18,17 @@
 
 2.1. 로그인
 > hn pwd2
+> jp pwd4
 
 4.1. 채용 정보 검색
 > hankook 3456 accounting 2 2023/05/26
+4.3. 지원 정보 조회
 
 4.2. 채용 지원
 > hankook 3456 accounting
 
 2.2. 로그아웃
 > hn
+4.4. 지원 취소
 
 6.1. 종료

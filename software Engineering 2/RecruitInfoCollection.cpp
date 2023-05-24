@@ -108,3 +108,18 @@ RecruitInfoCollection::~RecruitInfoCollection()
 }
 
 
+}
+
+
+RecruitInfo* RecruitInfoCollection::findByCompanyId(string companyId) {
+    for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); it++) {
+        // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
+        if ((*it)->getCompanyId() == companyId) {
+            return *it;
+        }
+    }
+
+    return NULL; //발견하지 못했을때
+
+
+}
