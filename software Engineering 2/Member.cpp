@@ -91,6 +91,6 @@ int Member::getMemberType() {
 //
 //}
 
-string Member::getBusinessNum() {
+string Member::getBusinessNum(){
 	return "";
 }

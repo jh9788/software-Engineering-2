@@ -53,6 +53,10 @@ void run();
 void program_exit();
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
 	fin.open(INPUT_FILE);
 	fout.open(OUTPUT_FILE);
 
@@ -250,7 +254,7 @@ void run() {
                     break;
                 else
                 {
-                    applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent);
+                    applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent, currentLoginId);
                     applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
                 }
                 break;
@@ -266,6 +270,7 @@ void run() {
                 if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
                     break;
                 else {
+                    //cout << "currentLoginId : " << currentLoginId << endl;
                     viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
                     break;
                 }

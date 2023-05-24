@@ -135,10 +135,9 @@ string MemberCollection::findNameById(string memberId)
 string MemberCollection::findIdByBusinessNum(string businessNum) {
 
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
-        // 만약 name이 같은 회원을 찾으면
+        // 만약 num이 같은 회원을 찾으면
         if ((*it)->getBusinessNum() == businessNum) {
-            Member* member = (*it);
-            return member->getId();
+            return (*it)->getId();
         }
     }
 }

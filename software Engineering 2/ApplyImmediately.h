@@ -23,6 +23,6 @@ public:
 
 	ApplyImmediatelyUI* getApplyImmediatelyUI();
 
-	string applyImmediately(string businessNum);
+	string applyImmediately(string businessNum, string currentLoginId);
 };
 

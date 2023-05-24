@@ -19,5 +19,5 @@ public:
 	void init(ofstream* inputFout);
 
 	void startInterface();
-	void showApplyImmediately(string inputEvent);
+	void showApplyImmediately(string inputEvent, string currentLoginId);
 };

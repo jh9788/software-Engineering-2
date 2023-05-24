@@ -18,7 +18,6 @@ CancelApplicationUI* CancelApplication::getCancelApplicationUI() {
 string CancelApplication::viewCancelApplication(string currentLoginId, string inputBusinessNum) {
 	string returnString;
 
-
 	returnString = applicationInfoCollection->removeApplicationInfo(currentLoginId, inputBusinessNum);
 
 	return returnString;

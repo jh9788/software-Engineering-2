@@ -2,6 +2,10 @@
 #include "RecruitInfo.h"
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <sstream>
+#include <iomanip>
+#include <chrono>
 
 using namespace std;
 
@@ -13,7 +17,7 @@ using namespace std;
 class RecruitInfoCollection
 {
 private:
-	vector <RecruitInfo*> recruitInfoCollection;
+	vector <RecruitInfo*> ownedRecruitInfo;
 
 public:
 	void getAllRecruitInfoCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회

@@ -21,14 +21,14 @@ void ApplyImmediatelyUI::startInterface()
 
 
 
-void ApplyImmediatelyUI::showApplyImmediately(string inputEvent)
+void ApplyImmediatelyUI::showApplyImmediately(string inputEvent,string currentLoginId)
 {
 	stringstream input(inputEvent);
 	string num1, num2, businessNum;
 
 	input >> num1 >> num2 >> businessNum;
 
-	string returnString = control->applyImmediately(businessNum);
+	string returnString = control->applyImmediately(businessNum, currentLoginId);
 
 	*fout <<  returnString << endl << endl;
 }
