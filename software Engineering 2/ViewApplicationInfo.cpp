@@ -2,7 +2,8 @@
 #include "ViewApplicationInfoUI.h"
 
 
-ViewApplicationInfo::ViewApplicationInfo(ApplicationInfoCollection* inputApplicationInfoCollection) {
+ViewApplicationInfo::ViewApplicationInfo(ApplicationInfoCollection* inputApplicationInfoCollection) 
+{
 
 	applicationInfoCollection = inputApplicationInfoCollection;
 
@@ -11,11 +12,13 @@ ViewApplicationInfo::ViewApplicationInfo(ApplicationInfoCollection* inputApplica
 }
 
 
-ViewApplicationInfoUI* ViewApplicationInfo::getViewApplicationInfoUI() {
+ViewApplicationInfoUI* ViewApplicationInfo::getViewApplicationInfoUI() 
+{
 	return boundary;
 }
 
-string ViewApplicationInfo::viewApplicationList(string currentLoginId) {
+string ViewApplicationInfo::viewApplicationList(string currentLoginId) 
+{
 	string retrunString = applicationInfoCollection->getApplicationInfo(currentLoginId);
 	return retrunString;
 }

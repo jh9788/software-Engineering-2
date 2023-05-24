@@ -37,7 +37,7 @@ void LoginUI::startInterface() {
 }
 
 /*
-    함수 이름 : requestLogin
+    함수 이름 : isLoginValid
     기능: 로그인 Boundary의 함수로써, 로그인의 Control에 로그인을 요청하는 역할
     매개변수: MemberCollection& memberCollection -> memberCollection에 저장되어있는 애인지 확인하기 위해 보내는 argument
               const char* name -> 이름
@@ -48,7 +48,7 @@ void LoginUI::startInterface() {
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
     반환값: bool
 */
-bool LoginUI::requestLogin(string inputEvent, string& currentLoginId, int& currentMemberType) {
+bool LoginUI::isLoginValid(string inputEvent, string& currentLoginId, int& currentMemberType) {
     // 다음에 호출할 함수의 매개변수에 const char* type을 넣기 위한 작업
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, id, pwd;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
@@ -56,7 +56,7 @@ bool LoginUI::requestLogin(string inputEvent, string& currentLoginId, int& curre
     input >> num1 >> num2 >> id >> pwd;     // 공백을 기준으로 각각의 string을 변수에 담기
 
 
-    if (control->verifyLogin(id, pwd, currentLoginId, currentMemberType))
+    if (control->isLoginVerified(id, pwd, currentLoginId, currentMemberType))
         return true;
     else
         return false;

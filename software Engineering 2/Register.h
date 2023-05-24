@@ -7,7 +7,8 @@ using namespace std;
 class RegisterUI;
 
 // 회원가입 Control
-class Register {
+class Register 
+{
 private:
 	RegisterUI* boundary;
 	MemberCollection* memberCollection;

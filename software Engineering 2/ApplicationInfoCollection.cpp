@@ -4,8 +4,8 @@
 /* 제출 시 삭제할 함수 !! 현재 지원한 정보 조회 */
 void ApplicationInfoCollection::getAllApplicationInfoCollection()
 {
-    for (int i = 0; i < ownedApplicationinfo.size(); i++) {
-        ownedApplicationinfo[i]->showApplicationInfo();
+    for (int i = 0; i < ownedApplicationInfo.size(); i++) {
+        ownedApplicationInfo[i]->showApplicationInfo();
     }
 }
 
@@ -25,11 +25,11 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
     string deadline;
     string returnString = "";
     
-    sort(ownedApplicationinfo.begin(), ownedApplicationinfo.end());
+    sort(ownedApplicationInfo.begin(), ownedApplicationInfo.end());
 
     vector <string> forSort;
 
-    for (auto it = ownedApplicationinfo.begin(); it != ownedApplicationinfo.end(); it++) {
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); it++) {
         // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
         cout << "currentLoginId : " << currentLoginId << endl;
         cout << "General ID : " << (*it)->getGeneralId();
@@ -66,16 +66,16 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
 void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId)
 { 
 	ApplicationInfo* applicationInfo = new ApplicationInfo(inputRecruitInfo, currentLoginId);
-    ownedApplicationinfo.push_back(applicationInfo);
+    ownedApplicationInfo.push_back(applicationInfo);
 }
 
-
+//지원 취소
 string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, string inputBusinessNum) {
     
     string returnString = "";
     string id;
     // applicationInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
-    for (auto it = ownedApplicationinfo.begin(); it != ownedApplicationinfo.end(); it++) {
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); it++) {
 
         
         string targetCompanyMemberId = memberCollection->findIdByBusinessNum(inputBusinessNum);
@@ -92,18 +92,55 @@ string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, s
             returnString = returnString + (*it)->getRecruitInfo()->getWork() + "\n";
 
             delete* it;
-            ownedApplicationinfo.erase(it);
+            ownedApplicationInfo.erase(it);
             break;
         }
     }
     
     return returnString;
 }
+
+//회원 탈퇴 시 일반 회원의 모든 지원 정보 삭제
+void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId) {
+    // applicationInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+    
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end();) {
+        cout << "\n-------------------------\n";
+        cout << (*it)->getGeneralId() << "\n";
+        cout << currentLoginId << "\n";
+
+        // 만약 id가 같은 애가 검색되면 그 애를 삭제
+        if ((*it)->getGeneralId() == currentLoginId) {
+            delete *it;      
+            it = ownedApplicationInfo.erase(it);
+        }
+        else {
+            it++;
+        }
+    }
+    
+    /*
+    vector<ApplicationInfo*> newOwnedApplicationInfo;
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); it++) {
+        ApplicationInfo* cur = *it;
+        cout << currentLoginId;
+
+        if (cur->getGeneralId() == currentLoginId) {
+            delete cur;
+        }
+        else newOwnedApplicationInfo.push_back(cur);
+    }
+    ownedApplicationInfo = newOwnedApplicationInfo;
+    */
+
+    return;
+}
+
 map<string, int> ApplicationInfoCollection::calcAppliedRecruitInfoStats(string currentLoginId)
 {
     map<string, int> recruitInfoStats;
 
-    for (auto it = applicationInfoVec.begin(); it != applicationInfoVec.end(); ++it) {
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); ++it) {
         if ((*it)->getGeneralId() == currentLoginId) {
             string work = (*it)->getRecruitInfoWork();
 

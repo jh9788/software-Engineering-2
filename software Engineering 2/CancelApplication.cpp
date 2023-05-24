@@ -1,7 +1,8 @@
 #include "CancelApplication.h"
 #include "CancelApplicationUI.h"
 
-CancelApplication::CancelApplication(ApplicationInfoCollection* inputApplicationInfoCollection) {
+CancelApplication::CancelApplication(ApplicationInfoCollection* inputApplicationInfoCollection) 
+{
 
 	applicationInfoCollection = inputApplicationInfoCollection;
 
@@ -10,12 +11,14 @@ CancelApplication::CancelApplication(ApplicationInfoCollection* inputApplication
 
 }
 
-CancelApplicationUI* CancelApplication::getCancelApplicationUI() {
+CancelApplicationUI* CancelApplication::getCancelApplicationUI() 
+{
 	return boundary;
 }
 
 
-string CancelApplication::viewCancelApplication(string currentLoginId, string inputBusinessNum) {
+string CancelApplication::viewCancelApplication(string currentLoginId, string inputBusinessNum) 
+{
 	string returnString;
 
 	returnString = applicationInfoCollection->removeApplicationInfo(currentLoginId, inputBusinessNum);

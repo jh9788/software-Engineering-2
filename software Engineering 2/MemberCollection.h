@@ -17,7 +17,6 @@ private:
 	vector <Member*> memberCollection;
 
 public:
-	void getAllMemberCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회
 
 	void addMember(string name, string number, string id, string password, int memType);	// 회원 가입 시, 회원 추가
 	void removeMember(string memberId); // 회원 탈퇴 시, 회원 삭제

@@ -19,8 +19,6 @@ void ApplyImmediatelyUI::startInterface()
 	*fout << "4.2. 채용 지원" << endl;
 }
 
-
-
 void ApplyImmediatelyUI::showApplyImmediately(string inputEvent,string currentLoginId)
 {
 	stringstream input(inputEvent);

@@ -24,7 +24,8 @@ RecruitInfo::RecruitInfo(string inputWork, string inputTargetNum, string inputDe
 매개변수: X
 반환값: string
 */
-string RecruitInfo::getWork() {
+string RecruitInfo::getWork() 
+{
 	return work;
 }
 
@@ -35,7 +36,8 @@ string RecruitInfo::getWork() {
 매개변수: X
 반환값: string
 */
-string RecruitInfo::getDeadline() {
+string RecruitInfo::getDeadline() 
+{
 	return deadline;
 }
 
@@ -46,7 +48,8 @@ string RecruitInfo::getDeadline() {
 매개변수: X
 반환값: string
 */
-string RecruitInfo::getTargetNum() {
+string RecruitInfo::getTargetNum() 
+{
 	return targetNum;
 }
 
@@ -57,13 +60,8 @@ string RecruitInfo::getTargetNum() {
 매개변수: X
 반환값: string
 */
-string RecruitInfo::getCompanyId() {
+string RecruitInfo::getCompanyId() 
+{
 	return companyId;
 }
 
-
-/* 제출 시 삭제할 함수!! */
-void RecruitInfo::showRecruitInfo()
-{
-	cout << "업무: " << getWork() << ", 인원 수: " << getTargetNum() << ", 신청 마감일: " << getDeadline() << endl;
-}

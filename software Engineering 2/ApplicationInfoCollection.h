@@ -15,16 +15,17 @@ using namespace std;
 */
 class ApplicationInfoCollection {
 private:
-	vector<ApplicationInfo*> ownedApplicationinfo;
+	vector<ApplicationInfo*> ownedApplicationInfo;
 
 	MemberCollection* memberCollection;
 	RecruitInfoCollection* recruitInfoCollection;
 public:
-	bool cmp(ApplicationInfo& a, ApplicationInfo& b);
 	void getAllApplicationInfoCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회
 	ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitCollection);
+
 	void addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId);	// 회원 가입 시, 회원 추가
-	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 회원 탈퇴 시, 회원 삭제
+	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 지원 취소
+	void removeAllApplicationInfo(string currentLoginId); //회원 탈퇴시 지원 정보 삭제
 	string getApplicationInfo(string currentLoginId);
 
 	//control -> 3.1.1 -> applicationinfo collection

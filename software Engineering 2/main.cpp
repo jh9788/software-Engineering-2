@@ -38,7 +38,7 @@
 #include "CancelApplicationUI.h"
 #include "CancelApplication.h"
 
-//채용정보통걔 서브시스템 헤더
+//채용정보통계 서브시스템 헤더
 #include "ViewRecruitInfoStatsUI.h"
 #include "ViewRecruitInfoStats.h"
 
@@ -56,7 +56,8 @@ ofstream fout; // 텍스트 파일로 추출하기
 void run();
 void program_exit();
 
-int main() {
+int main() 
+{
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
@@ -75,7 +76,8 @@ int main() {
     매개변수: X
     반환값: X
 */
-void run() {
+void run() 
+{
     if (!fin || !fout) {
         cout << "파일을 열 수 없습니다." << endl;
         return;
@@ -103,236 +105,222 @@ void run() {
         // 회원 탈퇴할 때에도 마찬가지
 
         switch (firstEvent) {
-        case 1:
-        {
-            switch (secondEvent) {
-            // 회원 가입
             case 1:
             {
-                Register regist = Register(&memberCollection);
-                regist.getRegisterUI()->init(&fout);
-                regist.getRegisterUI()->startInterface();
+                switch (secondEvent) {
+                    // 회원 가입
+                    case 1:
+                    {
+                        Register regist = Register(&memberCollection);
+                        regist.getRegisterUI()->init(&fout);
+                        regist.getRegisterUI()->startInterface();
+                            
+                        currentMemberType = regist.getRegisterUI()->selectMemberType(inputEvent); // 1. 1. 1에서 맨 뒤의 1이 currentMemberType에 저장됨 
+                        regist.getRegisterUI()->requestRegister(inputEvent, currentMemberType);   // Boundary에 있는 requestRegister 함수 호출
+                        regist.getRegisterUI()->showRegisterSuccessInterface(inputEvent, currentMemberType);        // 회원가입 시 내용을 파일에 저장
+                    }
+                    break;
+                    // 회원 탈퇴
+                    case 2:
+                    {
+                        Withdraw withdraw = Withdraw(&memberCollection, &applicationInfoCollection);
+                        withdraw.getWithdrawUI()->init(&fout);
+                        withdraw.getWithdrawUI()->startInterface();    // 인터페이스 시작
 
-                currentMemberType = regist.getRegisterUI()->selectMemberType(inputEvent); // 1. 1. 1에서 맨 뒤의 1이 currentMemberType에 저장됨 
-                regist.getRegisterUI()->requestRegister(inputEvent, currentMemberType);   // Boundary에 있는 requestRegister 함수 호출
-                regist.getRegisterUI()->showRegisterSuccessInterface(inputEvent, currentMemberType);        // 회원가입 시 내용을 파일에 저장
+                        if (currentLoginId == "") // 로그인 하지 않은 상태라면 currentLoginId은 ""이고, 회원 탈퇴할 수 없으므로, 아무 것도 하지 않고 건너뜀
+                            break;
+                        else {              // 로그인 되었을 때에만 회원 탈퇴
+                            withdraw.getWithdrawUI()->requestWithdraw(currentLoginId, currentMemberType);     // Boundary에 있는 requestWithdraw 함수 호출
+                            withdraw.getWithdrawUI()->showWithdrawId(tempId);           // 회원탈퇴 시 내용을 파일에 저장
+                            break;
+                        }
+                    }   
+                    break;
+                }
             }
             break;
-            // 회원 탈퇴
             case 2:
             {
-                Withdraw withdraw = Withdraw(&memberCollection);
-                withdraw.getWithdrawUI()->init(&fout);
-                withdraw.getWithdrawUI()->startInterface();    // 인터페이스 시작
+                switch (secondEvent) {
+                    // 로그인
+                    case 1:
+                    {
+                        Login login = Login(&memberCollection);
+                        login.getLoginUI()->init(&fout);
+                        login.getLoginUI()->startInterface();    // 인터페이스 시작
 
-                if (currentLoginId == "") // 로그인 하지 않은 상태라면 currentLoginId은 ""이고, 회원 탈퇴할 수 없으므로, 아무 것도 하지 않고 건너뜀
-                    break;
-                else {              // 로그인 되었을 때에만 회원 탈퇴
-                    withdraw.getWithdrawUI()->requestWithdraw(currentLoginId, currentMemberType);     // Boundary에 있는 requestWithdraw 함수 호출
-                    withdraw.getWithdrawUI()->showWithdrawId(tempId);           // 회원탈퇴 시 내용을 파일에 저장
-                    //cout << "after withdraw memberType : " << memberType << endl;
-                    break;
-                }
-            }
-            break;
-            }
-        }
-        break;
-        case 2:
-        {
-            switch (secondEvent) {
-            // 로그인
-            case 1:
-            {
-                Login login = Login(&memberCollection);
-                login.getLoginUI()->init(&fout);
-                login.getLoginUI()->startInterface();    // 인터페이스 시작
+                        if (currentLoginId != "")                 // 누군가 로그인 중이면 로그인 할 수 없으므로, 아무 것도 하지 않고 건너뜀
+                            break;
 
-                if (currentLoginId != "")                 // 누군가 로그인 중이면 로그인 할 수 없으므로, 아무 것도 하지 않고 건너뜀
+                        else {
+                            if (login.getLoginUI()->isLoginValid(inputEvent, currentLoginId, currentMemberType))   // Boundary에 있는 requestLogin 함수 호출
+                                login.getLoginUI()->showLoginSuccessInterface(inputEvent);      // 로그인 성공 시 파일에 저장할 내용 작성
+                            else
+                                login.getLoginUI()->showLoginFailInterface();           // 로그인 실패 시 파일에 저장할 내용 작성
+                            break;
+                        }
+                    }
                     break;
+                    // 로그아웃
+                    case 2:
+                    {
+                        Logout logout = Logout();
+                        logout.getLogoutUI()->init(&fout);
+                        logout.getLogoutUI()->startInterface();    // 인터페이스 시작
 
-                else {
-                    if (login.getLoginUI()->requestLogin(inputEvent, currentLoginId, currentMemberType))   // Boundary에 있는 requestLogin 함수 호출
-                        login.getLoginUI()->showLoginSuccessInterface(inputEvent);      // 로그인 성공 시 파일에 저장할 내용 작성
-                    else
-                        login.getLoginUI()->showLoginFailInterface();           // 로그인 실패 시 파일에 저장할 내용 작성
-
-                    //cout << "currentLoginId : " << currentLoginId << endl;      // 지금 로그인하고 있는 사람이 누구인지 Console 창에 찍어본 것
-                    //cout << "after login currentMemberType : " << currentMemberType << endl;
+                        if (currentLoginId == "")               // 로그인 하지 않은 상태라면 로그아웃할 수 없으므로, 아무 것도 하지 않고 건너뜀
+                            break;
+                        else {              // 로그인 한 상태에서만 로그아웃 진행 가능!
+                            logout.getLogoutUI()->requestLogout(currentLoginId, currentMemberType);       // 로그인 한 상태라면 로그아웃 진행 가능. Boundary에 있는 requestLogout 함수 호출
+                            logout.getLogoutUI()->showLogoutId(tempId);        // 로그아웃 시 파일에 저장할 내용 작성
+                            break;
+                        }
+                    }
                     break;
-                }
-            }
-            break;
-            // 로그아웃
-            case 2:
-            {
-                Logout logout = Logout();
-                logout.getLogoutUI()->init(&fout);
-                logout.getLogoutUI()->startInterface();    // 인터페이스 시작
-
-                if (currentLoginId == "")               // 로그인 하지 않은 상태라면 로그아웃할 수 없으므로, 아무 것도 하지 않고 건너뜀
-                    break;
-                else {              // 로그인 한 상태에서만 로그아웃 진행 가능!
-                    logout.getLogoutUI()->requestLogout(currentLoginId, currentMemberType);       // 로그인 한 상태라면 로그아웃 진행 가능. Boundary에 있는 requestLogout 함수 호출
-                    logout.getLogoutUI()->showLogoutId(tempId);        // 로그아웃 시 파일에 저장할 내용 작성
-                    //cout << "currentLoginId : " << currentLoginId << endl;      // 로그아웃이 잘 되었는지 확인하기 위해 Console 창에 찍어본 것
-                    //cout << "after logout currentMemberType : " << currentMemberType << endl;
-                    break;
-                }
-            }
-            break;
-            }
-        break;
-        case 3:
-        {
-            switch (secondEvent) {
-            // 채용 정보 등록
-            case 1:
-            {
-                AddRecruitInfo addRecruitInfo = AddRecruitInfo(&recruitInfoCollection);
-                addRecruitInfo.getAddRecruitInfoUI()->init(&fout);
-                addRecruitInfo.getAddRecruitInfoUI()->startInterface();    // 인터페이스 시작
-
-                if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
-                    break;
-                else {
-                	addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
-                	addRecruitInfo.getAddRecruitInfoUI()->showAddedRecruitInfo(inputEvent);         // 등록한 채용 정보를 파일에 쓰기
-                    //recruitInfoCollection.getAllRecruitInfoCollection(); // 현재 등록된 채용 정보가 누구누구 있는지 확인하기 위한 애
                 }
                 break;
-            }
-            // 채용 정보 조회
-            case 2:
-            {
-                ViewAddedRecruitList viewAddedRecruitList = ViewAddedRecruitList(&recruitInfoCollection);
-                viewAddedRecruitList.getViewAddedRecruitListUI()->init(&fout);
-                viewAddedRecruitList.getViewAddedRecruitListUI()->startInterface();     // 인터페이스 시작
-
-                if (currentMemberType == 2)
-                    break;
-                else {
-                    viewAddedRecruitList.getViewAddedRecruitListUI()->showRecruitInfo(currentLoginId);      // 등록한 채용 정보 모두 조회
-                    break;
-                }
-            }
-			break;
-            }
-        break;
-        }
-        case 4:
-        {
-            switch (secondEvent) {
-            // 채용 정보 검색
-            case 1:
-            {
-                SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);
-                searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);
-                searchRecruitInfo.getSearchRecruitInfoUI()->startInterface(); // 인터페이스 시작
-                
-                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
-                    break;
-                else {
-                    searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo(inputEvent);
-                    break;
-                }
-            }
-            // 채용 지원
-            case 2:
-            {
-                ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,&recruitInfoCollection, &memberCollection);
-                applyImmediately.getApplyImmediatelyUI()->init(&fout);
-                applyImmediately.getApplyImmediatelyUI()->startInterface();
-
-                if(currentMemberType==1) // 회사 회원은 이 작업 수행 불가능
-                    break;
-                else
+                case 3:
                 {
-                    applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent, currentLoginId);
-                    applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
+                    switch (secondEvent) {
+                    // 채용 정보 등록
+                    case 1:
+                    {
+                        AddRecruitInfo addRecruitInfo = AddRecruitInfo(&recruitInfoCollection);
+                        addRecruitInfo.getAddRecruitInfoUI()->init(&fout);
+                        addRecruitInfo.getAddRecruitInfoUI()->startInterface();    // 인터페이스 시작
+
+                        if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
+                            break;
+                        else {
+                	        addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
+                	        addRecruitInfo.getAddRecruitInfoUI()->showAddedRecruitInfo(inputEvent);         // 등록한 채용 정보를 파일에 쓰기
+                        }
+                        break;
+                    }
+                    // 채용 정보 조회
+                    case 2:
+                    {
+                        ViewAddedRecruitList viewAddedRecruitList = ViewAddedRecruitList(&recruitInfoCollection);
+                        viewAddedRecruitList.getViewAddedRecruitListUI()->init(&fout);
+                        viewAddedRecruitList.getViewAddedRecruitListUI()->startInterface();     // 인터페이스 시작
+
+                        if (currentMemberType == 2)
+                            break;
+                        else {
+                            viewAddedRecruitList.getViewAddedRecruitListUI()->showRecruitInfo(currentLoginId);      // 등록한 채용 정보 모두 조회
+                            break;
+                        }
+                    }
+			        break;
                 }
                 break;
-            }
-            case 3:
-            {
-                //지원 정보 조회
-
-                ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);
-                viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);
-                viewApplicationInfo.getViewApplicationInfoUI()->startInterface(); //인터페이스 시작
-
-                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
-                    break;
-                else {
-                    //cout << "currentLoginId : " << currentLoginId << endl;
-                    viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
-                    break;
-                }
-
             }
             case 4:
             {
-                //지원 취소
+                switch (secondEvent) {
+                    // 채용 정보 검색
+                    case 1:
+                    {
+                        SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);
+                        searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);
+                        searchRecruitInfo.getSearchRecruitInfoUI()->startInterface(); // 인터페이스 시작
+                
+                        if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                            break;
+                        else {
+                            searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo(inputEvent);
+                            break;
+                        }
+                    }
+                    // 채용 지원
+                    case 2:
+                    {
+                        ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,&recruitInfoCollection, &memberCollection);
+                        applyImmediately.getApplyImmediatelyUI()->init(&fout);
+                        applyImmediately.getApplyImmediatelyUI()->startInterface();
 
-                CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);
-                cancelApplication.getCancelApplicationUI()->init(&fout);
-                cancelApplication.getCancelApplicationUI()->startInterface(); //인터페이스 시작
+                        if(currentMemberType==1) // 회사 회원은 이 작업 수행 불가능
+                            break;
+                        else
+                        {
+                            applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent, currentLoginId);
+                            applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
+                        }
+                        break;
+                    }
+                    //지원 정보 조회
+                    case 3:
+                    {
+                        ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);
+                        viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);
+                        viewApplicationInfo.getViewApplicationInfoUI()->startInterface(); //인터페이스 시작
 
-                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
-                    break;
-                else {
-                    cancelApplication.getCancelApplicationUI()->showCancelApplication(currentLoginId, inputEvent);
-                    break;
-                }
+                        if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                            break;
+                        else {
+                            viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
+                            break;
+                        }
+                    }
+                    //지원 취소
+                    case 4:
+                    {
+                        CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);
+                        cancelApplication.getCancelApplicationUI()->init(&fout);
+                        cancelApplication.getCancelApplicationUI()->startInterface(); //인터페이스 시작
 
-
-            }
-            }
-            break;
-        }
-        case 5:
-        {   
-            switch (secondEvent) {
-            case 1: { //5.1 지원 정보 통계
-                ViewRecruitInfoStats viewRecruitInfoStats = ViewRecruitInfoStats(&recruitInfoCollection, &applicationInfoCollection);
-                viewRecruitInfoStats.getViewRecruitInfoStatsUI()->init(&fout);
-                viewRecruitInfoStats.getViewRecruitInfoStatsUI()->startInterface();
-
-                if (currentMemberType == 1) {//회사 회원
-                    viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAddedRecruitInfoStats(currentLoginId);
-                }
-                else if(currentMemberType == 2){//일반 회원
-                    viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAppliedRecruitInfoStats(currentLoginId);
+                        if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                            break;
+                        else {
+                            cancelApplication.getCancelApplicationUI()->showCancelApplication(currentLoginId, inputEvent);
+                            break;
+                        }
+                    }
                 }
                 break;
             }
+            case 5:
+            {   
+                switch (secondEvent) {
+                    //5.1 지원 정보 통계
+                    case 1: { 
+                        ViewRecruitInfoStats viewRecruitInfoStats = ViewRecruitInfoStats(&recruitInfoCollection, &applicationInfoCollection);
+                        viewRecruitInfoStats.getViewRecruitInfoStatsUI()->init(&fout);
+                        viewRecruitInfoStats.getViewRecruitInfoStatsUI()->startInterface();
+
+                        if (currentMemberType == 1) {//회사 회원
+                            viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAddedRecruitInfoStats(currentLoginId);
+                        }
+                        else if(currentMemberType == 2){//일반 회원
+                            viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAppliedRecruitInfoStats(currentLoginId);
+                        }
+                        break;
+                    }
+                }
+                break;
             }
-            break;
-        }
-        case 6:
-        {
-            switch (secondEvent) {
-            case 1:
+            case 6:
             {
-                program_exit();     // 프로그램 종료하기 위한 함수 호출
-                keepGoing = 0;      // keepGoing을 0으로 설정함으로써 while문 탈출
-                break;
+                switch (secondEvent) {
+                    case 1:
+                    {
+                        program_exit();     // 프로그램 종료하기 위한 함수 호출
+                        keepGoing = 0;      // keepGoing을 0으로 설정함으로써 while문 탈출
+                        break;
+                    }
+                    break;
+                }
+			    break;
             }
             break;
             }
-			break;
-        }
-        break;
-        }
-
-        //memberCollection.getAllMemberCollection(); // 현재 멤버가 누구누구 있는지 확인하기 위한 애
-        
         }
     }
 	fin.close(); // 파일 닫기
 	fout.close(); // 파일 닫기
 }
 
-    void program_exit() {
-        fout << "6.1. 종료" << endl;  // 파일에 종료 내용 입력
-    }
+void program_exit() 
+{
+    fout << "6.1. 종료" << endl;  // 파일에 종료 내용 입력
+}

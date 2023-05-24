@@ -17,19 +17,19 @@ void ViewRecruitInfoStatsUI::startInterface() {
 void ViewRecruitInfoStatsUI::requestAddedRecruitInfoStats(string currentLoginId)
 {   
     map<string, int> recruitInfoStats = control->getAddedRecruitInfoStats(currentLoginId);
-    showRecruitInfoStatsInterface(recruitInfoStats);
+    _showRecruitInfoStatsInterface(recruitInfoStats);
 }
 
 void ViewRecruitInfoStatsUI::requestAppliedRecruitInfoStats(string currentLoginId) {
     map<string, int> recruitInfoStats = control->getAppliedRecruitInfoStats(currentLoginId);
-    showRecruitInfoStatsInterface(recruitInfoStats);
+    _showRecruitInfoStatsInterface(recruitInfoStats);
 }
 
 //control에서 받아온 채용정보 통계 출력
-void ViewRecruitInfoStatsUI::showRecruitInfoStatsInterface(map<string, int> recruitInfoStats)
+void ViewRecruitInfoStatsUI::_showRecruitInfoStatsInterface(map<string, int> recruitInfoStats)
 {   
     for (auto it = recruitInfoStats.begin(); it != recruitInfoStats.end(); ++it) {
-        *fout << it->first << " " << it->second << endl; 
+        *fout << "> " << it->first << " " << it->second << endl;
     }
     *fout << endl;
 }

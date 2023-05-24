@@ -11,7 +11,7 @@ private:
 	ViewRecruitInfoStats* control;
 	ofstream* fout;
 
-	void showRecruitInfoStatsInterface(map<string, int> recruitInfoStats);
+	void _showRecruitInfoStatsInterface(map<string, int> recruitInfoStats);
 
 public:
 	ViewRecruitInfoStatsUI(ViewRecruitInfoStats* inputControl);

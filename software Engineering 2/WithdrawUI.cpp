@@ -29,7 +29,8 @@ void WithdrawUI::init(ofstream* inputFout)
     매개변수: X
     반환값: X
 */
-void WithdrawUI::startInterface() {
+void WithdrawUI::startInterface() 
+{
     *fout << "1.2. 회원탈퇴" << endl;     // 유저가 입력한 내용 화면에 띄우기
 }
 
@@ -41,7 +42,8 @@ void WithdrawUI::startInterface() {
               int memberType -> memberType을 0으로 돌려놓기 위한 매개변수
     반환값: X
 */
-void WithdrawUI::requestWithdraw(string& loginId, int& memberType) {
+void WithdrawUI::requestWithdraw(string& loginId, int& memberType) 
+{
     control->withdrawMember( loginId, memberType);     // 회원 탈퇴를 위한 함수 호출
 }
 
@@ -51,6 +53,7 @@ void WithdrawUI::requestWithdraw(string& loginId, int& memberType) {
     매개변수: string withdrawId -> 파일에 저장할 id를 위한 매개변수
     반환값: X
 */
-void WithdrawUI::showWithdrawId(string withdrawId) {
+void WithdrawUI::showWithdrawId(string withdrawId) 
+{
     *fout << "> " << withdrawId << endl << endl;        // 파일에 내용 기입
 }

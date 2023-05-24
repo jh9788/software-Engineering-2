@@ -28,7 +28,8 @@ Member::Member(string inputName, string inputId, string inputPassword, int input
 매개변수: X
 반환값: char*
 */
-string Member::getName() {
+string Member::getName() 
+{
 	return name;
 }
 
@@ -38,7 +39,8 @@ string Member::getName() {
 매개변수: X
 반환값: char*
 */
-string Member::getId() {
+string Member::getId() 
+{
 	return id;
 }
 
@@ -48,7 +50,8 @@ string Member::getId() {
 매개변수: X
 반환값: char*
 */
-string Member::getPassword() {
+string Member::getPassword() 
+{
 	return password;
 }
 
@@ -58,7 +61,8 @@ string Member::getPassword() {
 매개변수: X
 반환값: int
 */
-int Member::getMemberType() {
+int Member::getMemberType() 
+{
 	return memberType;
 }
 
@@ -91,6 +95,7 @@ int Member::getMemberType() {
 //
 //}
 
-string Member::getBusinessNum(){
+string Member::getBusinessNum()
+{
 	return "";
 }

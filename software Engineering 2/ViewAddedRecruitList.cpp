@@ -8,7 +8,8 @@
     매개변수: RecruitInfoCollection* inputRecruitInfoCollection
     반환값: X
 */
-ViewAddedRecruitList::ViewAddedRecruitList(RecruitInfoCollection* inputRecruitInfoCollection) {
+ViewAddedRecruitList::ViewAddedRecruitList(RecruitInfoCollection* inputRecruitInfoCollection) 
+{
     recruitInfoCollection = inputRecruitInfoCollection;
 
     ViewAddedRecruitListUI* boundary = new ViewAddedRecruitListUI(this);
@@ -22,7 +23,8 @@ ViewAddedRecruitList::ViewAddedRecruitList(RecruitInfoCollection* inputRecruitIn
     매개변수: X
     반환값: X
 */
-ViewAddedRecruitListUI* ViewAddedRecruitList::getViewAddedRecruitListUI() {
+ViewAddedRecruitListUI* ViewAddedRecruitList::getViewAddedRecruitListUI() 
+{
     return boundary;
 }
 
@@ -34,7 +36,8 @@ ViewAddedRecruitListUI* ViewAddedRecruitList::getViewAddedRecruitListUI() {
     매개변수: string currentLoginId
     반환값: string
 */
-string ViewAddedRecruitList::viewAddedRecruitList(string currentLoginId) {
+string ViewAddedRecruitList::viewAddedRecruitList(string currentLoginId) 
+{
     string returnString = recruitInfoCollection->getRecruitInfo(currentLoginId);  // recruitInfoCollection에서 해당하는 정보 모두 반환
     return returnString;
 }

@@ -5,7 +5,8 @@ using namespace std;
 
 class Withdraw;
 // È¸¿øÅ»Åð UI
-class WithdrawUI {
+class WithdrawUI 
+{
 private:
 	Withdraw* control;
 	ofstream* fout;

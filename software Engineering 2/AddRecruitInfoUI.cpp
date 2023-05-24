@@ -10,7 +10,8 @@ using namespace std;
 	매개변수: AddRecruitInfo* inputControl -> 컨트롤 참조값
 	반환값: X
 */
-AddRecruitInfoUI::AddRecruitInfoUI(AddRecruitInfo* inputControl) {
+AddRecruitInfoUI::AddRecruitInfoUI(AddRecruitInfo* inputControl) 
+{
 	control = inputControl;
 }
 
@@ -20,7 +21,8 @@ AddRecruitInfoUI::AddRecruitInfoUI(AddRecruitInfo* inputControl) {
 	매개변수: ofstream* inputFout -> ofstream 참조값
 	반환값: X
 */
-void AddRecruitInfoUI::init(ofstream* inputFout) {
+void AddRecruitInfoUI::init(ofstream* inputFout) 
+{
 	fout = inputFout;
 }
 
@@ -31,7 +33,8 @@ void AddRecruitInfoUI::init(ofstream* inputFout) {
     매개변수: X
     반환값: X
 */
-void AddRecruitInfoUI::startInterface() {
+void AddRecruitInfoUI::startInterface() 
+{
     *fout << "3.1. 채용 정보 등록" << endl;     // 유저가 입력한 내용 화면에 띄우기
 }
 
@@ -42,7 +45,8 @@ void AddRecruitInfoUI::startInterface() {
     매개변수: string inputEvent -> 입력한 한 줄의 문자열, string currentLoginId -> 현재 로그인 한 사람의 ID를 매개변수로 보냄
     반환값: X
 */
-void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLoginId) {
+void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLoginId) 
+{
     // 다음에 사용될 함수의 매개변수에 char* type을 넣기 위해 string 자르기
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, work, targetNum, deadline;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
@@ -59,7 +63,8 @@ void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLogin
     매개변수: string inputEvent -> 입력한 한 줄의 문자열
     반환값: X
 */
-void AddRecruitInfoUI::showAddedRecruitInfo(string inputEvent) {
+void AddRecruitInfoUI::showAddedRecruitInfo(string inputEvent) 
+{
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, work, targetNum, deadline;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
 

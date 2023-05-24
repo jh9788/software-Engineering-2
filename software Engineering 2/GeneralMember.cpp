@@ -24,15 +24,9 @@ GeneralMember::GeneralMember(string inputName, string inputSocialSecurityNum, st
 매개변수: X
 반환값: string
 */
-string GeneralMember::getSocialSecurityNum() {
-	return socialSecurityNum;
-}
-
-
-/* 제출 시 삭제할 함수!! */
-void GeneralMember::showMemberInfo()
+string GeneralMember::getSocialSecurityNum() 
 {
-	cout << "이름: " << getName() << ", SSN: " << getSocialSecurityNum() << ", ID: " << getId() << ", PWD: " << getPassword() << ", MemberType: " << getMemberType() << endl;
+	return socialSecurityNum;
 }
 
 
@@ -42,6 +36,7 @@ void GeneralMember::showMemberInfo()
 매개변수: X
 반환값: X
 */
-GeneralMember::~GeneralMember() {
+GeneralMember::~GeneralMember() 
+{
 
 }

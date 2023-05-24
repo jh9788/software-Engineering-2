@@ -7,8 +7,10 @@
     매개변수 : 
     반환값 : X
 */
-Withdraw::Withdraw(MemberCollection* inputMemberCollection){
+Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection){
     memberCollection = inputMemberCollection;
+    applicationInfoCollection = inputApplicationInfoCollection;
+
 	WithdrawUI* boundary = new WithdrawUI(this);
     this->boundary = boundary;
 }
@@ -32,6 +34,7 @@ WithdrawUI* Withdraw::getWithdrawUI() {
     반환값: X
 */
 void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) {
+    applicationInfoCollection->removeAllApplicationInfo(currentLoginId);
     memberCollection->removeMember(currentLoginId);      // 해당 id 제거
 
     currentLoginId = "";           // 회원 탈퇴 시 로그아웃 상태로 되돌리기

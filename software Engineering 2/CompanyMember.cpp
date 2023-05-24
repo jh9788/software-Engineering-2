@@ -31,13 +31,6 @@ string CompanyMember::getBusinessNum() {
 
 
 
-/* 제출 시 삭제할 함수!! */
-void CompanyMember::showMemberInfo()
-{
-	cout << "이름: " << getName() << ", SSN: " << getBusinessNum() << ", ID: " << getId() << ", PWD: " << getPassword() << ", MemberType: " << getMemberType() << endl;
-}
-
-
 /*
 함수 이름: ~CompanyMember
 기능: 소멸자

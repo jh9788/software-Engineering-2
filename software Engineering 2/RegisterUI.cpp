@@ -9,7 +9,8 @@ using namespace std;
 	매개변수: Register* inputControl -> 컨트롤 참조값
 	반환값: X
 */
-RegisterUI::RegisterUI(Register* inputControl){
+RegisterUI::RegisterUI(Register* inputControl)
+{
     control = inputControl;
 }
 
@@ -19,7 +20,8 @@ RegisterUI::RegisterUI(Register* inputControl){
 	매개변수: ofstream* inputFout -> ofstream 참조값
 	반환값: X
 */
-void RegisterUI::init(ofstream* inputFout){
+void RegisterUI::init(ofstream* inputFout)
+{
     fout = inputFout;
 }
 
@@ -29,7 +31,8 @@ void RegisterUI::init(ofstream* inputFout){
     매개변수: X
     반환값: X
 */
-void RegisterUI::startInterface() {
+void RegisterUI::startInterface() 
+{
     *fout << "1.1. 회원가입" << endl;  // 유저가 입력한 내용 화면에 띄우기. 이에 대한 응답은 boundary에서 실현
 }
 
@@ -39,7 +42,8 @@ void RegisterUI::startInterface() {
     매개변수: string inputEvent -> 파일에서 방금 읽어들인 한 줄의 내용
     반환값: 회사 회원이면 1, 일반 회원이면 2를 반환
 */
-int RegisterUI::selectMemberType(string inputEvent) {
+int RegisterUI::selectMemberType(string inputEvent) 
+{
     return inputEvent[4] - '0';
 }
 
@@ -51,7 +55,8 @@ int RegisterUI::selectMemberType(string inputEvent) {
               int memberType -> 1: 회사 회원, 2: 일반 회원
     반환값: X
 */
-void RegisterUI::requestRegister(string inputEvent, int memberType) {
+void RegisterUI::requestRegister(string inputEvent, int memberType) 
+{
     // 다음에 사용될 함수의 매개변수에 char* type을 넣기 위해 string 자르기
     stringstream input(inputEvent);     // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, num3, name, num, id, pwd;    // 공백을 기준으로 잘라진 애들을 넣을 string 변수 생성
@@ -76,7 +81,8 @@ void RegisterUI::requestRegister(string inputEvent, int memberType) {
               memberType -> 회사 회원, 일반 회원에 맞는 번호를 파일에 저장하기 위한 매개변수
     반환값: X
 */
-void RegisterUI::showRegisterSuccessInterface(string inputEvent, int memberType) {
+void RegisterUI::showRegisterSuccessInterface(string inputEvent, int memberType) 
+{
     // 파일에 내용을 기입하기 위해 string 자르기
     stringstream input(inputEvent);     // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, num3, name, num, id, pwd;    // 공백을 기준으로 잘라진 애들을 넣을 string 변수 생성

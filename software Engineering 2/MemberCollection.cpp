@@ -4,15 +4,6 @@
 #include "GeneralMember.h"
 #include "MemberCollection.h"
 
-
-/* 제출 시 삭제할 함수 !! 현재 등록된 모든 회원 조회 */
-void MemberCollection::getAllMemberCollection()
-{
-    for (int i = 0; i < memberCollection.size(); i++) {
-        memberCollection[i]->showMemberInfo();
-    }
-}
-
 /*
 함수 이름: addMember
 기능: Member 객체를 매개변수로 받아서 벡터에 순차적으로 넣는다.
@@ -41,7 +32,7 @@ void MemberCollection::addMember(string name, string number, string id, string p
 void MemberCollection::removeMember(string memberId) {
     // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
-        // 만약 id가 같은 애가 검색되면 그 애를 삭제
+        // 만약 id가 같은 애가 검색되면 그 애 삭제
         if ((*it)->getId() == memberId) {
             delete* it;
             memberCollection.erase(it);
@@ -49,8 +40,6 @@ void MemberCollection::removeMember(string memberId) {
         }
     }
 }
-
-
  
 /*
 함수 이름: isMember
@@ -107,6 +96,7 @@ string MemberCollection::findBusinessNumByName(string memberName)
             return companyMember->getBusinessNum();
         }
     }
+    return "";
 }
 
 string MemberCollection::findIdByName(string memberName)
@@ -118,6 +108,7 @@ string MemberCollection::findIdByName(string memberName)
             return member->getId();
         }
     }
+    return "";
 }
 
 string MemberCollection::findNameById(string memberId)
@@ -129,6 +120,7 @@ string MemberCollection::findNameById(string memberId)
             return member->getName();
         }
     }
+    return "";
 }
 
 
@@ -140,6 +132,7 @@ string MemberCollection::findIdByBusinessNum(string businessNum) {
             return (*it)->getId();
         }
     }
+    return "";
 }
 
 

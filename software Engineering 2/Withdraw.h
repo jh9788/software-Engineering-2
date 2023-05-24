@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "MemberCollection.h"
+#include "ApplicationInfoCollection.h"
 
 using namespace std;
 
@@ -12,8 +13,10 @@ class Withdraw {
 private:
 	WithdrawUI* boundary;
 	MemberCollection* memberCollection;
+	ApplicationInfoCollection* applicationInfoCollection;
+
 public:
-	Withdraw(MemberCollection* inputMemberCollection);
+	Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection);
 	WithdrawUI* getWithdrawUI();
 	void withdrawMember(string& loginId, int& memberType);// 회원 삭제
 };

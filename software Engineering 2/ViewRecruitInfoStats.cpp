@@ -9,7 +9,8 @@ ViewRecruitInfoStats::ViewRecruitInfoStats(RecruitInfoCollection* inputRecruitIn
     applicationInfoCollection = inputApplicationInfoCollection;
 }
 
-ViewRecruitInfoStatsUI* ViewRecruitInfoStats::getViewRecruitInfoStatsUI() {
+ViewRecruitInfoStatsUI* ViewRecruitInfoStats::getViewRecruitInfoStatsUI() 
+{
     return boundary;
 }
 

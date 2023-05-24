@@ -7,7 +7,8 @@ using namespace std;
 
 class Logout;
 // ·Î±×¾Æ¿ô UI
-class LogoutUI {
+class LogoutUI
+{
 private:
 	Logout* control;
 	ofstream* fout;

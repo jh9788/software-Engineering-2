@@ -20,10 +20,5 @@ public:
 
 	GeneralMember(string inputName, string inputSocialSecurityNum, string inputId, string inputPassword, int inputMemberType);
 	string getSocialSecurityNum();	// socialSecurityNum 값을 가져온다.
-	virtual void showMemberInfo();	/* 제출 시 삭제할 함수!! */
-	//int getApplicationCountByWork();
-	//void addApplicationInfo();
-	//void getApplicationInfoList();
-	//void cancelSelectedApplicationInfo();
 	~GeneralMember();
 };

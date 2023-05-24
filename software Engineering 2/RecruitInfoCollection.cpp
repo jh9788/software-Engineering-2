@@ -5,15 +5,6 @@
 #include "RecruitInfoCollection.h"
 
 
-/* 제출 시 삭제할 함수 !! 현재 등록된 모든 회원 조회 */
-void RecruitInfoCollection::getAllRecruitInfoCollection()
-{
-    for (int i = 0; i < ownedRecruitInfo.size(); i++) {
-        ownedRecruitInfo[i]->showRecruitInfo();
-    }
-}
-
-
 /*
 함수 이름: addRecruitInfo
 기능: recruitInfo 객체를 매개변수로 받아서 벡터에 순차적으로 넣는다.
@@ -45,7 +36,6 @@ string RecruitInfoCollection::getRecruitInfo(string currentLoginId)
             returnString = returnString + (*it)->getDeadline() + "\n";
         }
     }
-    
     return returnString;
 }
 
@@ -117,7 +107,7 @@ map<string, int> RecruitInfoCollection::calcAddedRecruitInfoStats(string current
 {
     map<string, int> recruitInfoStats;
 
-    for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); ++it) {
+    for (auto it = ownedRecruitInfo.begin(); it != ownedRecruitInfo.end(); ++it) {
         if ((*it)->getCompanyId() == currentLoginId) {
             string work = (*it)->getWork();
 
@@ -146,7 +136,8 @@ string RecruitInfoCollection::findWorkById(string companyId)
     return "";
 }
 
-RecruitInfo* RecruitInfoCollection::findByCompanyId(string companyId) {
+RecruitInfo* RecruitInfoCollection::findByCompanyId(string companyId) 
+{
     for (auto it = ownedRecruitInfo.begin(); it != ownedRecruitInfo.end(); it++) {
         // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
         if ((*it)->getCompanyId() == companyId) {

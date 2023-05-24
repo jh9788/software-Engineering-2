@@ -1,14 +1,16 @@
 #include "Register.h"
 #include "RegisterUI.h"
 
-Register::Register(MemberCollection* inputMemberCollection) {
+Register::Register(MemberCollection* inputMemberCollection) 
+{
     memberCollection = inputMemberCollection;
 
     RegisterUI* boundary = new RegisterUI(this);
     this->boundary = boundary;
  }
 
-RegisterUI* Register::getRegisterUI(){
+RegisterUI* Register::getRegisterUI()
+{
     return boundary;
 }
 

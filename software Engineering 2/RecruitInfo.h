@@ -21,5 +21,4 @@ public:
 	string getTargetNum();	// 인원 수
 	string getDeadline();	// 채용 마감일
 	string getCompanyId();	// 회사 ID 반환
-	void showRecruitInfo();		/* 제출 시 삭제할 함수 !! */
 };

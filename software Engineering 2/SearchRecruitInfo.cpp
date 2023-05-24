@@ -28,9 +28,6 @@ SearchRecruitInfoUI* SearchRecruitInfo:: getSearchRecruitInfoUI() {
 
 
 
-
-
-
 /*
 membercollection.cpp에서 회사이름, 사업자번호 나오게하는 함수를 만든다
 recruitinfocollection.cpp에서 업무, 인원수, 마감일을 가져오는 함수를 만든다.

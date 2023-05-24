@@ -4,7 +4,8 @@ using namespace std;
 
 class LogoutUI;
 // ·Î±×¾Æ¿ô Control
-class Logout {
+class Logout 
+{
 private:
 	LogoutUI* boundary;
 	

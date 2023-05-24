@@ -16,5 +16,5 @@ private:
 public:
 	Login(MemberCollection* memberCollection);
 	LoginUI* getLoginUI();
-	bool verifyLogin(string id, string pwd, string& loginId, int& memberType);
+	bool isLoginVerified(string id, string pwd, string& loginId, int& memberType);
 };

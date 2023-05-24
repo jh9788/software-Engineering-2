@@ -8,7 +8,8 @@ using namespace std;
 class Register;
 
 // 회원가입 UI
-class RegisterUI {
+class RegisterUI 
+{
 private:
 	Register* control;
 	ofstream* fout;

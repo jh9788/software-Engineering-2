@@ -10,7 +10,8 @@ using namespace std;
 	매개변수: SearchRecruitInfo* inputControl -> 컨트롤 참조값
 	반환값: X
 */
-SearchRecruitInfoUI::SearchRecruitInfoUI(SearchRecruitInfo* inputControl) {
+SearchRecruitInfoUI::SearchRecruitInfoUI(SearchRecruitInfo* inputControl) 
+{
 	control = inputControl;
 }
 
@@ -20,7 +21,8 @@ SearchRecruitInfoUI::SearchRecruitInfoUI(SearchRecruitInfo* inputControl) {
 	매개변수: ofstream* inputFout -> ofstream 참조값
 	반환값: X
 */
-void SearchRecruitInfoUI::init(ofstream* inputFout) {
+void SearchRecruitInfoUI::init(ofstream* inputFout) 
+{
 	fout = inputFout;
 }
 
@@ -30,7 +32,8 @@ void SearchRecruitInfoUI::init(ofstream* inputFout) {
 	매개변수: X
 	반환값: X
 */
-void SearchRecruitInfoUI::startInterface() {
+void SearchRecruitInfoUI::startInterface() 
+{
 	*fout << "4.1. 채용 정보 검색" << endl;     // 유저가 입력한 내용 화면에 띄우기
 }
 
@@ -40,7 +43,8 @@ void SearchRecruitInfoUI::startInterface() {
 	매개변수: string inputEvent -> 입력한 한 줄의 문자열, string currentLoginId -> 현재 로그인 한 사람의 ID를 매개변수로 보냄
 	반환값: X
 */
-void SearchRecruitInfoUI::showSearchRecruitInfo(string inputEvent) {
+void SearchRecruitInfoUI::showSearchRecruitInfo(string inputEvent) 
+{
 	stringstream input(inputEvent);
 	string num1, num2, name;
 
