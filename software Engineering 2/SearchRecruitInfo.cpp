@@ -8,7 +8,8 @@
     매개변수: RecruitInfoCollection* inputRecruitInfoCollection, MemberCollection* inputMemberCollection
     반환값: X
 */
-SearchRecruitInfo::SearchRecruitInfo(RecruitInfoCollection* inputRecruitInfoCollection,MemberCollection* inputMemberCollection) {
+SearchRecruitInfo::SearchRecruitInfo(RecruitInfoCollection* inputRecruitInfoCollection,MemberCollection* inputMemberCollection) 
+{
     recruitInfoCollection = inputRecruitInfoCollection;
     memberCollection = inputMemberCollection;
 
@@ -22,7 +23,8 @@ SearchRecruitInfo::SearchRecruitInfo(RecruitInfoCollection* inputRecruitInfoColl
     매개변수: X
     반환값: X
 */
-SearchRecruitInfoUI* SearchRecruitInfo:: getSearchRecruitInfoUI() {
+SearchRecruitInfoUI* SearchRecruitInfo:: getSearchRecruitInfoUI() 
+{
     return boundary;
 }
 
@@ -36,7 +38,8 @@ recruitinfocollection에서 얻은 string의 개행의 수만큼 반복?
 */
 
 
-string SearchRecruitInfo::searchRecruitInfo(string name) {
+string SearchRecruitInfo::searchRecruitInfo(string name) 
+{
     string targetId = memberCollection->findIdByName(name);
     string businessNum = memberCollection->findBusinessNumByName(name);
     string returnString = recruitInfoCollection->getRecruitInfoWithoutSign(targetId);  // recruitInfoCollection class가 갖고 있는 addRecruitInfo함수 호출하여 RecruitInfo 추가

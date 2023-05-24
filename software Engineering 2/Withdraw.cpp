@@ -7,7 +7,8 @@
     매개변수 : 
     반환값 : X
 */
-Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection){
+Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection)
+{
     memberCollection = inputMemberCollection;
     applicationInfoCollection = inputApplicationInfoCollection;
 
@@ -21,7 +22,8 @@ Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoColle
 	매개변수 : X
 	반환값 : boundary
 */
-WithdrawUI* Withdraw::getWithdrawUI() {
+WithdrawUI* Withdraw::getWithdrawUI() 
+{
 	return boundary;
 }
 
@@ -33,7 +35,8 @@ WithdrawUI* Withdraw::getWithdrawUI() {
               int memberType -> memberType을 0으로 돌려놓기 위한 매개변수
     반환값: X
 */
-void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) {
+void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) 
+{
     applicationInfoCollection->removeAllApplicationInfo(currentLoginId);
     memberCollection->removeMember(currentLoginId);      // 해당 id 제거
 

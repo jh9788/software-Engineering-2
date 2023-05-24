@@ -13,8 +13,6 @@ CompanyMember::CompanyMember(string inputName, string inputBusinessNum, string i
 			   : Member(inputName, inputId, inputPassword, inputMemberType)
 {
 	businessNum = inputBusinessNum;	// 문자열 복사해서 넣기
-
-	//cout << "inputBusinessNum : " << inputBusinessNum << ", businessNum : " << businessNum << endl;
 }
 
 
@@ -25,7 +23,8 @@ CompanyMember::CompanyMember(string inputName, string inputBusinessNum, string i
 매개변수: X
 반환값: string
 */
-string CompanyMember::getBusinessNum() {
+string CompanyMember::getBusinessNum() 
+{
 	return businessNum;
 }
 
@@ -37,6 +36,7 @@ string CompanyMember::getBusinessNum() {
 매개변수: X
 반환값: X
 */
-CompanyMember::~CompanyMember() {
+CompanyMember::~CompanyMember() 
+{
 
 }

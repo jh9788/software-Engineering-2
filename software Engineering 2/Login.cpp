@@ -1,7 +1,8 @@
 #include "Login.h"
 #include "LoginUI.h"
 
-Login::Login(MemberCollection* inputMemberCollection){
+Login::Login(MemberCollection* inputMemberCollection)
+{
     LoginUI* boundary = new LoginUI(this);
     this->boundary = boundary;
     memberCollection = inputMemberCollection;
@@ -24,7 +25,8 @@ LoginUI* Login::getLoginUI(){
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
     반환값: bool
 */
-bool Login::isLoginVerified(string id, string pwd, string& currentLoginId, int& currentMemberType) {
+bool Login::isLoginVerified(string id, string pwd, string& currentLoginId, int& currentMemberType) 
+{
     // 회원이 맞는 경우
     if (memberCollection->isMember(id, pwd)) {
 		currentLoginId = id;           // loginId에 방금 로그인을 시도했던 id를 저장

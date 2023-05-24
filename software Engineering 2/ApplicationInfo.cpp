@@ -1,17 +1,20 @@
 #include "ApplicationInfo.h"
 
 
-ApplicationInfo::ApplicationInfo(RecruitInfo* inputRecruitInfo, string inputGeneralId){
+ApplicationInfo::ApplicationInfo(RecruitInfo* inputRecruitInfo, string inputGeneralId)
+{
 	recruitInfo = inputRecruitInfo;
 	generalId = inputGeneralId;
 }
 
-string ApplicationInfo::getGeneralId() {
+string ApplicationInfo::getGeneralId() 
+{
 	return generalId;
 }
 
 
-RecruitInfo* ApplicationInfo::getRecruitInfo() {
+RecruitInfo* ApplicationInfo::getRecruitInfo() 
+{
 	return recruitInfo;
 }
 

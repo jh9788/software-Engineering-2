@@ -9,7 +9,8 @@ using namespace std;
 class LoginUI;
 
 // ·Î±×ÀÎ Control
-class Login {
+class Login 
+{
 private:
 	LoginUI* boundary;
 	MemberCollection* memberCollection;

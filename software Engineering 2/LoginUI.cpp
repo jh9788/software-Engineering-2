@@ -48,7 +48,8 @@ void LoginUI::startInterface() {
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
     반환값: bool
 */
-bool LoginUI::isLoginValid(string inputEvent, string& currentLoginId, int& currentMemberType) {
+bool LoginUI::isLoginValid(string inputEvent, string& currentLoginId, int& currentMemberType) 
+{
     // 다음에 호출할 함수의 매개변수에 const char* type을 넣기 위한 작업
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, id, pwd;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
@@ -69,7 +70,8 @@ bool LoginUI::isLoginValid(string inputEvent, string& currentLoginId, int& curre
     매개변수: string inputEvent -> 파일에 저장할 id와 pwd를 파싱하기 위한 매개변수
     반환값: X
 */
-void LoginUI::showLoginSuccessInterface(string inputEvent) {
+void LoginUI::showLoginSuccessInterface(string inputEvent) 
+{
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, id, pwd;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
 
@@ -85,6 +87,7 @@ void LoginUI::showLoginSuccessInterface(string inputEvent) {
     매개변수: X
     반환값: X
 */
-void LoginUI::showLoginFailInterface() {
+void LoginUI::showLoginFailInterface() 
+{
     *fout << endl << endl;        // 로그인 실패 시, 개행만 두 번 실행한 결과를 파일에 저장
 }

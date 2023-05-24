@@ -1,21 +1,15 @@
 #include "ApplicationInfoCollection.h"
 
 
-/* 제출 시 삭제할 함수 !! 현재 지원한 정보 조회 */
-void ApplicationInfoCollection::getAllApplicationInfoCollection()
+ApplicationInfoCollection::ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection) 
 {
-    for (int i = 0; i < ownedApplicationInfo.size(); i++) {
-        ownedApplicationInfo[i]->showApplicationInfo();
-    }
-}
-
-ApplicationInfoCollection::ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection) {
 	memberCollection = inputMemberCollection;
 	recruitInfoCollection = inputRecruitInfoCollection;
 }
 
 
-string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
+string ApplicationInfoCollection::getApplicationInfo(string currentLoginId)
+{
 
     //string returnString = "";
     string id;
@@ -70,7 +64,8 @@ void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo
 }
 
 //지원 취소
-string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, string inputBusinessNum) {
+string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, string inputBusinessNum) 
+{
     
     string returnString = "";
     string id;
@@ -101,7 +96,8 @@ string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, s
 }
 
 //회원 탈퇴 시 일반 회원의 모든 지원 정보 삭제
-void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId) {
+void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId) 
+{
     // applicationInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     
     for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end();) {
@@ -118,20 +114,6 @@ void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId) 
             it++;
         }
     }
-    
-    /*
-    vector<ApplicationInfo*> newOwnedApplicationInfo;
-    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); it++) {
-        ApplicationInfo* cur = *it;
-        cout << currentLoginId;
-
-        if (cur->getGeneralId() == currentLoginId) {
-            delete cur;
-        }
-        else newOwnedApplicationInfo.push_back(cur);
-    }
-    ownedApplicationInfo = newOwnedApplicationInfo;
-    */
 
     return;
 }

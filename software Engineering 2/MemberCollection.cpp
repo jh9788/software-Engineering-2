@@ -29,7 +29,8 @@ void MemberCollection::addMember(string name, string number, string id, string p
 매개변수: string memberId -> MemberId char 포인터값
 반환값: X
 */
-void MemberCollection::removeMember(string memberId) {
+void MemberCollection::removeMember(string memberId) 
+{
     // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
         // 만약 id가 같은 애가 검색되면 그 애 삭제
@@ -47,7 +48,8 @@ void MemberCollection::removeMember(string memberId) {
 매개변수: string memberId -> MemberId char 포인터값, string memberPassword -> MemberPassword char 포인터 값
 반환값: bool
 */
-bool MemberCollection::isMember(string memberId, string memberPassword) {
+bool MemberCollection::isMember(string memberId, string memberPassword) 
+{
     // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
         if ((*it)->getId() == memberId && (*it)->getPassword() == memberPassword) {
@@ -65,7 +67,8 @@ bool MemberCollection::isMember(string memberId, string memberPassword) {
 매개변수: string memberId -> MemberId char 포인터값, string memberPassword -> MemberPassword char 포인터 값
 반환값: int
 */
-int MemberCollection::getMemberType(string memberId, string memberPassword) {
+int MemberCollection::getMemberType(string memberId, string memberPassword) 
+{
     // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
         if ((*it)->getId()== memberId  && (*it)->getPassword() == memberPassword) {
@@ -75,7 +78,8 @@ int MemberCollection::getMemberType(string memberId, string memberPassword) {
     return 0;  // 찾는 멤버가 없는 경우
 }
 
-Member* MemberCollection::findMemberById(string memberId) {
+Member* MemberCollection::findMemberById(string memberId) 
+{
 
 	for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
 		if ((*it)->getId() == memberId) {
@@ -124,7 +128,8 @@ string MemberCollection::findNameById(string memberId)
 }
 
 
-string MemberCollection::findIdByBusinessNum(string businessNum) {
+string MemberCollection::findIdByBusinessNum(string businessNum) 
+{
 
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
         // 만약 num이 같은 회원을 찾으면

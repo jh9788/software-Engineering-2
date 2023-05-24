@@ -9,7 +9,8 @@ using namespace std;
 class WithdrawUI;
 
 // È¸¿øÅ»Åð Control
-class Withdraw {
+class Withdraw 
+{
 private:
 	WithdrawUI* boundary;
 	MemberCollection* memberCollection;
