@@ -5,7 +5,7 @@
 /*
 함수 이름: Member
 기능: 생성자
-매개변수: const string inputName -> 회원명, const string inputId -> 회원ID, const string inputPassword -> 회원Password,
+매개변수: const string inputName -> 회원 이름, const string inputId -> 회원 ID, const string inputPassword -> 회원 Password,
 		  int inputMemberType -> 회원 Type
 반환값: X
 */
@@ -15,18 +15,13 @@ Member::Member(string inputName, string inputId, string inputPassword, int input
 	id = inputId;
 	password = inputPassword;
 	memberType = inputMemberType;		// 멤버 타입은 int type 이므로 그대로 넣기
-
-	//cout << "inpntName : " << inputName << ", name : " << name << endl;
-	//cout << "inpntId : " << inputId << ", id : " << id << endl;
-	//cout << "inpntPassword : " << inputPassword << ", password : " << password << endl;
-	//cout << "inputMemberType : " << inputMemberType << ", memberType : " << memberType << endl;
 }
 
 /*
 함수 이름: getName
 기능: 회원 이름 반환
 매개변수: X
-반환값: char*
+반환값: 회원 이름
 */
 string Member::getName() 
 {
@@ -37,7 +32,7 @@ string Member::getName()
 함수 이름: getId
 기능: 회원 ID 반환
 매개변수: X
-반환값: char*
+반환값: 회원 ID
 */
 string Member::getId() 
 {
@@ -48,7 +43,7 @@ string Member::getId()
 함수 이름: getPassword
 기능: 회원 Password 반환
 매개변수: X
-반환값: char*
+반환값: 회원 Password
 */
 string Member::getPassword() 
 {
@@ -59,7 +54,7 @@ string Member::getPassword()
 함수 이름: getMemberType
 기능: 회원 Member Type 반환
 매개변수: X
-반환값: int
+반환값: 회원 Member Type
 */
 int Member::getMemberType() 
 {
@@ -67,34 +62,12 @@ int Member::getMemberType()
 }
 
 /*
-함수 이름: isIdPwdSame
-기능: 
-매개변수:
-반환값:
-
-
+함수 이름: getBusinessNum
+기능: CompanyMember 클래스에서 오버라이딩하기 위한 virtual 함수
+	  회원 Business Num 반환을 위함
+매개변수: X
+반환값: 빈 문자열 
 */
-//bool Member::isIdPwdSame();
-//{
-//	driverAge++;
-//}
-
-
-
-/*
-함수 이름: deleteMember
-기능: 멤버변수 driverExp의 값을 3 증가시킨다.
-매개변수:
-반환값:
-
-작성날짜: 2021/03/31
-
-*/
-//void Member::deleteMember()
-//{
-//
-//}
-
 string Member::getBusinessNum()
 {
 	return "";

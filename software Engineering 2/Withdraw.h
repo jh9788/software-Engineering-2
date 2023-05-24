@@ -8,7 +8,11 @@ using namespace std;
 
 class WithdrawUI;
 
-// 회원탈퇴 Control
+
+/*
+클래스 이름 : Withdraw
+기능 : 회원탈퇴 Control
+*/
 class Withdraw 
 {
 private:
@@ -17,7 +21,7 @@ private:
 	ApplicationInfoCollection* applicationInfoCollection;
 
 public:
-	Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection);
-	WithdrawUI* getWithdrawUI();
+	Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection);	// 생성자
+	WithdrawUI* getWithdrawUI();	// 바운더리 호출
 	void withdrawMember(string& loginId, int& memberType);// 회원 삭제
 };

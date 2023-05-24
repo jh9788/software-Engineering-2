@@ -6,7 +6,11 @@ using namespace std;
 
 class RegisterUI;
 
-// 회원가입 Control
+
+/*
+클래스 이름 : Register
+기능 : 회원가입 Control
+*/
 class Register 
 {
 private:
@@ -14,8 +18,8 @@ private:
 	MemberCollection* memberCollection;
 
 public:
-	Register(MemberCollection* inputMemberCollection);
-	RegisterUI* getRegisterUI();
+	Register(MemberCollection* inputMemberCollection);	// 생성자
+	RegisterUI* getRegisterUI();	// 바운더리 생성
 
 	// 회사 회원 생성
 	void registerCompanyMember(string name, string num, string id, string pwd, int memberType);

@@ -7,7 +7,11 @@ using namespace std;
 
 class ViewAddedRecruitList;
 
-// 등록한 채용 정보 조회 UI
+
+/*
+클래스 이름 : ViewAddedRecruitListUI
+기능 : 등록한 채용 정보 조회 Boundary
+*/
 class ViewAddedRecruitListUI {
 private:
 	ViewAddedRecruitList* control;

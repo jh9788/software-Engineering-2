@@ -24,12 +24,11 @@ public:
 	void addRecruitInfo(string work, string targetNum, string deadline, string currentLoginId);	// 채용 정보 등록 시, 새로운 채용 정보를 recruitInfoCollection에 추가
 	string getRecruitInfo(string currentLoginId); // 로그인 한 사람이 등록한 모든 채용 정보를 담아 반환
 	string getRecruitInfoWithoutSign(string currentLoginId); // ">" 기호를 빼고 채용 정보를 반환
-	RecruitInfo* findByCompanyId(string companyId);
-	RecruitInfo* findRecruitInfoById(string companyId);
-	string findWorkById(string companyId);
+	RecruitInfo* findByCompanyId(string companyId);  // 회사 ID가 일치하는 채용 정보를 반환
+	string findWorkById(string companyId); //회사 ID가 일치하는 채용 정보의 업무 명 반환
 
 	//control -> 2.1.1 -> recruitinfo collection
-	map<string, int> calcAddedRecruitInfoStats(string currentLoginId);
+	map<string, int> calcAddedRecruitInfoStats(string currentLoginId); //등록한 채용 정보 통계 계산
 
 	~RecruitInfoCollection();	// 소멸자
 };

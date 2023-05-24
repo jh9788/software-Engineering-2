@@ -12,13 +12,9 @@ using namespace std;
 class GeneralMember : public Member
 {
 private:
-
 	string socialSecurityNum;
-	//RecruitInfoCollection applicationInfoList;
-
 public:
-
-	GeneralMember(string inputName, string inputSocialSecurityNum, string inputId, string inputPassword, int inputMemberType);
+	GeneralMember(string inputName, string inputSocialSecurityNum, string inputId, string inputPassword, int inputMemberType);	// 생성자
 	string getSocialSecurityNum();	// socialSecurityNum 값을 가져온다.
-	~GeneralMember();
+	~GeneralMember();	// 소멸자
 };

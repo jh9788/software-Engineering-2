@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 
-// Entity 헤더
+//Entity 헤더
 #include "MemberCollection.h"
 #include "Member.h"
 #include "RecruitInfo.h"
@@ -28,7 +28,7 @@
 #include "ViewAddedRecruitListUI.h"
 #include "ViewAddedRecruitList.h"
 
-// 채용지원 서브시스템 헤더
+//채용지원 서브시스템 헤더
 #include "SearchRecruitInfoUI.h"
 #include "SearchRecruitInfo.h"
 #include "ApplyImmediatelyUI.h"
@@ -56,50 +56,64 @@ ofstream fout; // 텍스트 파일로 추출하기
 void run();
 void program_exit();
 
+
+/*
+    함수 이름 : main
+    기능: 파일 스트림 열고 run 함수 실행. 정상 종료 시 0을 리턴
+    매개변수: X
+    반환값: int
+*/
 int main() 
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-	fin.open(INPUT_FILE);
-	fout.open(OUTPUT_FILE);
+	fin.open(INPUT_FILE);       // 파일 ifstream 열기
+	fout.open(OUTPUT_FILE);     // 파일 ofstream 열기
 
     run();
+
+    fin.close(); // 파일 ifstream 닫기
+	fout.close(); // 파일 ofstream 닫기
 
     return 0;
 }
 
 /*
     함수 이름 : run
-    기능: 파일을 입력 받고, 입력 받은 내용에 맞게 각 함수를 실행함. Actor의 역할
+    기능: 파일을 한 줄씩 읽어온 후, 읽어 온 내용에 맞게 함수를 실행함.
     매개변수: X
     반환값: X
 */
 void run() 
 {
+    // 파일이 열리지 않는 경우
     if (!fin || !fout) {
         cout << "파일을 열 수 없습니다." << endl;
         return;
     }
 
-    string inputEvent;  // 읽은 파일에서 현재 보고 있는 한 줄
+    string inputEvent;  // 현재 파일에서 읽어온 한 줄
     bool keepGoing = 1;  // keepGoing이 1이면 계속해서 파일을 읽고, 0이 되는 순간 while문 탈출
 
-    MemberCollection memberCollection = MemberCollection(); // MemberCollection 생성
-    RecruitInfoCollection recruitInfoCollection = RecruitInfoCollection(); // RecruitInfoCollection 생성
-    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(&memberCollection, &recruitInfoCollection); // ApplicationInfoCollection 생성
+    // MemberCollection 인스턴스 생성
+    MemberCollection memberCollection = MemberCollection(); 
+    // RecruitInfoCollection 인스턴스 생성
+    RecruitInfoCollection recruitInfoCollection = RecruitInfoCollection(); 
+    // ApplicationInfoCollection 인스턴스 생성
+    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(&memberCollection, &recruitInfoCollection); 
 
-    string currentLoginId = "";       // 현재 로그인 중인 ID를 currentLoginId에 저장
+    string currentLoginId = "";       // 현재 로그인 중인 회원 ID를 currentLoginId에 저장
     int currentMemberType = 0;         // 1이면 회사 회원, 2면 일반 회원
     // currentMemberType이 1일 때에는 회사 회원 관련 시스템이 작동하고, 일반 회원 관련 시스템에 접근 시 아무 행동도 하지 않으며,
     // currentMemberType이 2일 때에는 일반 회원 관련 시스템이 작동하고, 회사 회원 관련 시스템에 접근 시 아무 행동도 하지 않는다.
 
-    while (keepGoing) { // 한 줄씩 읽어오기
-        getline(fin, inputEvent);
+    while (keepGoing) { 
+        getline(fin, inputEvent); // input.txt 파일 한 줄씩 읽어 inputEvent에 저장
 
-        int firstEvent = inputEvent[0] - '0';       // 1. 1. 1에서 맨 앞의 1
-        int secondEvent = inputEvent[2] - '0';      // 1. 1. 1에서 중간의 1
+        int firstEvent = inputEvent[0] - '0';       // 메뉴 파싱을 위한 첫번째 숫자
+        int secondEvent = inputEvent[2] - '0';      // 메뉴 파싱을 위한 두번째 숫자
 
         string tempId = currentLoginId;     // 로그아웃 하면 파일에 currentLoginId 내용을 작성해야 하는데, 아래 함수 실행 시 currentLoginId이 사라지므로, 잠시 담아 둠
         // 회원 탈퇴할 때에도 마찬가지
@@ -108,30 +122,28 @@ void run()
             case 1:
             {
                 switch (secondEvent) {
-                    // 회원 가입
+                    // 1.1 회원 가입
                     case 1:
                     {
-                        Register regist = Register(&memberCollection);
-                        regist.getRegisterUI()->init(&fout);
-                        regist.getRegisterUI()->startInterface();
+                        Register regist = Register(&memberCollection);  // 컨트롤 생성
+                        regist.getRegisterUI()->init(&fout);    // UI 호출
+                        regist.getRegisterUI()->startInterface();   // 인터페이스 시작
                             
                         currentMemberType = regist.getRegisterUI()->selectMemberType(inputEvent); // 1. 1. 1에서 맨 뒤의 1이 currentMemberType에 저장됨 
                         regist.getRegisterUI()->requestRegister(inputEvent, currentMemberType);   // Boundary에 있는 requestRegister 함수 호출
-                        regist.getRegisterUI()->showRegisterSuccessInterface(inputEvent, currentMemberType);        // 회원가입 시 내용을 파일에 저장
                     }
                     break;
-                    // 회원 탈퇴
+                    // 1.2 회원 탈퇴
                     case 2:
                     {
-                        Withdraw withdraw = Withdraw(&memberCollection, &applicationInfoCollection);
-                        withdraw.getWithdrawUI()->init(&fout);
+                        Withdraw withdraw = Withdraw(&memberCollection, &applicationInfoCollection);    // 컨트롤 생성
+                        withdraw.getWithdrawUI()->init(&fout);  // UI 호출
                         withdraw.getWithdrawUI()->startInterface();    // 인터페이스 시작
 
                         if (currentLoginId == "") // 로그인 하지 않은 상태라면 currentLoginId은 ""이고, 회원 탈퇴할 수 없으므로, 아무 것도 하지 않고 건너뜀
                             break;
                         else {              // 로그인 되었을 때에만 회원 탈퇴
-                            withdraw.getWithdrawUI()->requestWithdraw(currentLoginId, currentMemberType);     // Boundary에 있는 requestWithdraw 함수 호출
-                            withdraw.getWithdrawUI()->showWithdrawId(tempId);           // 회원탈퇴 시 내용을 파일에 저장
+                            withdraw.getWithdrawUI()->requestWithdraw(currentLoginId, tempId, currentMemberType);     // Boundary에 있는 requestWithdraw 함수 호출
                             break;
                         }
                     }   
@@ -142,37 +154,33 @@ void run()
             case 2:
             {
                 switch (secondEvent) {
-                    // 로그인
+                    // 2.1 로그인
                     case 1:
                     {
-                        Login login = Login(&memberCollection);
-                        login.getLoginUI()->init(&fout);
+                        Login login = Login(&memberCollection);     // 컨트롤 생성
+                        login.getLoginUI()->init(&fout);    // UI 호출
                         login.getLoginUI()->startInterface();    // 인터페이스 시작
 
                         if (currentLoginId != "")                 // 누군가 로그인 중이면 로그인 할 수 없으므로, 아무 것도 하지 않고 건너뜀
                             break;
 
                         else {
-                            if (login.getLoginUI()->isLoginValid(inputEvent, currentLoginId, currentMemberType))   // Boundary에 있는 requestLogin 함수 호출
-                                login.getLoginUI()->showLoginSuccessInterface(inputEvent);      // 로그인 성공 시 파일에 저장할 내용 작성
-                            else
-                                login.getLoginUI()->showLoginFailInterface();           // 로그인 실패 시 파일에 저장할 내용 작성
+                            login.getLoginUI()->verifyLogin(inputEvent, currentLoginId, currentMemberType);   // Boundary에 있는 requestLogin 함수 호출
                             break;
                         }
                     }
                     break;
-                    // 로그아웃
+                    // 2.2 로그아웃
                     case 2:
                     {
-                        Logout logout = Logout();
-                        logout.getLogoutUI()->init(&fout);
+                        Logout logout = Logout();       // 컨트롤 생성
+                        logout.getLogoutUI()->init(&fout);      // UI 호출
                         logout.getLogoutUI()->startInterface();    // 인터페이스 시작
 
                         if (currentLoginId == "")               // 로그인 하지 않은 상태라면 로그아웃할 수 없으므로, 아무 것도 하지 않고 건너뜀
                             break;
                         else {              // 로그인 한 상태에서만 로그아웃 진행 가능!
-                            logout.getLogoutUI()->requestLogout(currentLoginId, currentMemberType);       // 로그인 한 상태라면 로그아웃 진행 가능. Boundary에 있는 requestLogout 함수 호출
-                            logout.getLogoutUI()->showLogoutId(tempId);        // 로그아웃 시 파일에 저장할 내용 작성
+                            logout.getLogoutUI()->requestLogout(currentLoginId, tempId, currentMemberType);       // 로그인 한 상태라면 로그아웃 진행 가능. Boundary에 있는 requestLogout 함수 호출
                             break;
                         }
                     }
@@ -182,26 +190,25 @@ void run()
                 case 3:
                 {
                     switch (secondEvent) {
-                    // 채용 정보 등록
+                    //3.1 채용 정보 등록
                     case 1:
                     {
-                        AddRecruitInfo addRecruitInfo = AddRecruitInfo(&recruitInfoCollection);
-                        addRecruitInfo.getAddRecruitInfoUI()->init(&fout);
+                        AddRecruitInfo addRecruitInfo = AddRecruitInfo(&recruitInfoCollection);     // 컨트롤 생성
+                        addRecruitInfo.getAddRecruitInfoUI()->init(&fout);      // UI 호출
                         addRecruitInfo.getAddRecruitInfoUI()->startInterface();    // 인터페이스 시작
 
                         if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
                             break;
                         else {
                 	        addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
-                	        addRecruitInfo.getAddRecruitInfoUI()->showAddedRecruitInfo(inputEvent);         // 등록한 채용 정보를 파일에 쓰기
                         }
                         break;
                     }
-                    // 채용 정보 조회
+                    //3.2 채용 정보 조회
                     case 2:
                     {
-                        ViewAddedRecruitList viewAddedRecruitList = ViewAddedRecruitList(&recruitInfoCollection);
-                        viewAddedRecruitList.getViewAddedRecruitListUI()->init(&fout);
+                        ViewAddedRecruitList viewAddedRecruitList = ViewAddedRecruitList(&recruitInfoCollection);   // 컨트롤 생성
+                        viewAddedRecruitList.getViewAddedRecruitListUI()->init(&fout);      // UI 호출
                         viewAddedRecruitList.getViewAddedRecruitListUI()->startInterface();     // 인터페이스 시작
 
                         if (currentMemberType == 2)
@@ -218,11 +225,11 @@ void run()
             case 4:
             {
                 switch (secondEvent) {
-                    // 채용 정보 검색
+                    //4.1 채용 정보 검색
                     case 1:
                     {
-                        SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);
-                        searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);
+                        SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);  // 컨트롤 생성
+                        searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);        // UI 호출
                         searchRecruitInfo.getSearchRecruitInfoUI()->startInterface(); // 인터페이스 시작
                 
                         if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
@@ -232,42 +239,43 @@ void run()
                             break;
                         }
                     }
-                    // 채용 지원
+                    //4.2 채용 지원
                     case 2:
                     {
-                        ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,&recruitInfoCollection, &memberCollection);
-                        applyImmediately.getApplyImmediatelyUI()->init(&fout);
-                        applyImmediately.getApplyImmediatelyUI()->startInterface();
+                        ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,
+                                                                             &recruitInfoCollection, &memberCollection); // 컨트롤 생성
+                        applyImmediately.getApplyImmediatelyUI()->init(&fout);      // UI 호출
+                        applyImmediately.getApplyImmediatelyUI()->startInterface();     //인터페이스 시작
 
                         if(currentMemberType==1) // 회사 회원은 이 작업 수행 불가능
                             break;
                         else
                         {
                             applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent, currentLoginId);
-                            applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
+                            
                         }
                         break;
                     }
-                    //지원 정보 조회
+                    //4.3 지원 정보 조회
                     case 3:
                     {
-                        ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);
-                        viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);
+                        ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);  // 컨트롤 생성
+                        viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);        // UI 호출
                         viewApplicationInfo.getViewApplicationInfoUI()->startInterface(); //인터페이스 시작
 
-                        if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                        if (currentMemberType == 1)  // 회사 회원은 이 작업 수행 불가능
                             break;
                         else {
                             viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
                             break;
                         }
                     }
-                    //지원 취소
+                    //4.4 지원 취소
                     case 4:
                     {
-                        CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);
-                        cancelApplication.getCancelApplicationUI()->init(&fout);
-                        cancelApplication.getCancelApplicationUI()->startInterface(); //인터페이스 시작
+                        CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);    // 컨트롤 생성
+                        cancelApplication.getCancelApplicationUI()->init(&fout);        // UI 호출
+                        cancelApplication.getCancelApplicationUI()->startInterface();   //인터페이스 시작
 
                         if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
                             break;
@@ -284,14 +292,18 @@ void run()
                 switch (secondEvent) {
                     //5.1 지원 정보 통계
                     case 1: { 
-                        ViewRecruitInfoStats viewRecruitInfoStats = ViewRecruitInfoStats(&recruitInfoCollection, &applicationInfoCollection);
+                        //채용 정보 통계 Control 클래스 인스턴스 생성
+                        ViewRecruitInfoStats viewRecruitInfoStats = ViewRecruitInfoStats(&recruitInfoCollection, &applicationInfoCollection);   
+                        //채용 정보 통계 Boundary 클래스의 ofstream 참조 값 지정
                         viewRecruitInfoStats.getViewRecruitInfoStatsUI()->init(&fout);
-                        viewRecruitInfoStats.getViewRecruitInfoStatsUI()->startInterface();
-
-                        if (currentMemberType == 1) {//회사 회원
+                        
+                        viewRecruitInfoStats.getViewRecruitInfoStatsUI()->startInterface();     //인터페이스 시작
+                        if (currentMemberType == 1) {//현재 로그인한 회원이 회사 회원인 경우
+                            //회사 회원이 등록한 채용 정보 통계 정보 출력
                             viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAddedRecruitInfoStats(currentLoginId);
                         }
-                        else if(currentMemberType == 2){//일반 회원
+                        else if(currentMemberType == 2){//현재 로그인한 회원이 일반 회원인 경우
+                            //일반 회원이 지원한 채용 정보 통계 정보 출력
                             viewRecruitInfoStats.getViewRecruitInfoStatsUI()->requestAppliedRecruitInfoStats(currentLoginId);
                         }
                         break;
@@ -302,6 +314,7 @@ void run()
             case 6:
             {
                 switch (secondEvent) {
+                    //6.1 프로그램 종료
                     case 1:
                     {
                         program_exit();     // 프로그램 종료하기 위한 함수 호출
@@ -316,11 +329,9 @@ void run()
             }
         }
     }
-	fin.close(); // 파일 닫기
-	fout.close(); // 파일 닫기
 }
 
 void program_exit() 
 {
-    fout << "6.1. 종료" << endl;  // 파일에 종료 내용 입력
+    fout << "6.1. 종료";  // 파일에 종료 내용 입력
 }

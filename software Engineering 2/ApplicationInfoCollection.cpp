@@ -1,17 +1,26 @@
 #include "ApplicationInfoCollection.h"
 
-
+/*
+함수 이름: ApplicationInfoCollection
+기능: 생성자
+매개변수: MemberCollection* inputMemberCollection -> 맴버 컬렉션 객체, RecruitInfoCollection* inputRecruitInfoCollection -> 채용정보 컬렉션 객체
+반환값: X
+*/
 ApplicationInfoCollection::ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection) 
 {
 	memberCollection = inputMemberCollection;
 	recruitInfoCollection = inputRecruitInfoCollection;
 }
 
-
+/*
+함수 이름: getApplicationInfo
+기능: 로그인 한 사람의 지원정보를 담아 회사 이름의 오름차순으로 반환한다.
+매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
+반환값: string
+*/
 string ApplicationInfoCollection::getApplicationInfo(string currentLoginId)
 {
 
-    //string returnString = "";
     string id;
     string name;
     string work;
@@ -25,8 +34,7 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId)
 
     for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end(); it++) {
         // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
-        cout << "currentLoginId : " << currentLoginId << endl;
-        cout << "General ID : " << (*it)->getGeneralId();
+
 
         if ((*it)->getGeneralId() == currentLoginId) {
             string tempStr = "";
@@ -42,8 +50,6 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId)
 
             forSort.push_back(tempStr);
 
-            cout << "id : " << id << ", name : " << member->getName() << ", work: " << (*it)->getRecruitInfo()->getWork() << ", targetNum : " <<
-                (*it)->getRecruitInfo()->getTargetNum() << ", Deadline : " << (*it)->getRecruitInfo()->getDeadline() << ", name : " << (*it)->getGeneralId();
         }
     }
     
@@ -56,14 +62,24 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId)
     return returnString;
 }
 
-
+/*
+함수 이름: addApplicationInfo
+기능: 지원 정보를 등록한다.
+매개변수: RecruitInfo* inputRecruitInfo -> 해당하는 채용 정보, string currentLoginId -> 현재 로그인 한 사람의 ID
+반환값: X
+*/
 void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId)
 { 
 	ApplicationInfo* applicationInfo = new ApplicationInfo(inputRecruitInfo, currentLoginId);
     ownedApplicationInfo.push_back(applicationInfo);
 }
 
-//지원 취소
+/*
+함수 이름: removeApplicationInfo
+기능: 지원 정보를 등록한다.
+매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID, string inputBusinessNum -> 해당하는 사업자 번호
+반환값: 삭제 정보
+*/
 string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, string inputBusinessNum) 
 {
     
@@ -95,16 +111,17 @@ string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, s
     return returnString;
 }
 
-//회원 탈퇴 시 일반 회원의 모든 지원 정보 삭제
+/*
+함수 이름: removeAllApplicationInfo
+기능: 회원 탈퇴 시 일반 회원의 모든 지원 정보 삭제하는 함수
+매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
+반환값: X
+*/
 void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId) 
 {
     // applicationInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
     
     for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end();) {
-        cout << "\n-------------------------\n";
-        cout << (*it)->getGeneralId() << "\n";
-        cout << currentLoginId << "\n";
-
         // 만약 id가 같은 애가 검색되면 그 애를 삭제
         if ((*it)->getGeneralId() == currentLoginId) {
             delete *it;      
@@ -118,6 +135,13 @@ void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId)
     return;
 }
 
+
+/*
+함수 이름: calcAppliedRecruitInfoStats
+기능: 지원한 채용 정보 통계 계산
+매개변수: string currentLoginId -> 현재 로그인 한 일반 회원 ID
+반환값: map<string, int> -> 지원한 통계 정보 저장 map (key: 업무, value: 지원 횟수)
+*/
 map<string, int> ApplicationInfoCollection::calcAppliedRecruitInfoStats(string currentLoginId)
 {
     map<string, int> recruitInfoStats;

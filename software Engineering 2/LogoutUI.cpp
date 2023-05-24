@@ -1,11 +1,24 @@
 #include "LogoutUI.h"
 #include "Logout.h"
 
+/*
+	함수 이름 : LogoutUI
+	기능: 생성자
+	매개변수: Logout* inputControl -> 컨트롤 참조값
+	반환값: X
+*/
 LogoutUI::LogoutUI(Logout* inputControl)
 {
 	control = inputControl;
 }
 
+
+/*
+	함수 이름 : init
+	기능: 파일 쓰기를 위한 ofstream 참조 전달
+	매개변수: ofstream* inputFout -> ofstream 참조값
+	반환값: X
+*/
 void LogoutUI::init(ofstream* inputFout)
 {
 	fout = inputFout;
@@ -30,11 +43,13 @@ void LogoutUI::startInterface()
               int memberType -> memberType을 0으로 돌려놓기 위한 매개변수
     반환값: X
 */
-void LogoutUI::requestLogout(string& loginId, int& memberType) 
+void LogoutUI::requestLogout(string& loginId, string tempId, int& memberType) 
 {
     Logout logout = Logout();   // logout 객체 생성
 
     logout.logoutMember(loginId, memberType);   // logoutMember 함수 호출
+
+    _showLogoutId(tempId);
 }
 
 /*
@@ -43,7 +58,7 @@ void LogoutUI::requestLogout(string& loginId, int& memberType)
     매개변수: string logoutId -> 파일에 저장할 id를 위한 매개변수
     반환값: X
 */
-void LogoutUI::showLogoutId(string logoutId) 
+void LogoutUI::_showLogoutId(string logoutId)
 {
     *fout << "> " << logoutId << endl << endl;    // 파일에 내용 기입.
 }

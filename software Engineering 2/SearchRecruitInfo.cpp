@@ -21,7 +21,7 @@ SearchRecruitInfo::SearchRecruitInfo(RecruitInfoCollection* inputRecruitInfoColl
     함수 이름 : getSearchRecruitInfoUI
     기능: Boundary를 호출하기 위한 함수
     매개변수: X
-    반환값: X
+    반환값: SearchRecruitInfoUI* 타입의 바운더리
 */
 SearchRecruitInfoUI* SearchRecruitInfo:: getSearchRecruitInfoUI() 
 {
@@ -31,18 +31,16 @@ SearchRecruitInfoUI* SearchRecruitInfo:: getSearchRecruitInfoUI()
 
 
 /*
-membercollection.cpp에서 회사이름, 사업자번호 나오게하는 함수를 만든다
-recruitinfocollection.cpp에서 업무, 인원수, 마감일을 가져오는 함수를 만든다.
-회사이름 + 사업자 번호 + 업무 + 인원수 + 마감일을 해서 for문을 하는 기능을수행한다.
-recruitinfocollection에서 얻은 string의 개행의 수만큼 반복?
+    함수 이름 : searchRecruitInfo
+    기능: 채용 정보 검색을 위한 함수, 단 프로그램 실행 날짜 기준으로 마감일이 지나지 않은 채용 정보만 호출한다.
+    매개변수: string name -> 회사이름을 매개변수로 보냄
+    반환값: 회사 이름을 기준으로 마감일이 지나지 않은 채용 정보를 str에 저장
 */
-
-
 string SearchRecruitInfo::searchRecruitInfo(string name) 
 {
-    string targetId = memberCollection->findIdByName(name);
-    string businessNum = memberCollection->findBusinessNumByName(name);
-    string returnString = recruitInfoCollection->getRecruitInfoWithoutSign(targetId);  // recruitInfoCollection class가 갖고 있는 addRecruitInfo함수 호출하여 RecruitInfo 추가
+    string targetId = memberCollection->findIdByName(name); // 회사 ID
+    string businessNum = memberCollection->findBusinessNumByName(name); // 회사 사업자번호
+    string returnString = recruitInfoCollection->getRecruitInfoWithoutSign(targetId);  // 회사 ID를 이용하여 returnString에 채용 정보를 저장 
     
     int lineNum = count(returnString.begin(), returnString.end(), '\n');
     
@@ -51,7 +49,7 @@ string SearchRecruitInfo::searchRecruitInfo(string name)
     string line;
 
     vector<string> lines;
-
+    // 회사 ID 기준으로 등록한 채용 정보 중 마감일이 지나지 않은 채용 정보를 str에 저장
     while (getline(temp, line)) 
     {
         lines.push_back(newString + line);

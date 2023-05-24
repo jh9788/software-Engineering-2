@@ -12,6 +12,7 @@ AddRecruitInfo::AddRecruitInfo(RecruitInfoCollection* inputRecruitInfoCollection
 {
     recruitInfoCollection = inputRecruitInfoCollection;
 
+    // Boundary 생성
     AddRecruitInfoUI* boundary = new AddRecruitInfoUI(this);
     this->boundary = boundary;
 }
@@ -21,7 +22,7 @@ AddRecruitInfo::AddRecruitInfo(RecruitInfoCollection* inputRecruitInfoCollection
     함수 이름 : getAddRecruitInfoUI
     기능: Boundary를 호출하기 위한 함수
     매개변수: X
-    반환값: X
+    반환값: AddRecruitInfoUI* 타입의 Boundary
 */
 AddRecruitInfoUI* AddRecruitInfo::getAddRecruitInfoUI()
 {

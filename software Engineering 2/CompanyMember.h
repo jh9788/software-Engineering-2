@@ -14,7 +14,7 @@ private:
 	string businessNum;
 
 public:
-	CompanyMember(string inputName, string businessNum, string inputId, string inputPassword, int inputMemberType);
+	CompanyMember(string inputName, string businessNum, string inputId, string inputPassword, int inputMemberType); //생성자
 	virtual string getBusinessNum();		// businessNum 값을 가져온다.
-	~CompanyMember();
+	~CompanyMember(); // 소멸자
 };

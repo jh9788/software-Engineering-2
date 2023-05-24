@@ -2,12 +2,24 @@
 #include "LogoutUI.h"
 using namespace std;
 
+/*
+	함수 이름 : Logout
+	기능: 생성자
+	매개변수: X
+	반환값: X
+*/
 Logout::Logout()
 {
     LogoutUI* boundary = new LogoutUI(this);
     this->boundary = boundary;
 }
 
+/*
+	함수 이름 : getLogoutUI
+	기능: Boundary를 호출하기 위한 함수 리턴
+	매개변수: X
+	반환값: LogoutUI* 타입의 boundary
+*/
 LogoutUI* Logout::getLogoutUI()
 {
     return boundary;

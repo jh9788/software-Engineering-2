@@ -1,14 +1,27 @@
 #include "Register.h"
 #include "RegisterUI.h"
 
+/*
+	함수 이름 : Register
+	기능: 생성자
+	매개변수: MemberCollection* inputMemberCollection -> MemberCollection 포인터 배열
+	반환값: X
+*/
 Register::Register(MemberCollection* inputMemberCollection) 
 {
     memberCollection = inputMemberCollection;
 
     RegisterUI* boundary = new RegisterUI(this);
     this->boundary = boundary;
- }
+}
 
+
+/*
+	함수 이름 : getRegisterUI
+	기능: 바운더리 반환
+	매개변수: X
+	반환값: RegisterUI* 타입의 바운더리
+*/
 RegisterUI* Register::getRegisterUI()
 {
     return boundary;

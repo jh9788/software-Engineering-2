@@ -11,7 +11,9 @@ using namespace std;
 
 /*
 클래스 이름 : ApplicationInfoCollection
-기능 : 
+기능 : 지원 리스트에 대한 아래 기능을 구현함
+	   채용 지원시 지원 추가, 지원 삭제, 회원 탈퇴시 해당 회원 지원 삭제
+	   채용 지원에 대한 정보를 반환
 */
 class ApplicationInfoCollection {
 private:
@@ -20,14 +22,14 @@ private:
 	MemberCollection* memberCollection;
 	RecruitInfoCollection* recruitInfoCollection;
 public:
-	void getAllApplicationInfoCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회
-	ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitCollection);
+	
+	ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitCollection);	// 생성자
 
-	void addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId);	// 회원 가입 시, 회원 추가
+	void addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId);	// 채용 지원 시, 지원 추가
 	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 지원 취소
 	void removeAllApplicationInfo(string currentLoginId); //회원 탈퇴시 지원 정보 삭제
 	string getApplicationInfo(string currentLoginId);
 
 	//control -> 3.1.1 -> applicationinfo collection
-	map<string, int> calcAppliedRecruitInfoStats(string currentLoginId);
+	map<string, int> calcAppliedRecruitInfoStats(string currentLoginId); //지원한 채용 정보 통계 계산
 };

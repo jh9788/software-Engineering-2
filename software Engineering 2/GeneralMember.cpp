@@ -13,8 +13,6 @@ GeneralMember::GeneralMember(string inputName, string inputSocialSecurityNum, st
 			   : Member(inputName, inputId, inputPassword, inputMemberType)
 {
 	socialSecurityNum = inputSocialSecurityNum;	// 문자열 복사해서 넣기
-
-	//cout << "inputSocialSecurityNum : " << inputSocialSecurityNum << ", socialSecurityNum : " << socialSecurityNum << endl;
 }
 
 
@@ -22,7 +20,7 @@ GeneralMember::GeneralMember(string inputName, string inputSocialSecurityNum, st
 함수 이름: getSocialSecurityNum
 기능: socialSecurityNum 값을 가져온다.
 매개변수: X
-반환값: string
+반환값: string 타입의 socialSecurityNum를 반환
 */
 string GeneralMember::getSocialSecurityNum() 
 {

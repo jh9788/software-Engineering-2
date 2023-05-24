@@ -7,7 +7,10 @@ using namespace std;
 
 class ViewApplicationInfoUI;
 
-// 등록한 채용 정보 조회 Control
+/*
+클래스 이름 : AddRecruitInfo
+기능 : 지원 정보 조회 Control
+*/
 class ViewApplicationInfo {
 private:
 	ViewApplicationInfoUI* boundary;
@@ -16,5 +19,5 @@ public:
 	ViewApplicationInfo(ApplicationInfoCollection* inputApplicationInfoCollection);	// 생성자
 	ViewApplicationInfoUI* getViewApplicationInfoUI();	// Boundary를 호출하기 위한 함수
 
-	string viewApplicationList(string currentLoginId);		// 등록된 채용 정보를 모두 확인하는 함수
+	string viewApplicationList(string currentLoginId);		// Application List를 조회하기 위한 함수
 };

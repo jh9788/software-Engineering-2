@@ -7,7 +7,10 @@ using namespace std;
 
 class AddRecruitInfoUI;
 
- //채용 정보 추가 Control
+/*
+클래스 이름 : AddRecruitInfo
+기능 : 채용 정보 추가 Control
+*/
 class AddRecruitInfo {
 private:
 	AddRecruitInfoUI* boundary;

@@ -10,7 +10,10 @@ using namespace std;
 
 class SearchRecruitInfoUI;
 
-//채용 정보 검색 Control
+/*
+클래스 이름 : SearchRecruitInfo
+기능 : 채용 정보 검색 Control
+*/
 class SearchRecruitInfo {
 private:
 	SearchRecruitInfoUI* boundary;

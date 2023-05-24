@@ -22,7 +22,7 @@ RecruitInfo::RecruitInfo(string inputWork, string inputTargetNum, string inputDe
 함수 이름: getWork
 기능: 업무 반환
 매개변수: X
-반환값: string
+반환값: string 타입의 work 반환
 */
 string RecruitInfo::getWork() 
 {
@@ -34,7 +34,7 @@ string RecruitInfo::getWork()
 함수 이름: getId
 기능: 신청 마감일 반환
 매개변수: X
-반환값: string
+반환값: string 타입의 deadline 반환
 */
 string RecruitInfo::getDeadline() 
 {
@@ -46,7 +46,7 @@ string RecruitInfo::getDeadline()
 함수 이름: getTargetNum
 기능: 인원 수 반환
 매개변수: X
-반환값: string
+반환값: string 타입의 targetNum 반환
 */
 string RecruitInfo::getTargetNum() 
 {
@@ -58,7 +58,7 @@ string RecruitInfo::getTargetNum()
 함수 이름: getCompanyId
 기능: Company ID 반환
 매개변수: X
-반환값: string
+반환값: string 타입의 companyId 반환
 */
 string RecruitInfo::getCompanyId() 
 {

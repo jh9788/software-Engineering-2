@@ -1,6 +1,12 @@
 #include "Login.h"
 #include "LoginUI.h"
 
+/*
+	함수 이름 : Login
+	기능: 생성자
+	매개변수: MemberCollection* inputMemberCollection -> MemberCollection 포인터 배열
+	반환값: X
+*/
 Login::Login(MemberCollection* inputMemberCollection)
 {
     LoginUI* boundary = new LoginUI(this);
@@ -9,6 +15,13 @@ Login::Login(MemberCollection* inputMemberCollection)
 
 }
 
+
+/*
+	함수 이름 : getLoginUI
+	기능: boundary 반환
+	매개변수: X
+	반환값: LoginUI* 타입의 Boundary
+*/
 LoginUI* Login::getLoginUI(){
     return boundary;
 }
@@ -23,7 +36,7 @@ LoginUI* Login::getLoginUI(){
               string pwd -> Password
               string& loginId -> 현재 login한 ID를 저장해 오기 위한 변수
               int memberType -> 회사 회원, 일반 회원에 따라 memberType값을 저장해 오기 위한 변수
-    반환값: bool
+    반환값: bool 타입의 true 또는 false
 */
 bool Login::isLoginVerified(string id, string pwd, string& currentLoginId, int& currentMemberType) 
 {

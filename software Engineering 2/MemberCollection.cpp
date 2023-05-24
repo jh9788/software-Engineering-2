@@ -41,7 +41,7 @@ void MemberCollection::removeMember(string memberId)
         }
     }
 }
- 
+
 /*
 함수 이름: isMember
 기능: 로그인 시, 기존에 등록되어있는 회원인지 확인한다.
@@ -78,6 +78,12 @@ int MemberCollection::getMemberType(string memberId, string memberPassword)
     return 0;  // 찾는 멤버가 없는 경우
 }
 
+/*
+함수 이름: findMemberById
+기능: 맴버 아이디를 통해 Member 객체를 반환받는다.
+매개변수: string memberId -> 찾는데 사용할 맴버의 아이디
+반환값: 찾는 맴버 객체
+*/
 Member* MemberCollection::findMemberById(string memberId) 
 {
 
@@ -89,7 +95,12 @@ Member* MemberCollection::findMemberById(string memberId)
 	return NULL; // 찾는 멤버가 없는 경우 NULL 포인터 반환
 
 }
-
+/*
+함수 이름: findBusinessNumByName
+기능: 맴버 아이디를 통해 사업자 번호를 반환받는다.
+매개변수: string memberName -> 찾는데 사용할 맴버의 이름
+반환값: 찾은 사업자 번호
+*/
 string MemberCollection::findBusinessNumByName(string memberName)
 {
     // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
@@ -102,7 +113,12 @@ string MemberCollection::findBusinessNumByName(string memberName)
     }
     return "";
 }
-
+/*
+함수 이름: findIdByName
+기능: 맴버 이름을 통해 아이디를 반환받는다.
+매개변수: string memberName -> 찾는데 사용할 맴버의 이름
+반환값: 찾은 아이디
+*/
 string MemberCollection::findIdByName(string memberName)
 {
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
@@ -114,7 +130,12 @@ string MemberCollection::findIdByName(string memberName)
     }
     return "";
 }
-
+/*
+함수 이름: findNameById
+기능: 맴버 아이디를 통해 이름을 반환받는다.
+매개변수: string memberId -> 찾는데 사용할 맴버의 아이디
+반환값: 찾은 이름
+*/
 string MemberCollection::findNameById(string memberId)
 {
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
@@ -127,6 +148,12 @@ string MemberCollection::findNameById(string memberId)
     return "";
 }
 
+/*
+함수 이름: findIdByBusinessNum
+기능: 사업자번호를 통해 아이디를 반환받는다.
+매개변수: string businessNum -> 찾는데 사용할 사업자번호
+반환값: 찾은 아아디
+*/
 
 string MemberCollection::findIdByBusinessNum(string businessNum) 
 {

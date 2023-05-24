@@ -5,17 +5,22 @@
 using namespace std;
 
 class ViewRecruitInfoStats;
+
+/*
+클래스 이름: ViewRecruitInfoStatsUI
+기능: 채용 정보 통계 Boundary
+*/
 class ViewRecruitInfoStatsUI
 {
 private:
-	ViewRecruitInfoStats* control;
-	ofstream* fout;
+	ViewRecruitInfoStats* control; //채용 정보 통계 Control 클래스 참조 값
+	ofstream* fout; //파일 쓰기용 ofstream 참조 값
 
-	void _showRecruitInfoStatsInterface(map<string, int> recruitInfoStats);
+	void _showRecruitInfoStatsInterface(map<string, int> recruitInfoStats); //채용 정보 통계 output.txt 파일에 출력 
 
 public:
-	ViewRecruitInfoStatsUI(ViewRecruitInfoStats* inputControl);
-	void init(ofstream* inputFout);
+	ViewRecruitInfoStatsUI(ViewRecruitInfoStats* inputControl); //생성자
+	void init(ofstream* inputFout); //파일 쓰기용 ofstream 참조 값 지정
 
 	//control -> 1 -> boundary
 	void startInterface(); //인터페이스 시작

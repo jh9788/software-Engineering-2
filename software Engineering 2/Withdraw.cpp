@@ -20,7 +20,7 @@ Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoColle
 	함수 이름 : getWithdrawUI
 	기능 : 
 	매개변수 : X
-	반환값 : boundary
+	반환값 : WithdrawUI* 타입의 boundary
 */
 WithdrawUI* Withdraw::getWithdrawUI() 
 {

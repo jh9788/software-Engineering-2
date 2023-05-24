@@ -45,14 +45,14 @@ void SearchRecruitInfoUI::startInterface()
 */
 void SearchRecruitInfoUI::showSearchRecruitInfo(string inputEvent) 
 {
-	stringstream input(inputEvent);
-	string num1, num2, name;
+	stringstream input(inputEvent); // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
+	string num1, num2, name; // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
 
-	input >> num1 >> num2 >> name;
+	input >> num1 >> num2 >> name; // 공백을 기준으로 각각의 string을 변수에 담기
 
 	
-	string returnString = control->searchRecruitInfo(name);
+	string returnString = control->searchRecruitInfo(name); // Control의 함수인 searchRecruitInfo 호출 
 
-	*fout << returnString << endl;
+	*fout << returnString << endl; // 채용 정보 검색 완료 후, 파일에 저장
 }
 

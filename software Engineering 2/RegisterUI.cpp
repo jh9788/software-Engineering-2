@@ -67,9 +67,11 @@ void RegisterUI::requestRegister(string inputEvent, int memberType)
     switch (memberType) {
     case 1:             // 회사 회원인 경우
         control->registerCompanyMember(name, num, id, pwd, 1);     // Control의 함수인 registerCompanyMember 호출
+        _showRegisterSuccessInterface(inputEvent, 1);
         break;
     case 2:             // 일반 회원인 경우
         control->registerGeneralMember(name, num, id, pwd, 2);     // Control의 함수인 registerGeneralMember 호출
+        _showRegisterSuccessInterface(inputEvent, 2);
         break;
     }
 }
@@ -81,7 +83,7 @@ void RegisterUI::requestRegister(string inputEvent, int memberType)
               memberType -> 회사 회원, 일반 회원에 맞는 번호를 파일에 저장하기 위한 매개변수
     반환값: X
 */
-void RegisterUI::showRegisterSuccessInterface(string inputEvent, int memberType) 
+void RegisterUI::_showRegisterSuccessInterface(string inputEvent, int memberType) 
 {
     // 파일에 내용을 기입하기 위해 string 자르기
     stringstream input(inputEvent);     // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용

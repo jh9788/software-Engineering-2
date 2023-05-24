@@ -21,7 +21,7 @@ CompanyMember::CompanyMember(string inputName, string inputBusinessNum, string i
 함수 이름: getBusinessNum
 기능: businessNum 값을 가져온다.
 매개변수: X
-반환값: string
+반환값: 사업자번호
 */
 string CompanyMember::getBusinessNum() 
 {

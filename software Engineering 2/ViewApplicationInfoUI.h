@@ -8,7 +8,10 @@ using namespace std;
 
 class ViewApplicationInfo;
 
-// 등록한 채용 정보 조회 UI
+/*
+클래스 이름 : AddRecruitInfoUI
+기능 : 지원 정보 조회 Boundary
+*/
 class ViewApplicationInfoUI {
 private:
 	ViewApplicationInfo* control;

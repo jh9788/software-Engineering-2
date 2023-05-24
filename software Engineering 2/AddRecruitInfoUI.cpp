@@ -7,7 +7,7 @@ using namespace std;
 /*
 	함수 이름 : AddRecruitInfoUI
 	기능: 생성자
-	매개변수: AddRecruitInfo* inputControl -> 컨트롤 참조값
+	매개변수: AddRecruitInfo* inputControl -> Control 참조값
 	반환값: X
 */
 AddRecruitInfoUI::AddRecruitInfoUI(AddRecruitInfo* inputControl) 
@@ -54,6 +54,8 @@ void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLogin
     input >> num1 >> num2 >> work >> targetNum >> deadline;     // 공백을 기준으로 각각의 string을 변수에 담기
 
     control->addRecruitInfo(work, targetNum, deadline, currentLoginId);     // Control의 함수인 addRecruitInfo 호출
+
+    _showAddedRecruitInfo(inputEvent);
 }
 
 
@@ -63,7 +65,7 @@ void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLogin
     매개변수: string inputEvent -> 입력한 한 줄의 문자열
     반환값: X
 */
-void AddRecruitInfoUI::showAddedRecruitInfo(string inputEvent) 
+void AddRecruitInfoUI::_showAddedRecruitInfo(string inputEvent) 
 {
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
     string num1, num2, work, targetNum, deadline;     // 공백을 기준으로 각각의 string을 담아줄 변수를 설정
