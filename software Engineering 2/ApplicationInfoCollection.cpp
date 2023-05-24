@@ -1,5 +1,14 @@
 #include "ApplicationInfoCollection.h"
 
+
+/* 제출 시 삭제할 함수 !! 현재 지원한 정보 조회 */
+void ApplicationInfoCollection::getAllApplicationInfoCollection()
+{
+    for (int i = 0; i < applicationInfoCollection.size(); i++) {
+        applicationInfoCollection[i]->showApplicationInfo();
+    }
+}
+
 ApplicationInfoCollection::ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection) {
 	memberCollection = inputMemberCollection;
 	recruitInfoCollection = inputRecruitInfoCollection;

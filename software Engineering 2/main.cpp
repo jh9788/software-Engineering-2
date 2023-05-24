@@ -251,7 +251,7 @@ void run() {
                 else
                 {
                     applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent);
-                    
+                    applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
                 }
                 break;
             }

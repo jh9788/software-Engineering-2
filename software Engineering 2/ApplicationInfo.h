@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include "RecruitInfo.h"
 using namespace std;
@@ -12,6 +13,7 @@ public:
 	ApplicationInfo(RecruitInfo* inputRecruitInfo, string inputGeneralId);
 	string getGeneralId();
 	RecruitInfo* getRecruitInfo();
+	void showApplicationInfo();		/* 제출 시 삭제할 함수!! */
 };
 
 

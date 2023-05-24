@@ -18,6 +18,7 @@ private:
 	MemberCollection* memberCollection;
 	RecruitInfoCollection* recruitInfoCollection;
 public:
+	void getAllApplicationInfoCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회
 	ApplicationInfoCollection(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitCollection);
 	void addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId);	// 회원 가입 시, 회원 추가
 	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 회원 탈퇴 시, 회원 삭제
