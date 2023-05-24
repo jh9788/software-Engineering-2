@@ -20,7 +20,7 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
             Member* member = memberCollection->findMemberById(id);
 
             returnString = returnString + "> " + member->getName() + " ";
-            returnString = returnString + member->getBusinessNum() + " "; //이부분 잘 안될 수 도 있음 오버라이딩 제대로 됐는지 확인할것
+           // returnString = returnString + member->getBusinessNum() + " "; //이부분 잘 안될 수 도 있음 오버라이딩 제대로 됐는지 확인할것
             returnString = returnString + (*it)->getRecruitInfo()->getWork() + " ";
             returnString = returnString + (*it)->getRecruitInfo()->getTargetNum() + " ";
             returnString = returnString + (*it)->getRecruitInfo()->getDeadline() + "\n";
@@ -33,7 +33,8 @@ string ApplicationInfoCollection::getApplicationInfo(string currentLoginId){
 }
 
 
-void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId) {
+void ApplicationInfoCollection::addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId)
+{ 
 	ApplicationInfo* applicationInfo = new ApplicationInfo(inputRecruitInfo, currentLoginId);
 	applicationInfoCollection.push_back(applicationInfo);
 }

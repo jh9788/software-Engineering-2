@@ -95,22 +95,6 @@ string RecruitInfoCollection::findWorkById(string companyId)
     return 0;
 }
 
-/*
-함수 이름: ~RecruitInfoCollection
-기능: 소멸자
-매개변수: X
-반환값: X
-*/
-RecruitInfoCollection::~RecruitInfoCollection()
-{
-    for (int i = 0; i < recruitInfoCollection.size(); i++)
-        recruitInfoCollection.pop_back();
-}
-
-
-}
-
-
 RecruitInfo* RecruitInfoCollection::findByCompanyId(string companyId) {
     for (auto it = recruitInfoCollection.begin(); it != recruitInfoCollection.end(); it++) {
         // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
@@ -122,4 +106,16 @@ RecruitInfo* RecruitInfoCollection::findByCompanyId(string companyId) {
     return NULL; //발견하지 못했을때
 
 
+}
+
+/*
+함수 이름: ~RecruitInfoCollection
+기능: 소멸자
+매개변수: X
+반환값: X
+*/
+RecruitInfoCollection::~RecruitInfoCollection()
+{
+    for (int i = 0; i < recruitInfoCollection.size(); i++)
+        recruitInfoCollection.pop_back();
 }

@@ -109,26 +109,6 @@ string MemberCollection::findBusinessNumByName(string memberName)
     }
 }
 
-string MemberCollection::findIdByBusinessNum(string businessNum)
-{
-    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
-        for (auto& member : memberCollection) {
-            CompanyMember* companyMember = dynamic_cast<CompanyMember*>(member);
-            if (companyMember && companyMember->getBusinessNum() == businessNum) {
-                // 일치하는 businessNum을 가진 CompanyMember를 찾았으므로,
-                // 이 Member의 이름으로 다시 회원 컬렉션을 검색하여 해당 회원의 ID를 반환합니다.
-                for (auto& searchMember : memberCollection) {
-                    if (searchMember->getName() == companyMember->getName()) {
-                        return searchMember->getId();
-                    }
-                }
-            }
-        }
-        return 0; // 원하는 경우 다른 "찾을 수 없음" 메시지로 변경 가능
-}
-    
-
-
 string MemberCollection::findIdByName(string memberName)
 {
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
@@ -175,29 +155,3 @@ MemberCollection::~MemberCollection()
 	for (int i = 0; i < memberCollection.size(); i++)
 		memberCollection.pop_back();
 }
-
-
-
-
-
-///*
-//함수 이름: getRecruitInfo
-//기능: 로그인 한 사람이 등록한 모든 채용 정보를 담아 반환한다.
-//매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
-//반환값: string
-//*/
-//string MemberCollection::findMemberByName(string targetName)
-//{
-//    string returnString = "";
-//    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
-//    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
-//        // 만약 id가 같은 애가 검색되면 그 애들을 returnString에 추가
-//        if ((*it)->getName() == targetName) {
-//            (*it)->
-//        }
-//
-//        return returnString;
-//    }
-
-
-

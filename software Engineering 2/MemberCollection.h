@@ -23,11 +23,10 @@ public:
 	void removeMember(string memberId); // 회원 탈퇴 시, 회원 삭제
 	bool isMember(string memberId, string memberPassword); // 등록된 회원인지 확인 (로그인)
 	int getMemberType(string memberId, string memberPassword);	// 회사 회원인지, 일반 회원인지 구분할 수 있는 memberType을 가져오기
-	//void findMemberByName();
 	Member* findMemberById(string memberId);
 	string findBusinessNumByName(string memberName);
-	string findIdByBusinessNum(string businessNum);
 	string findIdByName(string memberName);
 	string findNameById(string memberId);
+	string findIdByBusinessNum(string businessNum);
 	~MemberCollection();
 };
