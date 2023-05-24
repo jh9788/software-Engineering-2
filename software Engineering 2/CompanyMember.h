@@ -12,14 +12,10 @@ class CompanyMember : public Member
 {
 private:
 	string businessNum;
-	//RecruitInfoCollection recruitList;
 
 public:
 	CompanyMember(string inputName, string businessNum, string inputId, string inputPassword, int inputMemberType);
-	string getBusinessNum();		// businessNum 값을 가져온다.
+	virtual string getBusinessNum();		// businessNum 값을 가져온다.
 	virtual void showMemberInfo();	/* 제출 시 삭제할 함수!! */
-	//void getRecruitList();
-	//void addRecruitInfo();
-	//bool isCompanyNameSame();
 	~CompanyMember();
 };

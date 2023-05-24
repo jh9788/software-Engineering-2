@@ -3,6 +3,10 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <algorithm>
+#include <sstream>
+#include <iomanip>
+#include <chrono>
 
 using namespace std;
 
@@ -14,13 +18,16 @@ using namespace std;
 class RecruitInfoCollection
 {
 private:
-	vector <RecruitInfo*> recruitInfoCollection;
+	vector <RecruitInfo*> ownedRecruitInfo;
 
 public:
 	void getAllRecruitInfoCollection(); /* 제출 시 삭제할 함수 !! */ // 현재 등록된 회원 목록 모두 조회
-
 	void addRecruitInfo(string work, string targetNum, string deadline, string currentLoginId);	// 채용 정보 등록 시, 새로운 채용 정보를 recruitInfoCollection에 추가
 	string getRecruitInfo(string currentLoginId); // 로그인 한 사람이 등록한 모든 채용 정보를 담아 반환
+	string getRecruitInfoWithoutSign(string currentLoginId); // ">" 기호를 빼고 채용 정보를 반환
+	RecruitInfo* findByCompanyId(string companyId);
+	RecruitInfo* findRecruitInfoById(string companyId);
+	string findWorkById(string companyId);
 
 	//control -> 2.1.1 -> recruitinfo collection
 	map<string, int> calcAddedRecruitInfoStats(string currentLoginId);

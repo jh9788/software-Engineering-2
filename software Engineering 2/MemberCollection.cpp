@@ -86,6 +86,61 @@ int MemberCollection::getMemberType(string memberId, string memberPassword) {
     return 0;  // 찾는 멤버가 없는 경우
 }
 
+Member* MemberCollection::findMemberById(string memberId) {
+
+	for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+		if ((*it)->getId() == memberId) {
+			return (*it);  // 해당 멤버를 찾은 경우, memberType return
+		}
+	}
+	return NULL; // 찾는 멤버가 없는 경우 NULL 포인터 반환
+
+}
+
+string MemberCollection::findBusinessNumByName(string memberName)
+{
+    // memberCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getName() == memberName) {
+            CompanyMember* companyMember = static_cast<CompanyMember*>(*it);
+            return companyMember->getBusinessNum();
+        }
+    }
+}
+
+string MemberCollection::findIdByName(string memberName)
+{
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getName() == memberName) {
+            Member* member = (*it);
+            return member->getId();
+        }
+    }
+}
+
+string MemberCollection::findNameById(string memberId)
+{
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 name이 같은 회원을 찾으면
+        if ((*it)->getId() == memberId) {
+            Member* member = (*it);
+            return member->getName();
+        }
+    }
+}
+
+
+string MemberCollection::findIdByBusinessNum(string businessNum) {
+
+    for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
+        // 만약 num이 같은 회원을 찾으면
+        if ((*it)->getBusinessNum() == businessNum) {
+            return (*it)->getId();
+        }
+    }
+}
 
 
 /*

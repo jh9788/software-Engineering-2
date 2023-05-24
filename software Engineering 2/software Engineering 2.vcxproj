@@ -23,6 +23,10 @@
     <ClCompile Include="AddRecruitInfoUI.cpp" />
     <ClCompile Include="ApplicationInfo.cpp" />
     <ClCompile Include="ApplicationInfoCollection.cpp" />
+    <ClCompile Include="ApplyImmediately.cpp" />
+    <ClCompile Include="ApplyImmediatelyUI.cpp" />
+    <ClCompile Include="CancelApplication.cpp" />
+    <ClCompile Include="CancelApplicationUI.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -36,10 +40,14 @@
     <ClCompile Include="RecruitInfoCollection.cpp" />
     <ClCompile Include="Register.cpp" />
     <ClCompile Include="RegisterUI.cpp" />
+    <ClCompile Include="SearchRecruitInfo.cpp" />
+    <ClCompile Include="SearchRecruitInfoUI.cpp" />
     <ClCompile Include="ViewRecruitInfoStats.cpp" />
     <ClCompile Include="ViewRecruitInfoStatsUI.cpp" />
     <ClCompile Include="ViewAddedRecruitList.cpp" />
     <ClCompile Include="ViewAddedRecruitListUI.cpp" />
+    <ClCompile Include="ViewApplicationInfo.cpp" />
+    <ClCompile Include="ViewApplicationInfoUI.cpp" />
     <ClCompile Include="Withdraw.cpp" />
     <ClCompile Include="WithdrawUI.cpp" />
   </ItemGroup>
@@ -48,6 +56,10 @@
     <ClInclude Include="AddRecruitInfoUI.h" />
     <ClInclude Include="ApplicationInfo.h" />
     <ClInclude Include="ApplicationInfoCollection.h" />
+    <ClInclude Include="ApplyImmediately.h" />
+    <ClInclude Include="ApplyImmediatelyUI.h" />
+    <ClInclude Include="CancelApplication.h" />
+    <ClInclude Include="CancelApplicationUI.h" />
     <ClInclude Include="CompanyMember.h" />
     <ClInclude Include="GeneralMember.h" />
     <ClInclude Include="Login.h" />
@@ -62,8 +74,12 @@
     <ClInclude Include="RegisterUI.h" />
     <ClInclude Include="ViewRecruitInfoStats.h" />
     <ClInclude Include="ViewRecruitInfoStatsUI.h" />
+    <ClInclude Include="SearchRecruitInfo.h" />
+    <ClInclude Include="SearchRecruitInfoUI.h" />
     <ClInclude Include="ViewAddedRecruitList.h" />
     <ClInclude Include="ViewAddedRecruitListUI.h" />
+    <ClInclude Include="ViewApplicationInfo.h" />
+    <ClInclude Include="ViewApplicationInfoUI.h" />
     <ClInclude Include="Withdraw.h" />
     <ClInclude Include="WithdrawUI.h" />
   </ItemGroup>

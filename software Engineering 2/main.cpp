@@ -28,6 +28,16 @@
 #include "ViewAddedRecruitListUI.h"
 #include "ViewAddedRecruitList.h"
 
+// 채용지원 서브시스템 헤더
+#include "SearchRecruitInfoUI.h"
+#include "SearchRecruitInfo.h"
+#include "ApplyImmediatelyUI.h"
+#include "ApplyImmediately.h"
+#include "ViewApplicationInfoUI.h"
+#include "ViewApplicationInfo.h"
+#include "CancelApplicationUI.h"
+#include "CancelApplication.h"
+
 //채용정보통걔 서브시스템 헤더
 #include "ViewRecruitInfoStatsUI.h"
 #include "ViewRecruitInfoStats.h"
@@ -36,14 +46,8 @@ using namespace std;
 
 //상수 선언
 #define endl '\n'
-
-/*
 #define INPUT_FILE "example.txt"
 #define OUTPUT_FILE "output.txt"
-*/
-
-#define INPUT_FILE "example_sunjoo.txt"
-#define OUTPUT_FILE "output_sunjoo.txt"
 
 ifstream fin; // 텍스트 파일 열기
 ofstream fout; // 텍스트 파일로 추출하기
@@ -53,6 +57,10 @@ void run();
 void program_exit();
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
 	fin.open(INPUT_FILE);
 	fout.open(OUTPUT_FILE);
 
@@ -78,7 +86,7 @@ void run() {
 
     MemberCollection memberCollection = MemberCollection(); // MemberCollection 생성
     RecruitInfoCollection recruitInfoCollection = RecruitInfoCollection(); // RecruitInfoCollection 생성
-    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(); // ApplicationInfoCollection 생성
+    ApplicationInfoCollection applicationInfoCollection = ApplicationInfoCollection(&memberCollection, &recruitInfoCollection); // ApplicationInfoCollection 생성
 
     string currentLoginId = "";       // 현재 로그인 중인 ID를 currentLoginId에 저장
     int currentMemberType = 0;         // 1이면 회사 회원, 2면 일반 회원
@@ -214,6 +222,72 @@ void run() {
         }
         case 4:
         {
+            switch (secondEvent) {
+            // 채용 정보 검색
+            case 1:
+            {
+                SearchRecruitInfo searchRecruitInfo = SearchRecruitInfo(&recruitInfoCollection,&memberCollection);
+                searchRecruitInfo.getSearchRecruitInfoUI()->init(&fout);
+                searchRecruitInfo.getSearchRecruitInfoUI()->startInterface(); // 인터페이스 시작
+                
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    searchRecruitInfo.getSearchRecruitInfoUI()->showSearchRecruitInfo(inputEvent);
+                    break;
+                }
+            }
+            // 채용 지원
+            case 2:
+            {
+                ApplyImmediately applyImmediately = ApplyImmediately(&applicationInfoCollection,&recruitInfoCollection, &memberCollection);
+                applyImmediately.getApplyImmediatelyUI()->init(&fout);
+                applyImmediately.getApplyImmediatelyUI()->startInterface();
+
+                if(currentMemberType==1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else
+                {
+                    applyImmediately.getApplyImmediatelyUI()->showApplyImmediately(inputEvent, currentLoginId);
+                    applicationInfoCollection.getAllApplicationInfoCollection(); // 현재 등록된 지원 정보가 누구누구 있는지 확인하기 위한 애
+                }
+                break;
+            }
+            case 3:
+            {
+                //지원 정보 조회
+
+                ViewApplicationInfo viewApplicationInfo = ViewApplicationInfo(&applicationInfoCollection);
+                viewApplicationInfo.getViewApplicationInfoUI()->init(&fout);
+                viewApplicationInfo.getViewApplicationInfoUI()->startInterface(); //인터페이스 시작
+
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    //cout << "currentLoginId : " << currentLoginId << endl;
+                    viewApplicationInfo.getViewApplicationInfoUI()->showApplicationInfo(currentLoginId);
+                    break;
+                }
+
+            }
+            case 4:
+            {
+                //지원 취소
+
+                CancelApplication cancelApplication = CancelApplication(&applicationInfoCollection);
+                cancelApplication.getCancelApplicationUI()->init(&fout);
+                cancelApplication.getCancelApplicationUI()->startInterface(); //인터페이스 시작
+
+                if (currentMemberType == 1) // 회사 회원은 이 작업 수행 불가능
+                    break;
+                else {
+                    cancelApplication.getCancelApplicationUI()->showCancelApplication(currentLoginId, inputEvent);
+                    break;
+                }
+
+
+            }
+            }
             break;
         }
         case 5:
