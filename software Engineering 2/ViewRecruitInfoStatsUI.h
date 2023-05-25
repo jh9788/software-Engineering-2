@@ -1,6 +1,5 @@
 #pragma once
 #include <fstream>
-#include<map>
 #include <string>
 using namespace std;
 
@@ -16,7 +15,7 @@ private:
 	ViewRecruitInfoStats* control; //채용 정보 통계 Control 클래스 참조 값
 	ofstream* fout; //파일 쓰기용 ofstream 참조 값
 
-	void _showRecruitInfoStatsInterface(map<string, int> recruitInfoStats); //채용 정보 통계 output.txt 파일에 출력 
+	void _showRecruitInfoStatsInterface(string recruitInfoStats); //채용 정보 통계 output.txt 파일에 출력 
 
 public:
 	ViewRecruitInfoStatsUI(ViewRecruitInfoStats* inputControl); //생성자

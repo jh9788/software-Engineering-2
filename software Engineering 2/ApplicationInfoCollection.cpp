@@ -168,7 +168,7 @@ void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId)
 매개변수: string currentLoginId -> 현재 로그인 한 일반 회원 ID
 반환값: map<string, int> -> 지원한 통계 정보 저장 map (key: 업무, value: 지원 횟수)
 */
-map<string, int> ApplicationInfoCollection::calcAppliedRecruitInfoStats(string currentLoginId)
+string ApplicationInfoCollection::calcAppliedRecruitInfoStats(string currentLoginId)
 {
     map<string, int> recruitInfoStats;
 
@@ -185,5 +185,13 @@ map<string, int> ApplicationInfoCollection::calcAppliedRecruitInfoStats(string c
         }
     }
 
-    return recruitInfoStats;
+    string returnString = "";
+    for (auto it = recruitInfoStats.begin(); it != recruitInfoStats.end(); ++it) {
+        returnString += ">";
+        returnString += it->first;
+        returnString += " ";
+        returnString += to_string(it->second);
+        returnString += "\n";
+    }
+    return returnString;
 }

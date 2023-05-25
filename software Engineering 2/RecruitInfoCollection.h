@@ -29,7 +29,7 @@ public:
 	string findWorkById(string companyId); //회사 ID가 일치하는 채용 정보의 업무 명 반환
 
 	//control -> 2.1.1 -> recruitinfo collection
-	map<string, int> calcAddedRecruitInfoStats(string currentLoginId); //등록한 채용 정보 통계 계산
+	string calcAddedRecruitInfoStats(string currentLoginId); //등록한 채용 정보 통계 계산
 
 	~RecruitInfoCollection();	// 소멸자
 };

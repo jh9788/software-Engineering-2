@@ -40,7 +40,7 @@ void ViewRecruitInfoStatsUI::startInterface() {
 */
 void ViewRecruitInfoStatsUI::requestAddedRecruitInfoStats(string currentLoginId)
 {   
-    map<string, int> recruitInfoStats = control->getAddedRecruitInfoStats(currentLoginId);
+    string recruitInfoStats = control->getAddedRecruitInfoStats(currentLoginId);
     _showRecruitInfoStatsInterface(recruitInfoStats);
 }
 
@@ -51,7 +51,7 @@ void ViewRecruitInfoStatsUI::requestAddedRecruitInfoStats(string currentLoginId)
 	반환값: X
 */
 void ViewRecruitInfoStatsUI::requestAppliedRecruitInfoStats(string currentLoginId) {
-    map<string, int> recruitInfoStats = control->getAppliedRecruitInfoStats(currentLoginId);
+    string recruitInfoStats = control->getAppliedRecruitInfoStats(currentLoginId);
     _showRecruitInfoStatsInterface(recruitInfoStats);
 }
 
@@ -61,10 +61,7 @@ void ViewRecruitInfoStatsUI::requestAppliedRecruitInfoStats(string currentLoginI
 	매개변수: map<string, int> recruitInfoStats -> 채용 정보 통계 저장 map (key: 업무, value: 지원자 수 or 지원 횟수)
 	반환값: X
 */
-void ViewRecruitInfoStatsUI::_showRecruitInfoStatsInterface(map<string, int> recruitInfoStats)
+void ViewRecruitInfoStatsUI::_showRecruitInfoStatsInterface(string recruitInfoStats)
 {   
-    for (auto it = recruitInfoStats.begin(); it != recruitInfoStats.end(); ++it) {
-        *fout << "> " << it->first << " " << it->second << endl;
-    }
-    *fout << endl;
+        *fout << recruitInfoStats << endl;
 }

@@ -34,7 +34,7 @@ ViewRecruitInfoStatsUI* ViewRecruitInfoStats::getViewRecruitInfoStatsUI()
 	매개변수: string currentLoginId -> 현재 로그인한 회사 회원 아이디
 	반환값: map<string, int> -> 채용 정보 통계 저장 map (key: 업무, value: 지원자 수)
 */
-map<string, int> ViewRecruitInfoStats::getAddedRecruitInfoStats(string currentLoginId)
+string ViewRecruitInfoStats::getAddedRecruitInfoStats(string currentLoginId)
 {
     return recruitInfoCollection-> calcAddedRecruitInfoStats(currentLoginId);
 }
@@ -45,7 +45,7 @@ map<string, int> ViewRecruitInfoStats::getAddedRecruitInfoStats(string currentLo
 	매개변수: string currentLoginId -> 현재 로그인한 일반 회원 아이디
 	반환값: map<string, int> -> 채용 정보 통계 저장 map (key: 업무, value: 지원 횟수)
 */
-map<string, int> ViewRecruitInfoStats::getAppliedRecruitInfoStats(string currentLoginId)
+string ViewRecruitInfoStats::getAppliedRecruitInfoStats(string currentLoginId)
 {
     return applicationInfoCollection->calcAppliedRecruitInfoStats(currentLoginId);
 }
