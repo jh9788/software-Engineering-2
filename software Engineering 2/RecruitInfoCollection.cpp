@@ -39,6 +39,30 @@ string RecruitInfoCollection::getRecruitInfo(string currentLoginId)
     return returnString;
 }
 
+
+/*
+함수 이름: removeAllRecruitInfo
+기능: 회원 탈퇴 시 회사 회원의 모든 채용 정보 삭제하는 함수
+매개변수: string currentLoginId -> 현재 로그인 한 사람의 ID
+반환값: X
+*/
+void RecruitInfoCollection::removeAllRecruitInfo(string currentLoginId) {
+    // recruitInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+
+    for (auto it = ownedRecruitInfo.begin(); it != ownedRecruitInfo.end();) {
+        // 만약 id가 같은 애가 검색되면 그 애를 삭제
+        if ((*it)->getCompanyId() == currentLoginId) {
+            delete* it;
+            it = ownedRecruitInfo.erase(it);
+        }
+        else {
+            it++;
+        }
+    }
+
+    return;
+}
+
 /*
 함수 이름: getRecruitInfoWithoutSign
 기능: 로그인 한 사람이 등록한 모든 채용 정보를 담아 ">" 기호를 제외하고 반환한다.

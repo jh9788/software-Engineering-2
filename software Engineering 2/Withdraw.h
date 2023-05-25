@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "MemberCollection.h"
+#include "RecruitInfoCollection.h"
 #include "ApplicationInfoCollection.h"
 
 using namespace std;
@@ -19,9 +20,11 @@ private:
 	WithdrawUI* boundary;
 	MemberCollection* memberCollection;
 	ApplicationInfoCollection* applicationInfoCollection;
+	RecruitInfoCollection* recruitInfoCollection;
 
 public:
-	Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection);	// 생성자
+	Withdraw(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection,
+			 ApplicationInfoCollection* inputApplicationInfoCollection);	// 생성자
 	WithdrawUI* getWithdrawUI();	// 바운더리 호출
 	void withdrawMember(string& loginId, int& memberType);// 회원 삭제
 };

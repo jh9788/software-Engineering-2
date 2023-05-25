@@ -22,6 +22,7 @@ public:
 	string getGeneralId(); // 일반 회원 ID를 가져오기
 	RecruitInfo* getRecruitInfo(); //  채용 정보를 가져오기
 	string getRecruitInfoWork(); // 채용 정보의 업무를 가져오기	
+	string getRecruitInfoCompanyId(); // 채용 정보의 업무를 가져오기
 };
 
 

@@ -46,6 +46,16 @@ string ApplicationInfo::getRecruitInfoWork()
 }
 
 
+/*
+함수 이름: getRecruitInfoCompanyId
+기능: 회사 회원의 companyId를 반환한다.
+매개변수: X
+반환값: 회사회원의 ID
+*/
 
+string ApplicationInfo::getRecruitInfoCompanyId()
+{
+	return recruitInfo->getCompanyId();
+}
 
 

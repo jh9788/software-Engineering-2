@@ -111,6 +111,32 @@ string ApplicationInfoCollection::removeApplicationInfo(string currentLoginId, s
     return returnString;
 }
 
+
+/*
+함수 이름: removeAllApplicationInfoCompany
+기능: 회사 회원 탈퇴시 일반회원도 지원 정보 삭제하는 함수
+매개변수: string currentLoginId -> 현재 로그인 한 회사 회원의 ID
+반환값: X
+*/
+void ApplicationInfoCollection::removeAllApplicationInfoCompany(string currentLoginId)
+{
+    // applicationInfoCollection에 있는 애들을 맨 처음부터 순차적으로 살핌
+
+    for (auto it = ownedApplicationInfo.begin(); it != ownedApplicationInfo.end();) {
+        // 만약 id가 같은 애가 검색되면 그 애를 삭제
+        if ((*it)->getRecruitInfoCompanyId() == currentLoginId) {
+            delete* it;
+            it = ownedApplicationInfo.erase(it);
+        }
+        else {
+            it++;
+        }
+    }
+
+    return;
+}
+
+
 /*
 함수 이름: removeAllApplicationInfo
 기능: 회원 탈퇴 시 일반 회원의 모든 지원 정보 삭제하는 함수

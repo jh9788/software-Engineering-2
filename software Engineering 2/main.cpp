@@ -136,7 +136,7 @@ void run()
                     // 1.2 회원 탈퇴
                     case 2:
                     {
-                        Withdraw withdraw = Withdraw(&memberCollection, &applicationInfoCollection);    // 컨트롤 생성
+                        Withdraw withdraw = Withdraw(&memberCollection, &recruitInfoCollection, &applicationInfoCollection);    // 컨트롤 생성
                         withdraw.getWithdrawUI()->init(&fout);  // UI 호출
                         withdraw.getWithdrawUI()->startInterface();    // 인터페이스 시작
 

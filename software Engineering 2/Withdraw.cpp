@@ -7,10 +7,12 @@
     매개변수 : 
     반환값 : X
 */
-Withdraw::Withdraw(MemberCollection* inputMemberCollection, ApplicationInfoCollection* inputApplicationInfoCollection)
+Withdraw::Withdraw(MemberCollection* inputMemberCollection, RecruitInfoCollection* inputRecruitInfoCollection,
+                   ApplicationInfoCollection* inputApplicationInfoCollection)
 {
     memberCollection = inputMemberCollection;
     applicationInfoCollection = inputApplicationInfoCollection;
+    recruitInfoCollection = inputRecruitInfoCollection;
 
 	WithdrawUI* boundary = new WithdrawUI(this);
     this->boundary = boundary;
@@ -37,7 +39,19 @@ WithdrawUI* Withdraw::getWithdrawUI()
 */
 void Withdraw::withdrawMember(string& currentLoginId, int& currentMemberType) 
 {
-    applicationInfoCollection->removeAllApplicationInfo(currentLoginId);
+    int tempMemberType = currentMemberType;
+
+    // 회사회원이 탈퇴할 경우, 본인이 올렸던 모든 채용 정보 삭제
+    if (tempMemberType == 1) {
+        // 회사회원이 탈퇴하는 경우 applicationInfo collection에서 회사 회원 ID로 지원 정보를 찾고, 삭제
+        applicationInfoCollection->removeAllApplicationInfoCompany(currentLoginId);
+        recruitInfoCollection->removeAllRecruitInfo(currentLoginId);
+    }
+    else if (tempMemberType == 2) {
+        // 일반회원이 탈퇴하는 경우 applicationInfo collection에서 회사 회원 ID로 지원 정보를 찾고, 삭제
+        applicationInfoCollection->removeAllApplicationInfo(currentLoginId);
+    }
+
     memberCollection->removeMember(currentLoginId);      // 해당 id 제거
 
     currentLoginId = "";           // 회원 탈퇴 시 로그아웃 상태로 되돌리기

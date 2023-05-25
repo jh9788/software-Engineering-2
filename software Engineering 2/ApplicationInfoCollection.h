@@ -27,7 +27,8 @@ public:
 
 	void addApplicationInfo(RecruitInfo* inputRecruitInfo, string currentLoginId);	// 채용 지원 시, 지원 추가
 	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 지원 취소
-	void removeAllApplicationInfo(string currentLoginId); //회원 탈퇴시 지원 정보 삭제
+	void removeAllApplicationInfoCompany(string currentLoginId);	// 회사 회원 탈퇴시 일반회원도 지원 정보 삭제
+	void removeAllApplicationInfo(string currentLoginId); //일반 회원 탈퇴시 지원 정보 삭제
 	string getApplicationInfo(string currentLoginId);
 
 	//control -> 3.1.1 -> applicationinfo collection
