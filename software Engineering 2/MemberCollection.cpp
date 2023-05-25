@@ -107,8 +107,7 @@ string MemberCollection::findBusinessNumByName(string memberName)
     for (auto it = memberCollection.begin(); it != memberCollection.end(); it++) {
         // 만약 name이 같은 회원을 찾으면
         if ((*it)->getName() == memberName) {
-            CompanyMember* companyMember = static_cast<CompanyMember*>(*it);
-            return companyMember->getBusinessNum();
+            return (*it)->getBusinessNum();
         }
     }
     return "";
