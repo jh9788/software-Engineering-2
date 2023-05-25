@@ -200,7 +200,7 @@ void run()
                         if (currentMemberType == 2)        // 일반 회원은 이 작업 수행 불가능
                             break;
                         else {
-                	        addRecruitInfo.getAddRecruitInfoUI()->requestRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
+                	        addRecruitInfo.getAddRecruitInfoUI()->requestAddRecruitInfo(inputEvent, currentLoginId);     // recruitInfoCollection 벡터에 recruitInfo를 추가하기 위한 함수 호출
                         }
                         break;
                     }

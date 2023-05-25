@@ -45,7 +45,7 @@ void AddRecruitInfoUI::startInterface()
     매개변수: string inputEvent -> 입력한 한 줄의 문자열, string currentLoginId -> 현재 로그인 한 사람의 ID를 매개변수로 보냄
     반환값: X
 */
-void AddRecruitInfoUI::requestRecruitInfo(string inputEvent, string currentLoginId) 
+void AddRecruitInfoUI::requestAddRecruitInfo(string inputEvent, string currentLoginId) 
 {
     // 다음에 사용될 함수의 매개변수에 char* type을 넣기 위해 string 자르기
     stringstream input(inputEvent);      // 공백 (" ")을 포함한 문자열을 각 문자로 자르기 위해 stringstream 사용
