@@ -121,7 +121,7 @@ string RecruitInfoCollection::getRecruitInfoWithoutSign(string currentLoginId)
 함수 이름: calcAddedRecruitInfoStats
 기능: 등록한 채용 정보 통계 계산
 매개변수: string currentLoginId -> 현재 로그인 한 회사 회원 ID
-반환값: map<string, int> -> 등록한 통계 정보 저장 map (key: 업무, value: 지원자 수)
+반환값: string -> 등록한 통계 정보 저장
 */
 string RecruitInfoCollection::calcAddedRecruitInfoStats(string currentLoginId)
 {

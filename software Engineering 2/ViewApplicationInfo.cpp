@@ -8,7 +8,6 @@
 	매개변수: ApplicationInfoCollection* inputApplicationInfoCollection
 	반환값: X
 */
-
 ViewApplicationInfo::ViewApplicationInfo(ApplicationInfoCollection* inputApplicationInfoCollection) 
 {
 
@@ -24,7 +23,6 @@ ViewApplicationInfo::ViewApplicationInfo(ApplicationInfoCollection* inputApplica
 	매개변수: X
 	반환값: ViewApplicationInfoUI* 타입의 바운더리
 */
-
 ViewApplicationInfoUI* ViewApplicationInfo::getViewApplicationInfoUI() 
 {
 	return boundary;

@@ -166,7 +166,7 @@ void ApplicationInfoCollection::removeAllApplicationInfo(string currentLoginId)
 함수 이름: calcAppliedRecruitInfoStats
 기능: 지원한 채용 정보 통계 계산
 매개변수: string currentLoginId -> 현재 로그인 한 일반 회원 ID
-반환값: map<string, int> -> 지원한 통계 정보 저장 map (key: 업무, value: 지원 횟수)
+반환값: string -> 지원한 통계 정보 저장
 */
 string ApplicationInfoCollection::calcAppliedRecruitInfoStats(string currentLoginId)
 {

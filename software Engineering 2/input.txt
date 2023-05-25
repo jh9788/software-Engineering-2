@@ -8,6 +8,7 @@
 2 1 sam12 sumg14
 3 1 accounting 10 2023/05/26
 3 2
+3 2
 2 2 
 1 1 1 kakaoDev 10351 kakao19 dev189
 2 1 shi11 hong13
@@ -24,22 +25,14 @@
 2 1 shi11 hong13
 4 1 kakaoDev 
 4 2 10351
-4 3
-5 1
 4 1 lgDisplay
 4 2 0131
-4 3
-5 1
 2 2 
 2 1 youth913 thing17
 4 1 lgDisplay
-4 2 0131 
-4 3
-5 1
+4 2 0131
 4 1 samsung
-4 2 31242 
-4 3
-5 1
+4 2 31242
 2 2
 2 1 yoon15 sik18
 4 1 samsung
@@ -51,25 +44,10 @@
 4 1 kakaoDev
 4 2 10351
 4 3 
-5 1
 4 4 0131
-4 3
-5 1
+4 3 
 2 2
 2 1 shi11 hong13
 4 3
-5 1
 1 2
-1 1 2 sameid 12121 shi11 hong13
-4 3
-5 1
-2 2
-2 1 lgD112 display91
-4 3
-5 1
-2 2 
-1 1 1 sk 1421 sk1 d12
-2 1 sk1 d12
-4 3
-5 1
 6 1

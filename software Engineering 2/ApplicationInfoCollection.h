@@ -29,7 +29,7 @@ public:
 	string removeApplicationInfo(string currentLoginId, string inputBusinessNum); // 지원 취소
 	void removeAllApplicationInfoCompany(string currentLoginId);	// 회사 회원 탈퇴시 일반회원도 지원 정보 삭제
 	void removeAllApplicationInfo(string currentLoginId); //일반 회원 탈퇴시 지원 정보 삭제
-	string getApplicationInfo(string currentLoginId);
+	string getApplicationInfo(string currentLoginId);  //로그인 한 사람의 지원정보를 담아 회사 이름의 오름차순으로 반환
 
 	//control -> 3.1.1 -> applicationinfo collection
 	string calcAppliedRecruitInfoStats(string currentLoginId); //지원한 채용 정보 통계 계산

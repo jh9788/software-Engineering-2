@@ -32,7 +32,7 @@ ViewRecruitInfoStatsUI* ViewRecruitInfoStats::getViewRecruitInfoStatsUI()
 	함수 이름 : getAddedRecruitInfoStats
 	기능: 회사 회원이 등록한 채용 정보 통계 반환
 	매개변수: string currentLoginId -> 현재 로그인한 회사 회원 아이디
-	반환값: map<string, int> -> 채용 정보 통계 저장 map (key: 업무, value: 지원자 수)
+	반환값: string -> 채용 정보 통계 저장
 */
 string ViewRecruitInfoStats::getAddedRecruitInfoStats(string currentLoginId)
 {
@@ -43,7 +43,7 @@ string ViewRecruitInfoStats::getAddedRecruitInfoStats(string currentLoginId)
 	함수 이름 : getAppliedRecruitInfoStats
 	기능: 회사회원이 등록한 채용 정보 통계 반환
 	매개변수: string currentLoginId -> 현재 로그인한 일반 회원 아이디
-	반환값: map<string, int> -> 채용 정보 통계 저장 map (key: 업무, value: 지원 횟수)
+	반환값:string -> 채용 정보 통계 저장
 */
 string ViewRecruitInfoStats::getAppliedRecruitInfoStats(string currentLoginId)
 {

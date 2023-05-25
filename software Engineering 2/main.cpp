@@ -46,7 +46,7 @@ using namespace std;
 
 //상수 선언
 #define endl '\n'
-#define INPUT_FILE "example.txt"
+#define INPUT_FILE "input.txt"
 #define OUTPUT_FILE "output.txt"
 
 ifstream fin; // 텍스트 파일 열기

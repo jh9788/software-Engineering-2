@@ -28,6 +28,9 @@
 3.2. 등록된 채용 정보 조회
 > accounting 10 2023/05/26
 
+3.2. 등록된 채용 정보 조회
+> accounting 10 2023/05/26
+
 2.2. 로그아웃
 > sam12
 
@@ -76,25 +79,11 @@
 4.2. 채용 지원
 > kakaoDev 10351 FrontEnd
 
-4.3. 지원 정보 조회
-> kakaoDev 10351 FrontEnd 20 2023/07/21
-
-5.1 지원 정보 통계
->FrontEnd 1
-
 4.1. 채용 정보 검색
 > lgDisplay 0131 manager 30 2023/06/21
 
 4.2. 채용 지원
 > lgDisplay 0131 manager
-
-4.3. 지원 정보 조회
-> kakaoDev 10351 FrontEnd 20 2023/07/21
-> lgDisplay 0131 manager 30 2023/06/21
-
-5.1 지원 정보 통계
->FrontEnd 1
->manager 1
 
 2.2. 로그아웃
 > shi11
@@ -108,25 +97,11 @@
 4.2. 채용 지원
 > lgDisplay 0131 manager
 
-4.3. 지원 정보 조회
-> lgDisplay 0131 manager 30 2023/06/21
-
-5.1 지원 정보 통계
->manager 1
-
 4.1. 채용 정보 검색
 > samsung 31242 accounting 10 2023/05/26
 
 4.2. 채용 지원
 > samsung 31242 accounting
-
-4.3. 지원 정보 조회
-> lgDisplay 0131 manager 30 2023/06/21
-> samsung 31242 accounting 10 2023/05/26
-
-5.1 지원 정보 통계
->accounting 1
->manager 1
 
 2.2. 로그아웃
 > youth913
@@ -164,11 +139,6 @@
 > lgDisplay 0131 manager 30 2023/06/21
 > samsung 31242 accounting 10 2023/05/26
 
-5.1 지원 정보 통계
->FrontEnd 2
->accounting 1
->manager 1
-
 4.4. 지원 취소
 > lgDisplay 0131 manager
 
@@ -176,10 +146,6 @@
 > hyundai 1234 FrontEnd 15 2023/09/20
 > kakaoDev 10351 FrontEnd 20 2023/07/21
 > samsung 31242 accounting 10 2023/05/26
-
-5.1 지원 정보 통계
->FrontEnd 2
->accounting 1
 
 2.2. 로그아웃
 > yoon15
@@ -191,70 +157,7 @@
 > kakaoDev 10351 FrontEnd 20 2023/07/21
 > lgDisplay 0131 manager 30 2023/06/21
 
-5.1 지원 정보 통계
->FrontEnd 1
->manager 1
-
 1.2. 회원탈퇴
 > shi11
-
-1.1. 회원가입
-> 2 sameid 12121 shi11 hong13
-
-4.3. 지원 정보 조회
-
-5.1 지원 정보 통계
-
-2.2. 로그아웃
-2.1. 로그인
-> lgD112 display91
-
-4.3. 지원 정보 조회
-5.1 지원 정보 통계
->manager 1
-
-2.2. 로그아웃
-> lgD112
-
-1.1. 회원가입
-> 1 sk 1421 sk1 d12
-
-2.1. 로그인
-> sk1 d12
-
-4.3. 지원 정보 조회
-5.1 지원 정보 통계
-
-2.1. 로그인
-> hk pwd1
-
-1.2. 회원탈퇴
-> hk
-
-2.1. 로그인
-> hn pwd2
-
-4.3. 지원 정보 조회
-
-5.1 지원 정보 통계
-
-2.2. 로그아웃
-> hn
-
-1.1. 회원가입
-> 1 hankook 3456 hk pwd1
-
-2.1. 로그인
-> hk pwd1
-
-3.2. 등록된 채용 정보 조회
-
-2.2. 로그아웃
-> hk
-
-2.1. 로그인
-> hn pwd2
-
-4.1. 채용 정보 검색
 
 6.1. 종료

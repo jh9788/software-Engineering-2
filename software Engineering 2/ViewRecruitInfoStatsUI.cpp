@@ -58,7 +58,7 @@ void ViewRecruitInfoStatsUI::requestAppliedRecruitInfoStats(string currentLoginI
 /*
 	함수 이름 : requestAppliedRecruitInfoStats
 	기능: Control 클래스에서 받아온 채용 정보 통계 output.txt에 출력
-	매개변수: map<string, int> recruitInfoStats -> 채용 정보 통계 저장 map (key: 업무, value: 지원자 수 or 지원 횟수)
+	매개변수: string recruitInfoStats -> 채용 정보 통계 저장
 	반환값: X
 */
 void ViewRecruitInfoStatsUI::_showRecruitInfoStatsInterface(string recruitInfoStats)
