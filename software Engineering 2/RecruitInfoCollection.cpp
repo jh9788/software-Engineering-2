@@ -99,7 +99,7 @@ string RecruitInfoCollection::getRecruitInfoWithoutSign(string currentLoginId)
 매개변수: string currentLoginId -> 현재 로그인 한 회사 회원 ID
 반환값: map<string, int> -> 등록한 통계 정보 저장 map (key: 업무, value: 지원자 수)
 */
-map<string, int> RecruitInfoCollection::calcAddedRecruitInfoStats(string currentLoginId)
+string RecruitInfoCollection::calcAddedRecruitInfoStats(string currentLoginId)
 {
     map<string, int> recruitInfoStats;
 
@@ -115,7 +115,16 @@ map<string, int> RecruitInfoCollection::calcAddedRecruitInfoStats(string current
             }
         }
     }
-    return recruitInfoStats;
+
+    string returnString = "";
+    for (auto it = recruitInfoStats.begin(); it != recruitInfoStats.end(); ++it) {
+        returnString += ">";
+        returnString += it->first;
+        returnString += " ";
+        returnString += to_string(it->second);
+        returnString += "\n";
+    }
+    return returnString;
 }
 
 /*

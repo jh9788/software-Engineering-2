@@ -31,5 +31,5 @@ public:
 	string getApplicationInfo(string currentLoginId);
 
 	//control -> 3.1.1 -> applicationinfo collection
-	map<string, int> calcAppliedRecruitInfoStats(string currentLoginId); //지원한 채용 정보 통계 계산
+	string calcAppliedRecruitInfoStats(string currentLoginId); //지원한 채용 정보 통계 계산
 };
