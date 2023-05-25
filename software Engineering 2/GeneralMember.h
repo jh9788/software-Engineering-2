@@ -16,5 +16,4 @@ private:
 public:
 	GeneralMember(string inputName, string inputSocialSecurityNum, string inputId, string inputPassword, int inputMemberType);	// 생성자
 	string getSocialSecurityNum();	// socialSecurityNum 값을 가져온다.
-	~GeneralMember();	// 소멸자
 };

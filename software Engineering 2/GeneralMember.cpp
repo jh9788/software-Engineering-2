@@ -26,15 +26,3 @@ string GeneralMember::getSocialSecurityNum()
 {
 	return socialSecurityNum;
 }
-
-
-/*
-함수 이름: ~GeneralMember
-기능: 소멸자
-매개변수: X
-반환값: X
-*/
-GeneralMember::~GeneralMember() 
-{
-
-}
